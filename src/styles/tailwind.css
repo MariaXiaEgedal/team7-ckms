@@ -1,12 +1,122 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
 @import "tailwindcss-animated";
 @import "tailwindcss-intersect";
 
+@plugin "daisyui" {
+  themes: all;
+}
+
 @theme {
-  /* Her tilføjes theme variable // tokens */
+  /********************************************** Start Primitives **********************************************/
+  /* Base */
+  --color-base: #ffffff;
+
+  /* Turquoise */
+  --color-turquoise-50: #cffcff;
+  --color-turquoise-100: #8cfaff;
+  --color-turquoise-200: #01e8f0;
+  --color-turquoise-300: #04cdd4;
+  --color-turquoise-400: #02b5bb;
+  --color-turquoise-500: #019ea3;
+  --color-turquoise-600: #03878b;
+  --color-turquoise-700: #007074;
+  --color-turquoise-800: #004a4d;
+  --color-turquoise-900: #01292b;
+  --color-turquoise-950: #001a1a;
+
+  /* Blue */
+  --color-blue-50: #ebf5fd;
+  --color-blue-100: #d0e9fb;
+  --color-blue-200: #9ad3f7;
+  --color-blue-300: #52bef1;
+  --color-blue-400: #47a8d4;
+  --color-blue-500: #3d8fb5;
+  --color-blue-600: #317797;
+  --color-blue-700: #275f7a;
+  --color-blue-800: #1c495f;
+  --color-blue-900: #123444;
+  --color-blue-950: #0d2b39;
+
+  /* DustyYellow */
+  --color-dustyyellow-50: #f6facb;
+  --color-dustyyellow-100: #f0f4bb;
+  --color-dustyyellow-200: #d1d5a3;
+  --color-dustyyellow-300: #b7b98c;
+  --color-dustyyellow-400: #999b76;
+  --color-dustyyellow-500: #7f8162;
+  --color-dustyyellow-600: #63654c;
+  --color-dustyyellow-700: #4b4d39;
+  --color-dustyyellow-800: #333425;
+  --color-dustyyellow-900: #1e1e14;
+  --color-dustyyellow-950: #11110a;
+
+  /* Green */
+  --color-green-50: #f2f9ec;
+  --color-green-100: #dcf2cf;
+  --color-green-200: #c5e0b4;
+  --color-green-300: #a7c09a;
+  --color-green-400: #90a483;
+  --color-green-500: #75876a;
+  --color-green-600: #5c6a54;
+  --color-green-700: #444e3d;
+  --color-green-800: #30372a;
+  --color-green-900: #1a1f17;
+  --color-green-950: #0e120b;
+
+  /* Pink */
+  --color-pink-50: #f8eef3;
+  --color-pink-100: #f3e0eb;
+  --color-pink-200: #e9bfd6;
+  --color-pink-300: #dd9ac0;
+  --color-pink-400: #d174ad;
+  --color-pink-500: #b75992;
+  --color-pink-600: #934676;
+  --color-pink-700: #70345a;
+  --color-pink-800: #4d213c;
+  --color-pink-900: #2e1123;
+  --color-pink-950: #1f0917;
+  /********************************************** End Primitives **********************************************/
+
+  /********************************************** Start Tokens **********************************************/
+  /* Primary (semantic tokens) */
+  --color-primary-pink: var(--color-pink-200);
+  --color-primary-blue: var(--color-blue-950);
+  --color-primary-green: var(--color-green-200);
+  --color-primary-turquoise: var(--color-turquoise-700);
+  --color-primary-dustyyellow: var(--color-dustyyellow-100);
+
+  /* Semantic tokens */
+  --color-background-primary: var(--color-base);
+  --color-background-v2: var(--color-primary-green);
+  --color-background-v3: var(--color-primary-pink);
+  --color-background-v4: var(--color-primary-turquoise);
+  --color-background-v5: var(--color-primary-dustyyellow);
+  --color-formular: var(--color-primary-green);
+  --color-text-dark: var(--color-primary-blue);
+  --color-text-light: var(--color-base);
+  --color-button-dark: var(--color-primary-blue);
+  --color-button-light: var(--color-base);
+  --color-arrow-dark: var(--color-primary-blue);
+  --color-arrow-light: var(--color-base);
+
+  /* Card tokens */
+  --color-workshop-skrivegruppe-card: var(--color-primary-pink);
+  --color-workshop-dramagruppe-card: var(--color-primary-turquoise);
+  --color-workshop-billedkunst-card: var(--color-primary-green);
+  --color-workshop-åbentværksted-card: var(--color-primary-dustyyellow);
+  --color-workshop-filmlyd-card: var(--color-primary-blue);
+  --color-udstilling-1-card: var(--color-primary-pink);
+  --color-udstilling-2-card: var(--color-primary-turquoise);
+  --color-udstilling-3-card: var(--color-primary-green);
+  --color-udstilling-4-card: var(--color-primary-blue);
+
+  /* Header and Footer */
+  --color-header: var(--color-primary-blue);
+  --color-footer: var(--color-primary-blue);
+  /********************************************** End Tokens **********************************************/
 }
 
 @layer base {
@@ -19,9 +129,7 @@
   }
 }
 
-@layer components{
-
+@layer components {
 }
-@layer utilities{
-  
+@layer utilities {
 }

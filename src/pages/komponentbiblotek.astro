@@ -1,0 +1,514 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/Button.astro";
+import Link from "../components/Link.astro";
+import { Image } from "astro:assets";
+---
+
+<MainLayout title="Komponentbibliotek">
+  <article class="p-8">
+    <h1 class="text-4xl font-bold mb-8">Farver</h1>
+
+    <!-- Base -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Base</h2>
+      <div class="text-center">
+        <div class="h-24 bg-base rounded mb-2 border border-primary-blue"></div>
+        <p class="text-sm">White</p>
+      </div>
+
+      <!-- Primary Colors -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-4">Primary (Semantic Tokens)</h2>
+        <div class="grid grid-cols-5 gap-4">
+          <div class="text-center">
+            <div class="h-24 bg-primary-pink rounded mb-2"></div>
+            <p class="text-sm">primary-pink (200)</p>
+          </div>
+          <div class="text-center">
+            <div class="h-24 bg-primary-blue rounded mb-2"></div>
+            <p class="text-sm">primary-blue (950)</p>
+          </div>
+          <div class="text-center">
+            <div class="h-24 bg-primary-green rounded mb-2"></div>
+            <p class="text-sm">primary-green (200)</p>
+          </div>
+          <div class="text-center">
+            <div class="h-24 bg-primary-turquoise rounded mb-2"></div>
+            <p class="text-sm">primary-turquoise (700)</p>
+          </div>
+          <div class="text-center">
+            <div class="h-24 bg-primary-dustyyellow rounded mb-2"></div>
+            <p class="text-sm">primary-dustyyellow (100)</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Turquoise -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-4">Turquoise</h2>
+        <div class="grid grid-cols-11 gap-2">
+          <div class="text-center">
+            <div class="h-16 bg-turquoise-50 rounded mb-1"></div>
+            <p class="text-xs">50</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-turquoise-100 rounded mb-1"></div>
+            <p class="text-xs">100</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-turquoise-200 rounded mb-1"></div>
+            <p class="text-xs">200</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-turquoise-300 rounded mb-1"></div>
+            <p class="text-xs">300</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-turquoise-400 rounded mb-1"></div>
+            <p class="text-xs">400</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-turquoise-500 rounded mb-1"></div>
+            <p class="text-xs">500</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-turquoise-600 rounded mb-1"></div>
+            <p class="text-xs">600</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-turquoise-700 rounded mb-1"></div>
+            <p class="text-xs">700</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-turquoise-800 rounded mb-1"></div>
+            <p class="text-xs">800</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-turquoise-900 rounded mb-1"></div>
+            <p class="text-xs">900</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-turquoise-950 rounded mb-1"></div>
+            <p class="text-xs">950</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blue -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-4">Blue</h2>
+        <div class="grid grid-cols-11 gap-2">
+          <div class="text-center">
+            <div class="h-16 bg-blue-50 rounded mb-1"></div>
+            <p class="text-xs">50</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-blue-100 rounded mb-1"></div>
+            <p class="text-xs">100</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-blue-200 rounded mb-1"></div>
+            <p class="text-xs">200</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-blue-300 rounded mb-1"></div>
+            <p class="text-xs">300</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-blue-400 rounded mb-1"></div>
+            <p class="text-xs">400</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-blue-500 rounded mb-1"></div>
+            <p class="text-xs">500</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-blue-600 rounded mb-1"></div>
+            <p class="text-xs">600</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-blue-700 rounded mb-1"></div>
+            <p class="text-xs">700</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-blue-800 rounded mb-1"></div>
+            <p class="text-xs">800</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-blue-900 rounded mb-1"></div>
+            <p class="text-xs">900</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-blue-950 rounded mb-1"></div>
+            <p class="text-xs">950</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DustyYellow -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-4">DustyYellow</h2>
+        <div class="grid grid-cols-11 gap-2">
+          <div class="text-center">
+            <div class="h-16 bg-dustyyellow-50 rounded mb-1"></div>
+            <p class="text-xs">50</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-dustyyellow-100 rounded mb-1"></div>
+            <p class="text-xs">100</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-dustyyellow-200 rounded mb-1"></div>
+            <p class="text-xs">200</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-dustyyellow-300 rounded mb-1"></div>
+            <p class="text-xs">300</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-dustyyellow-400 rounded mb-1"></div>
+            <p class="text-xs">400</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-dustyyellow-500 rounded mb-1"></div>
+            <p class="text-xs">500</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-dustyyellow-600 rounded mb-1"></div>
+            <p class="text-xs">600</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-dustyyellow-700 rounded mb-1"></div>
+            <p class="text-xs">700</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-dustyyellow-800 rounded mb-1"></div>
+            <p class="text-xs">800</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-dustyyellow-900 rounded mb-1"></div>
+            <p class="text-xs">900</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-dustyyellow-950 rounded mb-1"></div>
+            <p class="text-xs">950</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Green -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-4">Green</h2>
+        <div class="grid grid-cols-11 gap-2">
+          <div class="text-center">
+            <div class="h-16 bg-green-50 rounded mb-1"></div>
+            <p class="text-xs">50</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-green-100 rounded mb-1"></div>
+            <p class="text-xs">100</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-green-200 rounded mb-1"></div>
+            <p class="text-xs">200</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-green-300 rounded mb-1"></div>
+            <p class="text-xs">300</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-green-400 rounded mb-1"></div>
+            <p class="text-xs">400</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-green-500 rounded mb-1"></div>
+            <p class="text-xs">500</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-green-600 rounded mb-1"></div>
+            <p class="text-xs">600</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-green-700 rounded mb-1"></div>
+            <p class="text-xs">700</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-green-800 rounded mb-1"></div>
+            <p class="text-xs">800</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-green-900 rounded mb-1"></div>
+            <p class="text-xs">900</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-green-950 rounded mb-1"></div>
+            <p class="text-xs">950</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pink -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-4">Pink</h2>
+        <div class="grid grid-cols-11 gap-2">
+          <div class="text-center">
+            <div class="h-16 bg-pink-50 rounded mb-1"></div>
+            <p class="text-xs">50</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-pink-100 rounded mb-1"></div>
+            <p class="text-xs">100</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-pink-200 rounded mb-1"></div>
+            <p class="text-xs">200</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-pink-300 rounded mb-1"></div>
+            <p class="text-xs">300</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-pink-400 rounded mb-1"></div>
+            <p class="text-xs">400</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-pink-500 rounded mb-1"></div>
+            <p class="text-xs">500</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-pink-600 rounded mb-1"></div>
+            <p class="text-xs">600</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-pink-700 rounded mb-1"></div>
+            <p class="text-xs">700</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-pink-800 rounded mb-1"></div>
+            <p class="text-xs">800</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-pink-900 rounded mb-1"></div>
+            <p class="text-xs">900</p>
+          </div>
+          <div class="text-center">
+            <div class="h-16 bg-pink-950 rounded mb-1"></div>
+            <p class="text-xs">950</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- Semantic tokens -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Semantic tokens</h2>
+      <div class="grid grid-cols-6 gap-4">
+        <div class="text-center">
+          <div
+            style="background: var(--color-background-primary)"
+            class="h-16 rounded mb-1 border border-primary-blue"
+          >
+          </div>
+          <p class="text-xs">background-primary</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-background-v2)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">background-v2</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-background-v3)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">background-v3</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-background-v4)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">background-v4</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-background-v5)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">background-v5</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-formular)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">formular</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-6 gap-4 mt-6">
+        <div class="text-center">
+          <div
+            style="background: var(--color-text-dark)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">text-dark</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-text-light)"
+            class="h-16 rounded mb-1 border border-primary-blue"
+          >
+          </div>
+          <p class="text-xs">text-light</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-button-dark)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">button-dark</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-button-light)"
+            class="h-16 rounded mb-1 border border-primary-blue"
+          >
+          </div>
+          <p class="text-xs">button-light</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-arrow-dark)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">arrow-dark</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-arrow-light)"
+            class="h-16 rounded mb-1 border border-primary-blue"
+          >
+          </div>
+          <p class="text-xs">arrow-light</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Card tokens -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Cards</h2>
+      <div class="grid grid-cols-5 gap-4">
+        <div class="text-center">
+          <div
+            style="background: var(--color-workshop-skrivegruppe-card)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">workshop-skrivegruppe</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-workshop-dramagruppe-card)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">workshop-dramagruppe</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-workshop-billedkunst-card)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">workshop-billedkunst</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-workshop-åbentværksted-card)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">workshop-åbentværksted</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-workshop-filmlyd-card)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">workshop-filmlyd</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-4 gap-4 mt-4">
+        <div class="text-center">
+          <div
+            style="background: var(--color-udstilling-1-card)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">udstilling-1</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-udstilling-2-card)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">udstilling-2</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-udstilling-3-card)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">udstilling-3</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-udstilling-4-card)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">udstilling-4</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Header og Footer -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-4">Header og Footer</h2>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="text-center">
+          <div
+            style="background: var(--color-header)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">header</p>
+        </div>
+        <div class="text-center">
+          <div
+            style="background: var(--color-footer)"
+            class="h-16 rounded mb-1"
+          >
+          </div>
+          <p class="text-xs">footer</p>
+        </div>
+      </div>
+    </section>
+  </article></MainLayout
+>
