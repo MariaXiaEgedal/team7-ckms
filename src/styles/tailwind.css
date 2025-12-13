@@ -106,7 +106,7 @@
   --color-workshop-skrivegruppe-card: var(--color-primary-pink);
   --color-workshop-dramagruppe-card: var(--color-primary-turquoise);
   --color-workshop-billedkunst-card: var(--color-primary-green);
-  --color-workshop-åbentværksted-card: var(--color-primary-dustyyellow);
+  --color-workshop-aabentvaerksted-card: var(--color-primary-dustyyellow);
   --color-workshop-filmlyd-card: var(--color-primary-blue);
   --color-udstilling-1-card: var(--color-primary-pink);
   --color-udstilling-2-card: var(--color-primary-turquoise);
@@ -118,42 +118,62 @@
   --color-footer: var(--color-primary-blue);
   /********************************************** End Tokens **********************************************/
 
-  /* Text */
-  --font-family-onsite-condensed-bold: "OnsiteCondensedTRIAL-Bold", sans-serif;
-  --font-family-onsite-condensed-light: "OnsiteCondensedTRIAL-Light", sans-serif;
+  /* Fonts */
+  --font-onsite: "OnsiteCondensed", sans-serif;
+  --font-onsite-extended: "OnsiteExtended", sans-serif;
+  --font-gestura: "GesturaText", sans-serif;
+
+  /* Spacing */
+  --spacing-0: 0px;
+  --spacing-4xs: 5px;
+  --spacing-3xs: 10px;
+  --spacing-2xs: 20px;
+  --spacing-xs: 30px;
+  --spacing-s: 40px;
+  --spacing-m: 50px;
+  --spacing-l: 100px;
+  --spacing-xl: 150px;
 }
 
 /********************************************** Start Fonts **********************************************/
-/* Heading */
+/* Onsite Condensed (brødtekst) */
 @font-face {
-  font-family: "GesturaTextTRIAL-Regular";
-  src: url("/font/GesturaTextTRIAL-Regular.otf") format("truetype");
+  font-family: "OnsiteCondensed";
+  src: url("/font/OnsiteCondensedTRIAL-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OnsiteCondensed";
+  src: url("/font/OnsiteCondensedTRIAL-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
+/* Onsite Extended (h4) */
 @font-face {
-  font-family: "GesturaTextTRIAL-Thin";
-  src: url("/font/GesturaTextTRIAL-Thin.otf") format("truetype");
+  font-family: "OnsiteExtended";
+  src: url("/font/OnsiteExtendedTRIAL-Regular.otf") format("opentype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "OnsiteExtended";
+  src: url("/font/OnsiteExtendedTRIAL-Bold.otf") format("opentype");
+  font-weight: 700;
 }
 
+/* Gestura Text (h1+h2+h3)*/
 @font-face {
-  font-family: "OnsiteExtendedTRIAL-Bold";
-  src: url("/font/OnsiteExtendedTRIAL-Bold.otf") format("truetype");
+  font-family: "GesturaText";
+  src: url("/font/GesturaTextTRIAL-Thin.otf") format("opentype");
+  font-weight: 100;
 }
-
 @font-face {
-  font-family: "OnsiteExtendedTRIAL-Regular";
-  src: url("/font/OnsiteExtendedTRIAL-Regular.otf") format("truetype");
-}
-
-/* Text */
-@font-face {
-  font-family: "OnsiteCondensedTRIAL-Bold";
-  src: url("/font/OnsiteCondensedTRIAL-Bold.otf") format("truetype");
-}
-
-@font-face {
-  font-family: "OnsiteCondensedTRIAL-Light";
-  src: url("/font/OnsiteCondensedTRIAL-Light.otf") format("truetype");
+  font-family: "GesturaText";
+  src: url("/font/GesturaTextTRIAL-Regular.otf") format("opentype");
+  font-weight: 400;
 }
 /********************************************** End Fonts **********************************************/
 
@@ -170,4 +190,17 @@
 @layer components {
 }
 @layer utilities {
+  /* Background utilities */
+  /* .bg-v2 {
+    background: var(--color-background-v2);
+  }
+  .bg-v3 {
+    background: var(--color-background-v3);
+  }
+  .bg-v4 {
+    background: var(--color-background-v4);
+  }
+  .bg-v5 {
+    background: var(--color-background-v5);
+  } */
 }

@@ -7,14 +7,29 @@ import thumbsup from "../assets/images/thumbsup.png";
 ---
 
 <MainLayout title="Det sker">
-  <article>
-    <h1>Index overskrift</h1>
-    <Button>Klik!</Button>
-    <p>
-      Link til <Link href="https://www.kea.dk" target="_blank"
-        >En anden side</Link
-      >
-    </p>
-    <Image src={thumbsup} alt="" />
-  </article>
+  <div>
+    <!-- ***************************** Start Eventkalender ***************************** -->
+    <section class="bg-background-v2">
+      <p>Eventkalender</p>
+    </section>
+    <!-- ***************************** End Eventkalender ***************************** -->
+
+    <!-- ***************************** Start Nyt fra CKMS ***************************** -->
+    <section class="bg-background-v3">
+      <p>Nyt fra CKMS</p>
+    </section>
+    <!-- ***************************** End Nyt fra CKMS ***************************** -->
+
+    <!-- ***************************** Start Udstillinger ***************************** -->
+    <section class="bg-background-v4">
+      <p>Udstillinger</p>
+    </section>
+    <!-- ***************************** End Udstillinger ***************************** -->
+
+    <!-- ***************************** Start Bestil et foredrag ***************************** -->
+    <section class="bg-background-v5">
+      <p>Bestil et foredrag</p>
+    </section>
+    <!-- ***************************** End Bestil et foredrag ***************************** -->
+  </div>
 </MainLayout>

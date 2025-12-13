@@ -1,0 +1,31 @@
+---
+const {
+  htmlheading = "h2",
+  size = "medium",
+  font = undefined,
+  stylingclasses = "",
+} = Astro.props;
+const Htmlheading = htmlheading;
+
+const sizeClasses = {
+  large: "text-[50px] md:text-[110px]",
+  medium: "text-[35px] md:text-[90px]",
+  small: "text-[30px] md:text-[60px]",
+  xsmall: "text-[20px] md:text-[30px]",
+  xsmallbold: "text-[20px] md:text-[30px]",
+};
+
+const defaultFontForSize = {
+  large: "font-gestura font-regular",
+  medium: "font-gestura font-thin",
+  small: "font-gestura font-regular",
+  xsmall: "font-onsite-extended font-regular",
+  xsmallbold: "font-onsite-extended font-bold",
+};
+
+const fontClass = font ? font : (defaultFontForSize[size] ?? "");
+---
+
+<Htmlheading class:list={[sizeClasses[size], fontClass, stylingclasses]}>
+  <slot />
+</Htmlheading>

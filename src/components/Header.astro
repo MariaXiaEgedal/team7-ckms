@@ -1,5 +1,49 @@
 ---
+import Text from "./Text.astro";
 ---
-<div>
-Header - tilføj navigation mm.
-</div>
+
+<header class="bg-header text-text-light">
+  <nav
+    class="px-[20px] md:px-[100px] py-[10px] flex items-center justify-between"
+  >
+    <!-- Logo -->
+    <a href="/">
+      <img src="/favicon.svg" alt="CKMS Logo" class="h-20" />
+    </a>
+
+    <!-- Desktop Navigation -->
+    <ul class="lg:flex gap-8 items-center">
+      <Text teksttype="brødtekstbold">IKKE FÆRDIG:)</Text>
+      <li>
+        <a href="/tildig" class="hover:opacity-80 transition">
+          <Text teksttype="brødtekstbold">Til dig</Text>
+        </a>
+      </li>
+      <li>
+        <a href="/workshops" class="hover:opacity-80 transition">
+          <Text teksttype="brødtekstbold">Workshops</Text>
+        </a>
+      </li>
+      <li>
+        <a href="/detsker" class="hover:opacity-80 transition">
+          <Text teksttype="brødtekstbold">Det sker</Text>
+        </a>
+      </li>
+      <li>
+        <a href="/forskning" class="hover:opacity-80 transition">
+          <Text teksttype="brødtekstbold">Forskning</Text>
+        </a>
+      </li>
+      <li>
+        <a href="/hjælptil" class="hover:opacity-80 transition">
+          <Text teksttype="brødtekstbold">Hjælp til</Text>
+        </a>
+      </li>
+      <li>
+        <a href="/omos" class="hover:opacity-80 transition">
+          <Text teksttype="brødtekstbold">Om os</Text>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
