@@ -1,47 +1,1000 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Button from "../components/Button.astro";
-import Link from "../components/Link.astro";
-import { Image } from "astro:assets";
-import thumbsup from "../assets/images/thumbsup.png";
+import Heading from "../components/Heading.astro";
+import Text from "../components/Text.astro";
+import AktivitetCard from "../components/AktivitetCard.astro";
+import InstagramCarousel from "../components/InstagramCarousel.astro";
+
+const teamMembers = [
+  {
+    image: "/img/aktivitetbillede1.png",
+    name: "Medlem 1",
+    description:
+      "Stifter af Center for Kunst og Mental Sundhed. Uddannet littererat og psykiater.",
+  },
+  {
+    image: "/img/aktivitetbillede2.png",
+    name: "Medlem 2",
+    description:
+      "Kunstnerisk leder. Professionel kunstner med erfaring inden for workshops.",
+  },
+  {
+    image: "/img/aktivitetbillede3.png",
+    name: "Medlem 3",
+    description: "Forsker og formand for Foreningen Kunst og Mental Sundhed.",
+  },
+  {
+    image: "/img/aktivitetbillede4.png",
+    name: "Medlem 4",
+    description: "Projektleder for kunstinterventioner og forskning.",
+  },
+  {
+    image: "/img/aktivitetbillede5.png",
+    name: "Medlem 5",
+    description: "Kunstnerisk koordinator for workshops og udstillinger.",
+  },
+  {
+    image: "/img/aktivitetbillede6.png",
+    name: "Medlem 6",
+    description: "Administrativ leder og kontakt for nye projekter.",
+  },
+  {
+    image: "/img/aktivitetbillede7.png",
+    name: "Medlem 7",
+    description: "Rådgiver for forskning og implementering af programmet.",
+  },
+];
 ---
 
 <MainLayout title="Om os">
-  <div>
-    <!-- ***************************** Start Om os ***************************** -->
-    <section class="bg-background-v2">
-      <p>Om os</p>
+  <!-- ***************************** Start Om os ***************************** -->
+  <section
+    class="col-span-4 md:col-span-12 grid grid-cols-4 md:grid-cols-12"
+    style="gap: var(--grid-gap);"
+  >
+    <div class="col-span-4 md:col-span-6">
+      <Heading htmlheading="h1" size="large" stylingclasses="text-text-dark ">
+        Om os
+      </Heading>
+      <div class="space-y-6">
+        <Text tekstype="brødtekst" stylingclasses="text-text-dark">
+          Nationalt Center for Kunst og Mental Sundhed er et forskningsbaseret
+          mødested, hvor venlighed og respekt er det faste grundlag og hvor vi
+          med undersøgende nysgerrighed hylder det hele menneske.
+        </Text>
+        <Text tekstype="brødtekst" stylingclasses="text-text-dark">
+          Hos os møder du intense øjeblikke, erkendelser, fællesskab, ny læring
+          og nye former for samvær med patienter, etablerede kunstnere,
+          forskere, sundhedsfaglige og professionelle psykologer og psykiatere.
+        </Text>
+        <Text tekstype="brødtekst" stylingclasses="text-text-dark">
+          Vi bruger kunstworkshops og udstillinger som et middel til at opnå
+          forbedringer. Vi forsker i, hvordan kunst virker og bedst muligt
+          tjener deltagerne. Vores forskning er vigtig, men det er mennesket med
+          levet erfaring, der er i centrum.
+        </Text>
+        <ul class="space-y-3 ml-5 list-disc">
+          <li>
+            <Text tekstype="brødtekst" stylingclasses="text-text-dark">
+              Grupperne er deltagerfokuserede kunstworkshops, ikke kunstterapi.
+            </Text>
+
+            <div class="flex pb-4 px-6 md:px-12" style="gap: var(--grid-gap);">
+              <li>
+                <Text tekstype="brødtekst" stylingclasses="text-text-dark">
+                  Fokus er på form frem for indhold.
+                </Text>
+              </li>
+              <li>
+                <Text tekstype="brødtekst" stylingclasses="text-text-dark">
+                  Et trygt kunstnerisk rum der kan skabe leg, fællesskab og være
+                  helende i sig selv.</Text
+                >
+              </li>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-span-4 md:col-span-6 flex items-center">
+      <img
+        src="public/img/omosbillede1.png"
+        alt="Workshop deltagere"
+        class="w-full h-auto"
+      />
+    </div>
+
+    <!-- ***************************** Start Anden række Om os ***************************** -->
+    <section
+      class="col-span-4 md:col-span-12 py-12 md:py-20 grid grid-cols-4 md:grid-cols-12"
+      style="margin-top: var(--spacing-xl); gap: var(--grid-gap);"
+    >
+      <div class="col-span-4 md:col-span-6 flex items-center justify-center">
+        <img
+          src="public/img/omoslogo.png"
+          alt="CKMS Logo"
+          class="w-full h-auto"
+        />
+      </div>
+      <div
+        class="col-span-4 md:col-span-6 flex flex-col justify-center space-y-6 p-8 bg-background-v2"
+        style="border-radius: 50px 0 50px 0;"
+      >
+        <Text tekstype="brødtekst" stylingclasses="text-text-dark">
+          Vi udvikler kunstneriske workshopformater baseret på international
+          forskning og i samarbejde med mennesker med levet erfaring,
+          professionelle kunstnere og sundhedsfaglige forskere. Målet er at
+          skabe et standardiseret format, der kan implementeres nationalt i
+          psykiatrien.
+        </Text>
+        <Text tekstype="brødtekst" stylingclasses="text-text-dark">
+          Vi indsamler og analyserer data om vores kunstinterventioner for at
+          forstå, hvad der virker og hvorfor. Vi undersøger de gavnlige effekter
+          for deltagerne og justerer både forskning og formidling, så moderne
+          kan anvendes bredt i sundhedsvæsenet. På sigt vil vi opbygge evidens
+          på området.
+        </Text>
+      </div>
     </section>
-    <!-- ***************************** End Om os ***************************** -->
+    <!-- ***************************** End Anden række Om os ***************************** -->
 
     <!-- ***************************** Start Kunst og psykiatri ***************************** -->
-    <section class="bg-background-v3">
-      <p>Kunst og psykiatri</p>
+    <section
+      class="col-span-4 md:col-span-12 bg-background-v5 py-12 md:py-20"
+      style="margin-top: var(--spacing-xl); padding-left: var(--grid-margin-mobile); padding-right: var(--grid-margin-mobile);"
+    >
+      <div
+        style="padding-left: var(--grid-margin-desktop); padding-right: var(--grid-margin-desktop);"
+      >
+        <Heading
+          htmlheading="h3"
+          size="medium"
+          stylingclasses="text-text-dark mb-12"
+        >
+          Kunst og psykiatri
+        </Heading>
+
+        <!-- Three column layout -->
+        <div class="grid grid-cols-4 md:grid-cols-3 gap-8 mb-12">
+          <!-- Column 1 -->
+          <div
+            class="col-span-4 md:col-span-1 md:pr-8 md:border-r-2 md:border-text-dark"
+          >
+            <Text tekstype="brødtekst" stylingclasses="text-text-dark mb-4">
+              Kunst har fra psykiatriens begyndelse været brugt som
+              beskæftigelse, terapi og diagnostisk redskab. Psykiatere som Hans
+              Prinzhorn samlede spontant producerede patientværker, ofte fra
+              indlagte personer i længere perioder. Europas store Art
+              Brut-samlinger, herunder Printzhorn-samlingen i Heidelberg,
+              stammer fra denne praksis.
+            </Text>
+            <Text tekstype="brødtekst" stylingclasses="text-text-dark">
+              I 1960'erne begyndte psykoanalytikere at integrere kunstneriske
+              virkemidler i psykoterapien, hvilket blev starten på kunstterapi.
+            </Text>
+          </div>
+
+          <!-- Column 2 -->
+          <div
+            class="col-span-4 md:col-span-1 md:px-8 md:border-r-2 md:border-text-dark"
+          >
+            <Text tekstype="brødtekst" stylingclasses="text-text-dark mb-4">
+              I Center for Kunst og Mental Sundhed (CKMS) arbejder vi ud fra, at
+              deltagelse i kunstneriske aktiviteter har gavnlig effekt.
+            </Text>
+            <Text tekstype="brødtekst" stylingclasses="text-text-dark mb-4">
+              Vi arbejder med deltagerfokuseret kunst, et begreb fra
+              kunstverdenen anvendt i sundhedsfremme.
+            </Text>
+            <Text tekstype="brødtekst" stylingclasses="text-text-dark">
+              Participatory arts udspringer af kunstneres ønske om at inkludere
+              publikum i den kunstneriske proces. Auguste Boal populariserede
+              dette med Theater of the Oppressed, hvor kunst anvendes til social
+              forandring.
+            </Text>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="col-span-4 md:col-span-1 md:pl-8">
+            <Text tekstype="brødtekst" stylingclasses="text-text-dark mb-4">
+              I CKMS har vi videreuddannelse koncept som en hybrid mellem
+              kunstgruppe og gruppeterapi intervention: Grupperne ledes af en
+              kunstnerisk autoritet i samarbejde med en sundhedsfaglig
+              co-terapeut, og forløbet følger best practice inden for
+              gruppeterapi. Vi har desuden udviklet et manualiseret
+              deltagerfokuseret kunstworkshop-koncept, som
+              <span class="font-onsite-extended font-bold"
+                >udgives på forlaget Klim.</span
+              >
+            </Text>
+          </div>
+        </div>
+
+        <!-- Sources Button -->
+        <button
+          id="sources-toggle"
+          class="w-full border-2 border-text-dark px-6 md:px-8 py-4 text-text-dark hover:bg-text-dark hover:text-background-v5 transition-colors flex items-center justify-between"
+        >
+          <span
+            class="text-[18px] md:text-[25px] font-onsite-extended font-bold"
+          >
+            kilder
+          </span>
+          <svg
+            id="sources-arrow"
+            class="w-6 h-6 transition-transform duration-300"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </button>
+
+        <!-- Sources List (Hidden by default) -->
+        <div
+          id="sources-content"
+          class="hidden border-l-2 border-r-2 border-b-2 border-text-dark px-6 md:px-8 py-8 space-y-6"
+        >
+          <Text tekstype="brødtekst" stylingclasses="text-text-dark">
+            <strong>Boal, A. (1979).</strong> Theatre of the Oppressed. Pluto Press.
+          </Text>
+          <Text tekstype="brødtekst" stylingclasses="text-text-dark">
+            <strong>Prinzhorn, H. (1922).</strong> Artistry of the Mentally Ill. Springer-Verlag.
+          </Text>
+          <Text tekstype="brødtekst" stylingclasses="text-text-dark">
+            <strong>Foucault, M. (1961).</strong> Madness and Civilization. Pantheon
+            Books.
+          </Text>
+          <Text tekstype="brødtekst" stylingclasses="text-text-dark">
+            <strong
+              >Csikszentmihalyi, M., & Selega Csikszentmihalyi, I. (1988).</strong
+            > Optimal Experience: Psychological Studies of Flow in Consciousness.
+            Cambridge University Press.
+          </Text>
+        </div>
+      </div>
     </section>
     <!-- ***************************** End Kunst og psykiatri ***************************** -->
 
+    <script>
+      const toggle = document.getElementById("sources-toggle");
+      const content = document.getElementById("sources-content");
+      const arrow = document.getElementById("sources-arrow");
+
+      if (toggle && content && arrow) {
+        toggle.addEventListener("click", () => {
+          content.classList.toggle("hidden");
+          arrow.classList.toggle("rotate-180");
+        });
+      }
+
+      // Dropdowns in Organisation og vedtægter
+      const orgSection = document.querySelector("section.bg-background-v2");
+      if (orgSection) {
+        const dropdownButtons = orgSection.querySelectorAll(
+          "button[aria-expanded]"
+        );
+        dropdownButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const panel = btn.nextElementSibling;
+            const arrow = btn.querySelector(".dropdown-arrow");
+            const expanded = btn.getAttribute("aria-expanded") === "true";
+
+            btn.setAttribute("aria-expanded", (!expanded).toString());
+
+            if (panel) {
+              if (expanded) {
+                // Closing
+                panel.style.maxHeight = "0px";
+                if (arrow) arrow.style.transform = "rotate(0deg)";
+              } else {
+                // Opening
+                panel.style.maxHeight = panel.scrollHeight + "px";
+                if (arrow) arrow.style.transform = "rotate(180deg)";
+              }
+            }
+          });
+        });
+      }
+
+      // Carousel logic for Aktivitetsteamet
+      const carousel = document.getElementById("carousel");
+      const prevBtn = document.getElementById("carousel-prev");
+      const nextBtn = document.getElementById("carousel-next");
+      if (carousel && prevBtn && nextBtn) {
+        const getStep = () => {
+          const firstCard =
+            carousel.querySelector('[class*="AktivitetCard"]') ||
+            carousel.firstElementChild?.firstElementChild;
+          const cardEl = carousel.querySelector(".snap-center");
+          const gap = parseInt(
+            getComputedStyle(carousel.firstElementChild).gap || "0",
+            10
+          );
+          const width =
+            (cardEl || firstCard)?.getBoundingClientRect().width || 300;
+          return width + gap;
+        };
+
+        prevBtn.addEventListener("click", () => {
+          carousel.scrollBy({ left: -getStep(), behavior: "smooth" });
+        });
+        nextBtn.addEventListener("click", () => {
+          carousel.scrollBy({ left: getStep(), behavior: "smooth" });
+        });
+      }
+    </script>
+
     <!-- ***************************** Start Aktivitetsteamet ***************************** -->
-    <section class="bg-background-v4">
-      <p>Aktivitetsteamet</p>
+    <section
+      class="col-span-4 md:col-span-12 py-12 md:py-20"
+      style="margin-top: var(--spacing-xl); padding-left: var(--grid-margin-mobile); padding-right: var(--grid-margin-mobile);"
+    >
+      <div
+        style="padding-left: var(--grid-margin-desktop); padding-right: var(--grid-margin-desktop);"
+      >
+        <Heading
+          htmlheading="h2"
+          size="medium"
+          stylingclasses="text-text-dark mb-12"
+        >
+          Aktivitetsteamet
+        </Heading>
+
+        <div class="relative flex items-center">
+          <!-- Left arrow -->
+          <button
+            id="carousel-prev"
+            class="absolute -left-6 md:-left-12 z-10 p-2 text-text-dark hover:opacity-70 transition-opacity"
+            aria-label="Forrige medlem"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+
+          <!-- Carousel container -->
+          <div
+            id="carousel"
+            class="overflow-x-auto scrollbar-hide flex-1"
+            style="scroll-behavior: smooth;"
+          >
+            <div class="flex pb-4" style="gap: var(--grid-gap);">
+              {
+                teamMembers.map((member) => (
+                  <AktivitetCard
+                    image={member.image}
+                    name={member.name}
+                    description={member.description}
+                  />
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- Right arrow -->
+          <button
+            id="carousel-next"
+            class="absolute -right-6 md:-right-12 z-10 p-2 text-text-dark hover:opacity-70 transition-opacity"
+            aria-label="Næste medlem"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
     </section>
     <!-- ***************************** End Aktivitetsteamet ***************************** -->
 
     <!-- ***************************** Start Vi glæder os til at høre fra dig! ***************************** -->
-    <section class="bg-background-v5">
-      <p>Vi glæder os til at høre fra dig!</p>
+    <section
+      class="col-span-4 md:col-span-12 py-12 md:py-20 grid grid-cols-4 md:grid-cols-12"
+      style="margin-top: var(--spacing-xl); gap: var(--grid-gap);"
+    >
+      <!-- Pink box with text -->
+      <div
+        class="col-span-4 md:col-span-6 bg-background-v3 p-8 md:p-12"
+        style="border-radius: 0 50px 0 50px;"
+      >
+        <Heading htmlheading="h3" size="small" stylingclasses="text-text-dark">
+          Vi glæder os til at høre fra dig!
+        </Heading>
+
+        <Text teksttype="brødtekst" stylingclasses="text-text-dark mb-12">
+          Nationalt Center for Kunst og Mental Sundhed har til huse i det
+          tidligere Sankt Elisabeths Hospital, som blev stiftet af Sankt
+          Elisabethsstiftelsen i 1904.
+        </Text>
+
+        <div class="space-y-4">
+          <div>
+            <Text
+              teksttype="brødtekstbold"
+              stylingclasses="text-text-dark mb-2"
+            >
+              Kontakt os
+            </Text>
+            <Text teksttype="brødtekst" stylingclasses="text-text-dark">
+              Psykiatrisk Center Amager<br />
+              Hans Bogbinders Allé 3, 2.tv<br />
+              2300 København S<br />
+              Mail: <a
+                href="mailto:info@ckms.dk"
+                class="underline hover:opacity-70">info@ckms.dk</a
+              >
+            </Text>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map (placeholder) -->
+      <div
+        class="col-span-4 md:col-span-6 flex flex-col"
+        style="gap: var(--spacing-xs);"
+      >
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2250.4473319073043!2d12.58471!3d55.13234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465252f5c5c5c5c5%3A0x5c5c5c5c5c5c5c5c!2sHans%20Bogbinders%20All%C3%A9%203%2C%202300%20K%C3%B8benhavn%20S!5e0!3m2!1sda!2sdk!4v1639563045"
+          width="100%"
+          height="400"
+          style="border: 0; border-radius: 12px;"
+          allowfullscreen=""
+          loading="lazy"></iframe>
+
+        <Text teksttype="brødtekst" stylingclasses="text-text-dark">
+          Nærmeste metrostation er Amagerbrо (lige ved Amagercеntret), ca 1.2
+          km. Herfra går bus nr. 5C direkte til døren (ca. 7 min)
+        </Text>
+      </div>
     </section>
     <!-- ***************************** End Vi glæder os til at høre fra dig! ***************************** -->
 
     <!-- ***************************** Start Følg med på Instagram ***************************** -->
-    <section class="bg-background-v2">
-      <p>Følg med på Instagram</p>
+    <section
+      class="col-span-4 md:col-span-12 py-12 md:py-20"
+      style="margin-top: var(--spacing-xl); padding-left: var(--grid-margin-mobile); padding-right: var(--grid-margin-mobile);"
+    >
+      <div
+        style="padding-left: var(--grid-margin-desktop); padding-right: var(--grid-margin-desktop);"
+      >
+        <Heading
+          htmlheading="h3"
+          size="medium"
+          stylingclasses="text-text-dark mb-12"
+        >
+          Følg med på Instagram
+        </Heading>
+
+        <InstagramCarousel
+          images={[
+            {
+              src: "public/img/instagram1.png",
+              alt: "Instagram billede 1",
+            },
+            {
+              src: "public/img/instagram2.png",
+              alt: "Instagram billede 2",
+            },
+            {
+              src: "public/img/instagram3.png",
+              alt: "Instagram billede 3",
+            },
+            {
+              src: "public/img/instagram4.png",
+              alt: "Instagram billede 4",
+            },
+            {
+              src: "public/img/instagram5.png",
+              alt: "Instagram billede 5",
+            },
+          ]}
+        />
+      </div>
     </section>
     <!-- ***************************** End Følg med på Instagram ***************************** -->
 
     <!-- ***************************** Start Organisation og vedtægter ***************************** -->
-    <section class="bg-background-v3">
-      <p>Organisation og vedtægter</p>
+    <section
+      class="col-span-4 md:col-span-12 bg-background-v2 py-12 md:py-20"
+      style="margin-top: var(--spacing-xl); margin-left: calc(-1 * var(--grid-margin-mobile)); margin-right: calc(-1 * var(--grid-margin-mobile)); padding-left: var(--grid-margin-mobile); padding-right: var(--grid-margin-mobile);"
+    >
+      <div>
+        <div class="grid grid-cols-4 md:grid-cols-12 gap-8 items-start">
+          <!-- Left side - Text content -->
+          <div class="col-span-4 md:col-span-6">
+            <Heading htmlheading="h2" stylingclasses="text-text-dark mb-8">
+              Organisation og vedtægter
+            </Heading>
+
+            <Text tekstype="brødtekst" stylingclasses="text-text-dark mb-6">
+              Center for Kunst og Mental Sundhed (CKMS) er stiftet af Foreningen
+              Kunst og Mental Sundhed, grundlagt d. 26/02 2019 med civile og
+              statslige fondsmidler. Foreningen fastlægger mål og strategi for
+              CKMS.
+            </Text>
+
+            <Heading
+              htmlheading="h4"
+              size="xsmallbold"
+              stylingclasses="text-text-dark mb-6"
+            >
+              Vedtægter pr. marts 2023
+            </Heading>
+          </div>
+
+          <!-- Right side - Circular logo -->
+          <!-- <div class="col-span-4 md:col-span-6 flex items-center justify-center">
+          <div class="w-64 h-64 md:w-96 md:h-96 relative">
+            <svg viewBox="0 0 200 200" class="w-full h-full">
+              <defs>
+                <path
+                  id="circlePath"
+                  d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
+                ></path>
+              </defs>
+              <text
+                class="text-[14px] md:text-[16px] font-onsite-extended fill-text-dark"
+              >
+                <textPath href="#circlePath" startOffset="0%">
+                  Center for • Kunst og Mental Sundhed •
+                </textPath>
+              </text>
+            </svg>
+          </div>
+        </div> -->
+
+          <!-- Full-width two-column dropdowns (desktop spans both rows) -->
+          <div class="col-span-4 md:col-span-12 mt-6 md:mt-8">
+            <div class="grid grid-cols-4 md:grid-cols-12 items-stretch">
+              <!-- Left column -->
+              <div
+                class="col-span-4 md:col-span-6 border-t-2 border-text-dark h-full"
+              >
+                <button
+                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  <div class="flex items-center gap-3">
+                    <Text stylingclasses="text-text-dark">Navn og hjemsted</Text
+                    >
+                  </div>
+                  <img
+                    src="/img/pilned.svg"
+                    alt="Åbn"
+                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                  />
+                </button>
+                <div
+                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <div class="py-4 px-4">
+                    <Text stylingclasses="text-text-dark"
+                      >Foreningen Kunst og Mental Sundhed, Københavns Kommune,
+                      Hans Bogbinders Alle 3, 2. tv., Opgang 8.</Text
+                    >
+                  </div>
+                </div>
+
+                <button
+                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  <div class="flex items-center gap-3">
+                    <Text stylingclasses="text-text-dark">Formål</Text>
+                  </div>
+                  <img
+                    src="/img/pilned.svg"
+                    alt="Åbn"
+                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                  />
+                </button>
+                <div
+                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <div class="py-4 px-4">
+                    <Text stylingclasses="text-text-dark"
+                      >Foreningen støtter og fremmer interessen for kunst og
+                      mental sundhed for brugere og professionelle. Den
+                      etablerer tværinstitutionelle platforme mellem
+                      psykiatriske behandlere, peer-styrede og kunstneriske
+                      organisationer via CKMS.</Text
+                    >
+                  </div>
+                </div>
+
+                <button
+                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  <div class="flex items-center gap-3">
+                    <Text stylingclasses="text-text-dark"
+                      >CKSM har fire hovedformål</Text
+                    >
+                  </div>
+                  <img
+                    src="/img/pilned.svg"
+                    alt="Åbn"
+                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                  />
+                </button>
+                <div
+                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <div class="py-4 px-4">
+                    <ul class="list-disc ml-5 space-y-2">
+                      <li>
+                        <Text stylingclasses="text-text-dark"
+                          >At være et kompetence- og videnscenter.</Text
+                        >
+                      </li>
+                      <li>
+                        <Text stylingclasses="text-text-dark"
+                          >At opdyrke tvær-institutionelle kunstprojekter.</Text
+                        >
+                      </li>
+                      <li>
+                        <Text stylingclasses="text-text-dark"
+                          >At skabe recovery-interventioner og
+                          rehabiliteringstilbud for psykisk sårbare.</Text
+                        >
+                      </li>
+                      <li>
+                        <Text stylingclasses="text-text-dark"
+                          >At skabe platforme for peer-drevne aktiviteter.</Text
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <button
+                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  <div class="flex items-center gap-3">
+                    <Text stylingclasses="text-text-dark">Bestyrelse</Text>
+                  </div>
+                  <img
+                    src="/img/pilned.svg"
+                    alt="Åbn"
+                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                  />
+                </button>
+                <div
+                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <div class="py-4 px-4">
+                    <Text stylingclasses="text-text-dark"
+                      >Daglig ledelse varetages af bestyrelsen, som konstituerer
+                      sig med formand, næstformand og kasserer. Bestyrelsen kan
+                      oprette samarbejdsgrupper og delegerer driften til et
+                      forretningsudvalg (formand, næstformand, kasserer).
+                      Bestyrelsen afholder fire årlige møder og har tegningsret
+                      sammen med kasserer.</Text
+                    >
+                  </div>
+                </div>
+
+                <button
+                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  <div class="flex items-center gap-3">
+                    <Text stylingclasses="text-text-dark">Regnskab</Text>
+                  </div>
+                  <img
+                    src="/img/pilned.svg"
+                    alt="Åbn"
+                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                  />
+                </button>
+                <div
+                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <div class="py-4 px-4">
+                    <Text stylingclasses="text-text-dark">Kalenderåret.</Text>
+                  </div>
+                </div>
+
+                <button
+                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  <div class="flex items-center gap-3">
+                    <Text stylingclasses="text-text-dark">Opløsning</Text>
+                  </div>
+                  <img
+                    src="/img/pilned.svg"
+                    alt="Åbn"
+                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                  />
+                </button>
+                <div
+                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <div class="py-4 px-4">
+                    <Text stylingclasses="text-text-dark"
+                      >Kræver ¾-flertal på generalforsamling eller ekstraordinær
+                      generalforsamling. Midler overgår til almennyttige formål.</Text
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right column -->
+              <div
+                class="col-span-4 md:col-span-6 border-t-2 md:border-l-2 border-text-dark h-full"
+              >
+                <button
+                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  <div class="flex items-center gap-3">
+                    <Text stylingclasses="text-text-dark">Organisation</Text>
+                  </div>
+                  <img
+                    src="/img/pilned.svg"
+                    alt="Åbn"
+                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                  />
+                </button>
+                <div
+                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <div class="py-4 px-4">
+                    <Text stylingclasses="text-text-dark"
+                      >Generalforsamlingen er foreningens øverste ledelse.
+                      Generalforsamlingen vælger bestyrelsen for to år ad
+                      gangen, med mindst tre personer på valg hvert år. Kasserer
+                      og suppleanter vælges årligt.</Text
+                    >
+                  </div>
+                </div>
+
+                <button
+                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  <div class="flex items-center gap-3">
+                    <Text stylingclasses="text-text-dark"
+                      >Generalforsamling</Text
+                    >
+                  </div>
+                  <img
+                    src="/img/pilned.svg"
+                    alt="Åbn"
+                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                  />
+                </button>
+                <div
+                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <div class="py-4 px-4">
+                    <Text stylingclasses="text-text-dark mb-4"
+                      >Indkaldes af bestyrelsen med 14 dages varsel. Ordinær
+                      generalforsamling afholdes inden udgangen af marts og
+                      omfatter:</Text
+                    >
+                    <ul class="list-disc ml-5 space-y-2">
+                      <li>
+                        <Text stylingclasses="text-text-dark"
+                          >Valg af dirigent</Text
+                        >
+                      </li>
+                      <li>
+                        <Text stylingclasses="text-text-dark"
+                          >Formandens beretning</Text
+                        >
+                      </li>
+                      <li>
+                        <Text stylingclasses="text-text-dark"
+                          >Regnskab, budget og kontingent</Text
+                        >
+                      </li>
+                      <li>
+                        <Text stylingclasses="text-text-dark"
+                          >Indkomne forslag</Text
+                        >
+                      </li>
+                      <li>
+                        <Text stylingclasses="text-text-dark">Valg</Text>
+                      </li>
+                      <li>
+                        <Text stylingclasses="text-text-dark">Eventuelt</Text>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <button
+                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  <div class="flex items-center gap-3">
+                    <Text stylingclasses="text-text-dark">Medlemskab</Text>
+                  </div>
+                  <img
+                    src="/img/pilned.svg"
+                    alt="Åbn"
+                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                  />
+                </button>
+                <div
+                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <div class="py-4 px-4">
+                    <Text stylingclasses="text-text-dark"
+                      >Årligt medlemskab for personer, der støtter foreningens
+                      formål.</Text
+                    >
+                  </div>
+                </div>
+
+                <button
+                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  <div class="flex items-center gap-3">
+                    <Text stylingclasses="text-text-dark"
+                      >Kontingent og finansiering</Text
+                    >
+                  </div>
+                  <img
+                    src="/img/pilned.svg"
+                    alt="Åbn"
+                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                  />
+                </button>
+                <div
+                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <div class="py-4 px-4">
+                    <Text stylingclasses="text-text-dark"
+                      >Godkendes af generalforsamlingen. Aktuelt 200 kr./år.
+                      Finansiering sker via medlemsbidrag, sponsorer, fonde og
+                      donationer.</Text
+                    >
+                  </div>
+                </div>
+
+                <button
+                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  <div class="flex items-center gap-3">
+                    <Text stylingclasses="text-text-dark"
+                      >Vedtægtsændringer</Text
+                    >
+                  </div>
+                  <img
+                    src="/img/pilned.svg"
+                    alt="Åbn"
+                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                  />
+                </button>
+                <div
+                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <div class="py-4 px-4">
+                    <Text stylingclasses="text-text-dark"
+                      >Kræver ¾-flertal på generalforsamlingen.</Text
+                    >
+                  </div>
+                </div>
+
+                <button
+                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  <div class="flex items-center gap-3">
+                    <Text stylingclasses="text-text-dark"
+                      >Ekstraordinær generalforsamling</Text
+                    >
+                  </div>
+                  <img
+                    src="/img/pilned.svg"
+                    alt="Åbn"
+                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                  />
+                </button>
+                <div
+                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <div class="py-4 px-4">
+                    <Text stylingclasses="text-text-dark"
+                      >Kan indkaldes af bestyrelsen eller 1/3 af medlemmerne,
+                      med motiveret dagsorden.</Text
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Full-width buttons below list -->
+          <div class="col-span-4 md:col-span-12 mt-12">
+            <div class="grid grid-cols-4 md:grid-cols-12">
+              <div
+                class="col-span-4 md:col-span-10 md:col-start-2 flex flex-col md:flex-row gap-4 md:justify-between"
+              >
+                <button
+                  class="border-2 border-text-dark px-8 py-4 text-text-dark hover:bg-text-dark hover:text-background-v2 transition-colors flex items-center justify-center gap-2"
+                >
+                  <Text stylingclasses="text-text-dark"
+                    >Se medlemmer af bestyrelsen</Text
+                  >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </button>
+
+                <button
+                  class="border-2 border-text-dark px-8 py-4 text-text-dark hover:bg-text-dark hover:text-background-v2 transition-colors flex items-center justify-center gap-2"
+                >
+                  <Text stylingclasses="text-text-dark">Læs vedtægter</Text>
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     <!-- ***************************** End Organisation og vedtægter ***************************** -->
-  </div>
+  </section>
 </MainLayout>
