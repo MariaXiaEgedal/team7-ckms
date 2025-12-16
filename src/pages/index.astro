@@ -8,6 +8,8 @@ import Heading from "../components/Heading.astro";
 import Text from "../components/Text.astro";
 // import TildigSection from "../components/TildigSection.astro";
 import CardWorkshop from "../components/CardWorkshop.astro";
+import TildigSection from "../components/TildigSection.astro";
+import Formular from "../components/Formular.astro";
 ---
 
 <MainLayout title="CKMS">
@@ -33,17 +35,17 @@ import CardWorkshop from "../components/CardWorkshop.astro";
         <div
           class="col-span-4 md:col-span-5 md:col-start-8 text-text-dark md:order-2"
         >
-          <Text typest="brødtekst" stylingclasses="mb-2xs md:mb-xs">
+          <Text stylingclasses="mb-2xs md:mb-xs">
             Vi arbejder for en psykiatri med mere fokus på det hele menneske -
             med ligeværd, kreativitet, venlighed og tryghed.
           </Text>
 
-          <Text typest="brødtekst" stylingclasses="mb-2xs md:mb-xs">
+          <Text stylingclasses="mb-2xs md:mb-xs">
             Gennem deltagerfokuserede kunstworkshops skaber vi fællesskab,
             trivsel og håb for mennesker med psykiske lidelser.
           </Text>
 
-          <Text typest="brødtekst" stylingclasses="mb-xs md:mb-m">
+          <Text stylingclasses="mb-xs md:mb-m">
             Vi supplerer psykiatrien med forskningsbaserede kunsttilbud,
             udviklet i samarbejde mellem kunstnere, forfattere, psykiatribrugere
             og sundhedsfaglige forskere. Vi hjælper hinanden med at hjælpe
@@ -83,7 +85,9 @@ import CardWorkshop from "../components/CardWorkshop.astro";
         stylingclasses="mb-xs md:mb-m animate-fade-right"
         >Til dig, som er...
       </Heading>
-      <!-- <TildigSection -->
+
+      <TildigSection class="mb-xs md:mb-m" />
+
       <div class="flex justify-center">
         <Button>Læs mere</Button>
       </div>
@@ -108,7 +112,7 @@ import CardWorkshop from "../components/CardWorkshop.astro";
       </Heading>
 
       <Text typest="brødtekst" stylingclasses="mb-2xs md:mb-xs">
-        Vi tilbyder følgende workshops:)
+        Vi tilbyder følgende workshops:
       </Text>
 
       <div
@@ -163,8 +167,32 @@ import CardWorkshop from "../components/CardWorkshop.astro";
     <!-- ***************************** End Workshops ***************************** -->
 
     <!-- ***************************** Start Støt vores formål og arbejde ***************************** -->
-    <section class="bg-background-v2 mx-2xs md:mx-l">
-      <p>Støt vores formål og arbejde</p>
+    <section class="mx-2xs md:mx-l">
+      <div class="grid grid-cols-1 lg:grid-cols-2 md:gap-2xs">
+        <div class="text-text-dark">
+          <Heading
+            htmlheading="h2"
+            size="medium"
+            stylingclasses="mb-xs md:mb-m animate-fade-right"
+            >Støt vores formål og arbejde
+          </Heading>
+
+          <Text stylingclasses="mb-2xs md:mb-xs">
+            Meld dig ind i Foreningen Kunst og Mental Sundhed og vær med til at
+            støtte centrets formål og arbejdet med at bidrage til større
+            livskvalitet for mennesker med erfaring fra psykiatrien.
+          </Text>
+
+          <Text stylingclasses="mb-2xs md:mb-xs">
+            Du bliver del af et fællesskab som ønsker at reducere fordomme og
+            stigmatisering af mental sygdom - og frem.
+          </Text>
+        </div>
+
+        <div class="flex justify-center">
+          <Formular />
+        </div>
+      </div>
     </section>
     <!-- ***************************** End Støt vores formål og arbejde ***************************** -->
 

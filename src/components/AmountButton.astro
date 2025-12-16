@@ -1,0 +1,19 @@
+---
+import Heading from "./Heading.astro";
+---
+
+<div>
+  <button
+    type="button"
+    aria-pressed="false"
+    class="amount-btn inline-flex items-center gap-3xs border-2 border-button-dark text-text-dark p-4xs md:px-2xs md:py-4xs transition-all duration-300 hover:bg-button-dark hover:text-text-light aria-[pressed=true]:bg-button-dark aria-[pressed=true]:text-text-light"
+  >
+    <Heading
+      htmlheading="h4"
+      size="xsmall"
+      stylingclasses="heading-text text-current transition-colors"
+    >
+      <slot /> kr
+    </Heading>
+  </button>
+</div>

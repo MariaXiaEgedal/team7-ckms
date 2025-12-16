@@ -134,12 +134,9 @@
   --spacing-l: 100px;
   --spacing-xl: 150px;
 
-  /* Grid */
-  --grid-cols-mobile: 4;
-  --grid-cols-desktop: 12;
-  --grid-gap: 20px;
-  --grid-margin-mobile: 20px;
-  --grid-margin-desktop: 100px;
+  /* Border Radius */
+  --radius-s: 25px;
+  --radius-l: 50px;
 }
 
 /********************************************** Start Fonts **********************************************/
@@ -195,22 +192,6 @@
 }
 
 @layer components {
-  /* Grid container */
-  .container-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--grid-gap);
-    padding-left: var(--grid-margin-mobile);
-    padding-right: var(--grid-margin-mobile);
-  }
-
-  @media (min-width: 768px) {
-    .container-grid {
-      grid-template-columns: repeat(12, 1fr);
-      padding-left: var(--grid-margin-desktop);
-      padding-right: var(--grid-margin-desktop);
-    }
-  }
 }
 @layer utilities {
   /* Background utilities */
