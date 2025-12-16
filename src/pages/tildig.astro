@@ -4,38 +4,525 @@ import Button from "../components/Button.astro";
 import Link from "../components/Link.astro";
 import { Image } from "astro:assets";
 import thumbsup from "../assets/images/thumbsup.png";
+import Heading from "../components/Heading.astro";
+import Text from "../components/Text.astro";
+import TildigSection from "../components/TildigSection.astro";
 ---
 
 <MainLayout title="Til Dig">
-  <div>
+  <div class="flex flex-col gap-m md:gap-xl my-m md:my-xl">
     <!-- ***************************** Start Til dig, som er intro ***************************** -->
-    <section class="bg-background-v2">
-      <p>Til dig, som er ...</p>
+    <section class="mx-2xs md:mx-l">
+      <Heading
+        htmlheading="h1"
+        size="large"
+        stylingclasses="text-text-dark mb-xs md:mb-m"
+        >Til dig, som er ...
+      </Heading>
+      <Heading
+        htmlheading="h4"
+        size="xsmall"
+        stylingclasses="text-text-dark mb-2xs md:mb-xs"
+        >Nationalt Center for Kunst og Mental Sundhed henvender sig først og
+        fremmest til dig med erfaringer med psykiske lidelser og psykiatrisk
+        behandling.</Heading
+      >
+      <Text
+        teksttype="brødtekst"
+        stylingclasses="text-text-dark mb-3xs md:mb-3xs"
+        >Hos os møder du et trygt frirum og et fællesskab, hvor vi møder
+        hinanden gennem kunst og kreativitet.
+      </Text>
+
+      <Text teksttype="brødtekst" stylingclasses="text-text-dark mb-xs  md:mb-m"
+        >Værkstederne er for dig med psykisk sårbarhed, som søger støtte til at
+        finde fodfæste, håb og nye drømme.
+      </Text>
+
+      <TildigSection />
     </section>
-    <!-- ***************************** End Til dig, som er intro ***************************** -->
 
     <!-- ***************************** Start Til dig, som er bruger ***************************** -->
-    <section class="bg-background-v3">
-      <p>Til dig som er bruger</p>
+    <section class="mx-2xs md:mx-l">
+      <div class="md:grid md:grid-cols-12 mb-m md:mb-xl md:gap-2xs">
+        <!-- Tekstkolonne -->
+        <div class="md:col-span-7 md:col-start-1">
+          <Heading
+            htmlheading="h2"
+            size="medium"
+            stylingclasses="text-text-dark mb-xs md:mb-m"
+          >
+            Til dig som er bruger
+          </Heading>
+
+          <Heading
+            htmlheading="h4"
+            size="xsmall"
+            stylingclasses="text-text-dark mb-2xs md:mb-xs"
+          >
+            Har du erfaring fra psykiatrien, så er Center for Kunst og Mental
+            Sundhed til for dig.
+          </Heading>
+
+          <Text
+            teksttype="brødtekst"
+            stylingclasses="text-text-dark mb-2xs md:mb-xs"
+          >
+            CKMS er et frirum og et fællesskab. Her kan du udtrykke dig
+            kreativt, møde andre og lære gennem kunstneriske aktiviteter.
+          </Text>
+
+          <Text teksttype="brødtekst" stylingclasses="text-text-dark">
+            Du kan deltage i:
+            <ul class="list-disc list-inside mb-xs md:mb-m">
+              <li>
+                Kunstneriske grupper med etablerede kunstnere og professionelle
+                sundhedsfaglige.
+              </li>
+              <li>Workshops med tekster, billeder, teater, video og lyd.</li>
+              <li>Åbent Værksted eller Åben Scene.</li>
+            </ul>
+          </Text>
+        </div>
+
+        <!-- Billedkolonne -->
+        <div class="md:col-span-5 md:col-start-8">
+          <img
+            src="/img/brugerbilledekvadrat.webp"
+            alt="Bruger"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+      </div>
     </section>
     <!-- ***************************** End Til dig, som er bruger ***************************** -->
 
-    <!-- ***************************** Start Til dig, som er forsker ***************************** -->
-    <section class="bg-background-v4">
-      <p>Til dig som er forsker</p>
+    <!-- ***************************** Start Hvordan forgår processen?  ***************************** -->
+    <section class="bg-background-v2 px-2xs md:px-l py-xs md:py-m">
+      <Heading
+        htmlheading="h3"
+        size="small"
+        stylingclasses="text-text-dark mb-xs"
+      >
+        Hvordan foregår processen?
+      </Heading>
+
+      <div class="grid grid-cols-4 gap-x-2xs md:grid-cols-12 md:grid-rows-2">
+        <!-- 1 -->
+        <div
+          class="col-start-1 col-span-3 mb-m md:mb-0 md:col-start-1 md:col-span-3 md:row-start-1"
+        >
+          <div class="flex items-baseline gap-4xs">
+            <Heading
+              htmlheading="h1"
+              size="large"
+              stylingclasses="text-text-dark"
+            >
+              1
+            </Heading>
+            <Heading
+              htmlheading="h4"
+              size="xsmall"
+              stylingclasses="text-text-dark mb-3xs"
+            >
+              Find en gruppe
+            </Heading>
+          </div>
+
+          <Text teksttype="brødtekst" stylingclasses="text-text-dark">
+            Kig i vores kalender. Hvis du finder en gruppe, du vil være med i,
+            så skriv til os på mail.
+          </Text>
+        </div>
+
+        <!-- 2 -->
+        <div
+          class="col-start-2 col-span-4 mb-m md:mb-0 md:col-start-4 md:col-span-3 md:row-start-2"
+        >
+          <div class="flex items-baseline gap-4xs">
+            <Heading
+              htmlheading="h1"
+              size="large"
+              stylingclasses="text-text-dark"
+            >
+              2
+            </Heading>
+            <Heading
+              htmlheading="h4"
+              size="xsmall"
+              stylingclasses="text-text-dark mb-3xs"
+            >
+              Forsamtale
+            </Heading>
+          </div>
+
+          <Text teksttype="brødtekst" stylingclasses="text-text-dark">
+            Vi inviterer dig til en kort samtale med en sundhedsfaglig
+            medarbejder (co-terapeut).
+          </Text>
+        </div>
+
+        <!-- 3 -->
+        <div
+          class="col-start-1 col-span-3 mb-m md:mb-0 md:col-start-7 md:col-span-3 md:row-start-1"
+        >
+          <div class="flex items-baseline gap-4xs">
+            <Heading
+              htmlheading="h1"
+              size="large"
+              stylingclasses="text-text-dark"
+            >
+              3
+            </Heading>
+            <Heading
+              htmlheading="h4"
+              size="xsmall"
+              stylingclasses="text-text-dark mb-3xs"
+            >
+              Samtykke til forskning
+            </Heading>
+          </div>
+
+          <Text teksttype="brødtekst" stylingclasses="text-text-dark">
+            Forløbet er med i et forskningsprojekt, så du bliver bedt om
+            spørgeskemaer og et senere interview.
+          </Text>
+        </div>
+
+        <!-- 4 -->
+        <div
+          class="col-start-2 col-span-4 mb-m md:mb-0 md:col-start-10 md:col-span-3 md:row-start-2"
+        >
+          <div class="flex items-baseline gap-4xs">
+            <Heading
+              htmlheading="h1"
+              size="large"
+              stylingclasses="text-text-dark"
+            >
+              4
+            </Heading>
+            <Heading
+              htmlheading="h4"
+              size="xsmall"
+              stylingclasses="text-text-dark mb-3xs"
+            >
+              Videnscenter
+            </Heading>
+          </div>
+
+          <Text teksttype="brødtekst" stylingclasses="text-text-dark">
+            Vi arbejder også som videnscenter og deler viden om kunst, kultur og
+            mental sundhed gennem foredrag, undervisning og samarbejder.
+          </Text>
+        </div>
+      </div>
     </section>
-    <!-- ***************************** End Til dig, som er forsker ***************************** -->
+    <!-- ***************************** End Hvordans foregår processen? ***************************** -->
+
+    <!-- ***************************** Start Til dig, som er forsker  ***************************** -->
+    <section class="mb-m mx-2xs md:mb-xl md:mx-l">
+      <div class="md:grid md:grid-cols-12 md:gap-2xs">
+        <!-- Tekstkolonne (mobil: først, desktop: højre side) -->
+        <div class="md:col-span-7 md:col-start-6 md:order-2">
+          <Heading
+            htmlheading="h2"
+            size="medium"
+            stylingclasses="text-text-dark mb-xs md:mb-m"
+          >
+            Til dig som er forsker
+          </Heading>
+
+          <Heading
+            htmlheading="h4"
+            size="xsmall"
+            stylingclasses="text-text-dark mb-2xs md:mb-xs"
+          >
+            Interesserer du dig for forskning, der forbinder psykiatri og kunst?
+          </Heading>
+
+          <Text
+            teksttype="brødtekst"
+            stylingclasses="text-text-dark mb-2xs md:mb-xs"
+          >
+            Center for Kunst og Mental Sundhed tilbyder et unikt, praksisnært
+            forskningsmiljø, hvor forskning og kunstnerisk praksis udvikles tæt
+            sammen med psykiatribrugere. Brugernes erfaringer danner grundlag
+            for nye forskningsspørgsmål om subjektivitet, æstetik og socialitet.
+          </Text>
+
+          <Text
+            teksttype="brødtekst"
+            stylingclasses="text-text-dark mb-xs md:mb-m"
+          >
+            Centret samler forskellige fagligheder - fra læger og sygeplejersker
+            til kunstnere, psykologer og filosoffer - i et kreativt og
+            tværfagligt samarbejde. Her får du mulighed for at styrke din egen
+            forskning gennem tæt dialog med andre.
+          </Text>
+        </div>
+
+        <!-- Billedkolonne (mobil: under teksten, desktop: venstre side) -->
+        <div class="md:col-span-5 md:col-start-1 md:order-1">
+          <img
+            src="/img/tilforskerbillede.webp"
+            alt="Bruger"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+      </div>
+    </section>
+    <!-- ***************************** End Til dig, som er forsker  ***************************** -->
+
+    <!-- ***************************** Start Rewritalize ***************************** -->
+    <section
+      class="bg-background-v5 mb-m md:mb-xl px-2xs md:px-l py-xs md:py-m"
+    >
+      <Heading
+        htmlheading="h2"
+        size="medium"
+        stylingclasses="text-text-dark mb-xs md:mbm"
+      >
+        REWRITALIZE
+      </Heading>
+
+      <Text
+        teksttype="brødtekst"
+        stylingclasses="text-text-dark mb-2xs md:mb-xs"
+      >
+        REWRITALIZE undersøger, hvordan forfatterledede skrive- og kunstgrupper
+        kan styrke recovery hos mennesker med psykisk sårbarhed.
+      </Text>
+
+      <Text
+        teksttype="brødtekst"
+        stylingclasses="text-text-dark mb-2xs md:mb-xs"
+      >
+        Formålet er at skabe evidens for, at sådanne forløb kan blive en del af
+        den psykiatriske behandling i Danmark.
+      </Text>
+
+      <Text
+        teksttype="brødtekst"
+        stylingclasses="text-text-dark mb-2xs md:mb-xs"
+      >
+        Vi forsker i effekten af kreative gruppeforløb, som kombinerer
+        kunstnerisk praksis og gruppeterapi.
+      </Text>
+
+      <Text
+        teksttype="brødtekst"
+        stylingclasses="text-text-dark mb-2xs md:mb-xs"
+      >
+        Interventionen er udviklet i et tværfagligt samarbejde mellem
+        psykiatere, forfattere, kunstnere og mennesker med egne erfaringer fra
+        psykiatrien.
+      </Text>
+    </section>
+    <!-- ***************************** End Rewritalize ***************************** -->
 
     <!-- ***************************** Start Til dig, som er kunstner ***************************** -->
-    <section class="bg-background-v5">
-      <p>Til dig som er kunstner</p>
+    <section class="mx-2xs md:mx-l">
+      <div class="md:grid md:grid-cols-12 mb-m md:mb-xl md:gap-2xs">
+        <!-- Tekstkolonne -->
+        <div class="md:col-span-7 md:col-start-1">
+          <Heading
+            htmlheading="h2"
+            size="medium"
+            stylingclasses="text-text-dark mb-xs md:mb-m"
+          >
+            Til dig som Kunstner
+          </Heading>
+
+          <Heading
+            htmlheading="h4"
+            size="xsmall"
+            stylingclasses="text-text-dark mb-2xs md:mb-xs"
+          >
+            Vil du bruge din kunst til at gøre en forskel?
+          </Heading>
+
+          <Text
+            teksttype="brødtekst"
+            stylingclasses="text-text-dark mb-2xs md:mb-xs"
+          >
+            Kunst har altid beskæftiget sig med sindet, og mange kunstnere har
+            dyb indsigt i menneskers følelsesliv og mentale sundhed.
+          </Text>
+
+          <Text teksttype="brødtekst" stylingclasses="text-text-dark">
+            De kunstnere, vi samarbejder med, deler vores mål om at mindske
+            stigmatisering af psykiske lidelser gennem kunstneriske udtryk og
+            kreative fællesskaber.
+          </Text>
+        </div>
+
+        <!-- Billedkolonne -->
+        <div class="md:col-span-5 md:col-start-8">
+          <img
+            src="/img/tilkunstnerbillede.webp"
+            alt="Bruger"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+      </div>
     </section>
     <!-- ***************************** End Til dig, som er kunstner ***************************** -->
 
-    <!-- ***************************** Start Til dig, som er behandler ***************************** -->
-    <section class="bg-background-v2">
-      <p>Til dig som er behandler</p>
+    <!-- ***************************** Start Er du forfatter? ***************************** -->
+    <section
+      class="bg-background-v3 mb-m md:mb-xl px-2xs md:px-l py-xs md:py-m"
+    >
+      <div class="md:grid md:grid-cols-12 md:gap-x-2xs">
+        <!-- Venstre kolonne -->
+        <div class="md:col-start-1 md:col-span-6">
+          <Heading
+            htmlheading="h4"
+            size="xsmall"
+            stylingclasses="text-text-dark mb-xs md:mbm"
+          >
+            Er du forfatter?
+          </Heading>
+
+          <Text teksttype="brødtekst" stylingclasses="text-text-dark ">
+            Kære forfatter, du som arbejder med ord og proces.
+          </Text>
+
+          <Text teksttype="brødtekst" stylingclasses="text-text-dark ">
+            Hos os undersøger vi teksten sammen:
+            <ul class="list-disc list-inside mb-3xs">
+              <li>Hvad er det, du laver?</li>
+              <li>Kan du åbne det op, i et rum med andre?</li>
+              <li>Hvad er psykisk sygdom?</li>
+            </ul>
+          </Text>
+
+          <Text teksttype="brødtekst" stylingclasses="text-text-dark mb-m ">
+            Teksten kan være stærk, stille, sårbar eller voldsom – alt er
+            velkomment i det fælles refleksionsrum.
+          </Text>
+        </div>
+
+        <!-- Højre kolonne -->
+        <div class="md:col-start-7 md:col-span-6">
+          <Heading
+            htmlheading="h4"
+            size="xsmall"
+            stylingclasses="text-text-dark mb-2xs "
+          >
+            Æstetik fremfor diagnose
+          </Heading>
+
+          <Text teksttype="brødtekst" stylingclasses="text-text-dark mb-2xs">
+            Hos os er teksten et materiale. Vi arbejder på tekstens præmisser i
+            et rum, der ændrer sig fra workshop til workshop.
+          </Text>
+
+          <Text teksttype="brødtekst" stylingclasses="text-text-dark mb-2xs">
+            En co-terapeut er med, hvis noget sundhedsfagligt opstår, og vores
+            arbejde følges af forskere og supervisorer.
+          </Text>
+
+          <Text teksttype="brødtekst" stylingclasses="text-text-dark mb-2xs">
+            Du skal ikke være en bestemt type - blot et menneske, der tager sin
+            skrivning alvorligt og vil undersøge den i fællesskab. Alt er tekst.
+          </Text>
+        </div>
+      </div>
     </section>
-    <!-- ***************************** End Til dig, som er behandler ***************************** -->
   </div>
+  <!-- ***************************** End Er du forfatter? ***************************** -->
+
+  <!-- ***************************** Start Til dig, som er behandler ***************************** -->
+  <section class="mb-m mx-2xs md:mb-xl md:mx-l">
+    <div class="md:grid md:grid-cols-12 md:gap-2xs">
+      <!-- Tekstkolonne (mobil: først, desktop: højre side) -->
+      <div class="md:col-span-7 md:col-start-6 md:order-2">
+        <Heading
+          htmlheading="h2"
+          size="medium"
+          stylingclasses="text-text-dark mb-xs md:mb-m"
+        >
+          Til dig som er behandler
+        </Heading>
+
+        <Heading
+          htmlheading="h4"
+          size="xsmall"
+          stylingclasses="text-text-dark mb-2xs md:mb-xs"
+        >
+          Kontaktperson til kontaktperson
+        </Heading>
+
+        <Text
+          teksttype="brødtekst"
+          stylingclasses="text-text-dark mb-2xs md:mb-xs"
+        >
+          Som kontaktperson i psykiatrien kender du måske brugere, der savner et
+          kreativt og sygdomsfrit fællesskab, fordi de eksisterende tilbud ikke
+          helt passer - især de meget kreative og ressourcefulde, som samtidig
+          kan have det svært socialt.
+        </Text>
+
+        <Text
+          teksttype="brødtekst"
+          stylingclasses="text-text-dark mb-xs md:mb-m"
+        >
+          Jeg var selv lidt forbeholden i starten, for vi skal jo henvise til
+          trygge tilbud. Men kunstgrupperne i CKMS er virkelig sikre, fordi der
+          er professionelle behandlere og tæt kontakt til os.
+        </Text>
+        <Text
+          teksttype="brødtekst"
+          stylingclasses="text-text-dark mb-xs md:mb-m"
+        >
+          De brugere, jeg har henvist, har fået det tydeligt bedre.
+        </Text>
+      </div>
+
+      <!-- Billedkolonne (mobil: under teksten, desktop: venstre side) -->
+      <div class="md:col-span-5 md:col-start-1 md:order-1">
+        <img
+          src="/img/tilbehandlerbillede.webp"
+          alt="Bruger"
+          class="w-full h-auto object-cover"
+        />
+      </div>
+    </div>
+  </section>
+  <!-- ***************************** End Til dig, som er behandler ***************************** -->
+
+  <!-- ***************************** Start Læge til læge ***************************** -->
+  <section class="bg-background-v4 px-2xs md:px-l py-xs md:py-m">
+    <div class="md:grid md:grid-cols-12 md:gap-x-2xs">
+      <div class="md:col-start-4 md:col-span-7">
+        <Heading
+          htmlheading="h4"
+          size="xsmall"
+          stylingclasses="text-text-light mb-xs md:mb-m"
+        >
+          Læge til læge
+        </Heading>
+
+        <Text
+          teksttype="brødtekst"
+          stylingclasses="text-text-light mb-xs md:mb-m"
+        >
+          “At være med i kunstgrupperne som læge er både sjovt, meningsfuldt og
+          fagligt lærerigt. Man opdager nye sider af patienterne - også dem, der
+          ellers siger meget lidt i konsultationerne. Gennem deres kunst åbner
+          de et indre liv, man sjældent ser.
+        </Text>
+
+        <Text
+          teksttype="brødtekst"
+          stylingclasses="text-text-light mb-xs md:mb-m"
+        >
+          Kunstworkshoppen skaber et menneskeligt mødested, hvor der opstår nye
+          former for samtaler, refleksion og leg. Det har gjort mig til en bedre
+          læge i mødet med patienterne i det kreative rum.”
+        </Text>
+      </div>
+    </div>
+  </section>
+  <!-- ***************************** End Læge til læge ***************************** -->
 </MainLayout>
