@@ -1,0 +1,60 @@
+---
+import Heading from "./Heading.astro";
+import Button from "./Button.astro";
+import AmountButton from "./AmountButton.astro";
+import Text from "./Text.astro";
+---
+
+<form
+  class="w-full max-w-[550px] lg:max-w-none border-2 border-primary-blue rounded-tr-s md:rounded-tr-l rounded-bl-s md:rounded-bl-l p-2xs md:p-s text-text-dark"
+>
+  <div class="space-y-6 md:space-y-8">
+    <div class="lg:flex lg:gap-4 lg:items-center">
+      <div class="lg:flex-1">
+        <Heading htmlheading="h2" size="xsmallbold" stylingclasses="mb-xs"
+          >Udfyld formularen</Heading
+        >
+
+        <label for="fullName" class="block mb-xs">
+          <Text teksttype="brødtekstbold" stylingclasses="mb-4xs"
+            >Fulde navn
+          </Text>
+          <input
+            id="fullName"
+            type="text"
+            placeholder="Lene Andersen"
+            class="w-full border-2 border-button-dark p-3xs bg-transparent focus:bg-transparent"
+          />
+        </label>
+
+        <label for="email" class="block mb-xs">
+          <Text teksttype="brødtekstbold" stylingclasses="mb-4xs">E-Mail </Text>
+          <input
+            id="email"
+            type="email"
+            placeholder="leneandersen@gmail.com"
+            class="w-full border-2 border-button-dark p-3xs bg-transparent focus:bg-transparent"
+          />
+        </label>
+      </div>
+
+      <div class="hidden lg:flex">
+        <img src="/img/logo.svg" alt="Logo" />
+      </div>
+    </div>
+
+    <Heading htmlheading="h4" size="xsmallbold" stylingclasses="mb-2xs"
+      >Støt med:</Heading
+    >
+
+    <div class="flex w-full justify-evenly mb-xs md:mb-m">
+      <AmountButton>100</AmountButton>
+      <AmountButton>250</AmountButton>
+      <AmountButton>500</AmountButton>
+    </div>
+
+    <div class="flex justify-center">
+      <Button>Gå til betaling</Button>
+    </div>
+  </div>
+</form>

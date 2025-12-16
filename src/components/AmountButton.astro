@@ -4,38 +4,16 @@ import Heading from "./Heading.astro";
 
 <div>
   <button
-    class="amount-btn inline-flex items-center gap-3xs border-2 border-button-dark text-text-dark px-[25px] py-[5px] transition-all duration-300 hover:bg-button-dark hover:border-button-dark hover:text-text-light group [&.selected]:bg-button-dark [&.selected]:border-button-dark"
+    type="button"
+    aria-pressed="false"
+    class="amount-btn inline-flex items-center gap-3xs border-2 border-button-dark text-text-dark p-4xs md:px-2xs md:py-4xs transition-all duration-300 hover:bg-button-dark hover:text-text-light aria-[pressed=true]:bg-button-dark aria-[pressed=true]:text-text-light"
   >
     <Heading
       htmlheading="h4"
       size="xsmall"
-      stylingclasses="heading-text text-text-dark group-hover:text-text-light transition-colors"
+      stylingclasses="heading-text text-current transition-colors"
     >
-      <slot /> kr</Heading
-    >
+      <slot /> kr
+    </Heading>
   </button>
 </div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const buttons = document.querySelectorAll(".amount-btn");
-
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const alreadySelected = button.classList.contains("selected");
-
-        buttons.forEach((btn) => {
-          btn.classList.remove("selected");
-          const heading = btn.querySelector("h4");
-          if (heading) heading.classList.remove("!text-text-light");
-        });
-
-        if (alreadySelected) return;
-
-        button.classList.add("selected");
-        const heading = button.querySelector("h4");
-        if (heading) heading.classList.add("!text-text-light");
-      });
-    });
-  });
-</script>

@@ -1,8 +1,10 @@
 ---
 import Heading from "./Heading.astro";
+
+const { class: className = "" } = Astro.props;
 ---
 
-<div class="grid grid-cols-4 gap-2xs md:grid-cols-12">
+<div class:list={["grid grid-cols-4 gap-2xs md:grid-cols-12", className]}>
   <div class="col-span-2 md:col-span-3">
     <img
       src="/img/Brugerbillede.webp"
