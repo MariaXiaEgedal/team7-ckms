@@ -4,42 +4,172 @@ import Button from "../components/Button.astro";
 import Link from "../components/Link.astro";
 import { Image } from "astro:assets";
 import thumbsup from "../assets/images/thumbsup.png";
+import Heading from "../components/Heading.astro";
+import Text from "../components/Text.astro";
+// import TildigSection from "../components/TildigSection.astro";
+import CardWorkshop from "../components/CardWorkshop.astro";
 ---
 
 <MainLayout title="CKMS">
-  <div>
+  <div class="flex flex-col gap-m md:gap-xl mb-m md:mb-xl">
     <!-- ***************************** Start Hero ***************************** -->
-    <section class="bg-background-v2">
-      <p>Hero sektion</p>
+    <section class="bg-background-v2 text-text-dark">
+      <p>Hero</p>
     </section>
+
     <!-- ***************************** End Hero ***************************** -->
 
     <!-- ***************************** Start Vision og mission ***************************** -->
-    <section class="bg-background-v3">
-      <p>Vision og mission</p>
+    <section class="bg-background-v3 mx-2xs md:mx-l">
+      <Heading
+        htmlheading="h2"
+        size="medium"
+        stylingclasses="mb-xs md:mb-m animate-fade-right"
+        >Vision og mission
+      </Heading>
+
+      <div class="grid grid-cols-4 md:grid-cols-12 gap-x-2xs md:items-end">
+        <!-- Text on mobile (full width), on desktop col 8-12 -->
+        <div
+          class="col-span-4 md:col-span-5 md:col-start-8 text-text-dark md:order-2"
+        >
+          <Text typest="brødtekst" stylingclasses="mb-2xs md:mb-xs">
+            Vi arbejder for en psykiatri med mere fokus på det hele menneske -
+            med ligeværd, kreativitet, venlighed og tryghed.
+          </Text>
+
+          <Text typest="brødtekst" stylingclasses="mb-2xs md:mb-xs">
+            Gennem deltagerfokuserede kunstworkshops skaber vi fællesskab,
+            trivsel og håb for mennesker med psykiske lidelser.
+          </Text>
+
+          <Text typest="brødtekst" stylingclasses="mb-xs md:mb-m">
+            Vi supplerer psykiatrien med forskningsbaserede kunsttilbud,
+            udviklet i samarbejde mellem kunstnere, forfattere, psykiatribrugere
+            og sundhedsfaglige forskere. Vi hjælper hinanden med at hjælpe
+            andre.
+          </Text>
+
+          <div class="hidden md:block">
+            <Button>Læs mere om os</Button>
+          </div>
+        </div>
+
+        <!-- Images -->
+        <img
+          class="col-start-1 col-end-4 md:col-start-1 md:col-end-5 w-full h-[150px] md:h-auto object-cover md:order-1 mb-2xs md:mb-0"
+          src="/img/vision-mission1.webp"
+          alt="Kirkeinteriør med mennesker"
+        />
+        <img
+          class="col-start-2 col-end-5 md:col-start-5 md:col-end-8 w-full h-[150px] md:h-auto object-cover md:order-1 mb-xs md:mb-0"
+          src="/img/vision-mission2.webp"
+          alt="Mennesker i samtale under workshop"
+        />
+
+        <!-- Button - only on mobile -->
+        <div class="col-span-4 md:hidden flex justify-center">
+          <Button>Læs mere om os</Button>
+        </div>
+      </div>
     </section>
     <!-- ***************************** End Vision og mission ***************************** -->
 
     <!-- ***************************** Start Til dig, som er ***************************** -->
-    <section class="bg-background-v4">
-      <p>Til dig, som er ...</p>
+    <section class="bg-background-v4 mx-2xs md:mx-l">
+      <Heading
+        htmlheading="h2"
+        size="medium"
+        stylingclasses="mb-xs md:mb-m animate-fade-right"
+        >Til dig, som er...
+      </Heading>
+      <!-- <TildigSection -->
+      <div class="flex justify-center">
+        <Button>Læs mere</Button>
+      </div>
     </section>
     <!-- ***************************** End Til dig, som er ***************************** -->
 
     <!-- ***************************** Start Workshops ***************************** -->
-    <section class="bg-background-v5">
-      <p>Workshops</p>
+    <section class="bg-background-v5 mx-2xs md:mx-l">
+      <Heading
+        htmlheading="h2"
+        size="medium"
+        stylingclasses="mb-xs md:mb-m animate-fade-right"
+        >Workshops
+      </Heading>
+
+      <Heading
+        htmlheading="h4"
+        size="xsmall"
+        stylingclasses=" mb-2xs md:mb-xs text-text-dark"
+        >Hos CKMS tilbyder vi et frirum for brugere af psykiatrien, hvor vi
+        mødes om at være kreative.
+      </Heading>
+
+      <Text typest="brødtekst" stylingclasses="mb-2xs md:mb-xs">
+        Vi tilbyder følgende workshops:)
+      </Text>
+
+      <div
+        class="grid grid-cols-2 lg:grid-cols-5 gap-2xs lg:gap-0 mb-xs md:mb-m"
+      >
+        <CardWorkshop
+          title="Skrivegrupper"
+          imageSrc="/img/IkonSkrivegrupper.svg"
+          alt="Åben bog"
+          bgColor="bg-workshop-skrivegruppe-card"
+          textColor="text-text-dark"
+          zIndex={5}
+        />
+        <CardWorkshop
+          title="Dramagruppe"
+          imageSrc="/img/IkonDramagruppe.svg"
+          alt="Teatermasker"
+          bgColor="bg-workshop-dramagruppe-card"
+          textColor="text-text-light"
+          zIndex={4}
+        />
+        <CardWorkshop
+          title="Billedkunst"
+          imageSrc="/img/IkonBilledkunst.svg"
+          alt="Male-palette"
+          bgColor="bg-workshop-billedkunst-card"
+          textColor="text-text-dark"
+          zIndex={3}
+        />
+        <CardWorkshop
+          title="Åbent værksted"
+          imageSrc="/img/IkonÅbentværksted.svg"
+          alt="Åben dør"
+          bgColor="bg-workshop-aabentvaerksted-card"
+          textColor="text-text-dark"
+          zIndex={2}
+        />
+        <CardWorkshop
+          title="Film og lyd"
+          imageSrc="/img/IkonFilmlyd.svg"
+          alt="Filmklaptræ"
+          bgColor="bg-workshop-filmlyd-card"
+          textColor="text-text-light"
+          zIndex={1}
+        />
+      </div>
+
+      <div class="flex justify-center">
+        <Button>Læs mere</Button>
+      </div>
     </section>
     <!-- ***************************** End Workshops ***************************** -->
 
     <!-- ***************************** Start Støt vores formål og arbejde ***************************** -->
-    <section class="bg-background-v2">
+    <section class="bg-background-v2 mx-2xs md:mx-l">
       <p>Støt vores formål og arbejde</p>
     </section>
     <!-- ***************************** End Støt vores formål og arbejde ***************************** -->
 
     <!-- ***************************** Start Udstillinger i CKMS ***************************** -->
-    <section class="bg-background-v3">
+    <section class="bg-background-v3 mx-2xs md:mx-l">
       <p>Udstillinger i CKMS</p>
     </section>
     <!-- ***************************** End Udstillinger i CKMS ***************************** -->
@@ -51,19 +181,19 @@ import thumbsup from "../assets/images/thumbsup.png";
     <!-- ***************************** End Video ***************************** -->
 
     <!-- ***************************** Start Nyt fra CKMS ***************************** -->
-    <section class="bg-background-v5">
+    <section class="bg-background-v5 mx-2xs md:mx-l">
       <p>Nyt fra CKMS</p>
     </section>
     <!-- ***************************** End Nyt fra CKMS ***************************** -->
 
     <!-- ***************************** Start Nyhedsbrev ***************************** -->
-    <section class="bg-background-v2">
+    <section class="bg-background-v2 mx-2xs md:mx-l">
       <p>Nyhedsbrev</p>
     </section>
     <!-- ***************************** End Nyhedsbrev ***************************** -->
 
     <!-- ***************************** Start Følg med på Instagram ***************************** -->
-    <section class="bg-background-v3">
+    <section class="bg-background-v3 mx-2xs md:mx-l">
       <p>Følg med på Instagram</p>
     </section>
     <!-- ***************************** End Følg med på Instagram ***************************** -->

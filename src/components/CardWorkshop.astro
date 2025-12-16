@@ -1,0 +1,36 @@
+---
+import Text from "./Text.astro";
+
+const {
+  title = "Workshop",
+  imageSrc = "/img/placeholder.svg",
+  alt = title,
+  bgColor = "bg-base",
+  textColor = "text-text-dark",
+  zIndex = 0,
+} = Astro.props;
+---
+
+<article
+  class:list={[
+    "relative overflow-hidden rounded-tr-s md:rounded-tr-l shadow-lg min-h-[120px] md:min-h-[180px] flex flex-col lg:-ml-[60px] first:ml-0 transition-all duration-300 hover:scale-105 lg:hover:scale-110 lg:hover:z-50 lg:hover:mx-2xs",
+    bgColor,
+    textColor,
+  ]}
+  style={`z-index: ${zIndex}`}
+>
+  <div class="p-2xs md:p-sflex-1 flex flex-col items-center justify-center">
+    <div class="flex items-center justify-center">
+      <img
+        src={imageSrc}
+        alt={alt}
+        loading="lazy"
+        class="h-32 w-32 md:h-40 md:w-40 object-contain drop-shadow-sm mb-3xs"
+      />
+    </div>
+    <div>
+      <Text teksttype="brødtekstbold" stylingclasses="text-center">{title}</Text
+      >
+    </div>
+  </div>
+</article>
