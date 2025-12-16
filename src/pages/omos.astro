@@ -4,6 +4,7 @@ import Heading from "../components/Heading.astro";
 import Text from "../components/Text.astro";
 import AktivitetCard from "../components/AktivitetCard.astro";
 import InstagramCarousel from "../components/InstagramCarousel.astro";
+import Button from "../components/Button.astro";
 
 const teamMembers = [
   {
@@ -50,12 +51,13 @@ const teamMembers = [
   <div class="flex flex-col gap-m md:gap-xl">
     <!-- ***************************** Start Om os ***************************** -->
 
-    <section class="grid grid-cols-4 md:grid-cols-12 mx-2xs md:mx-l">
-      <div class="col-span-4 md:col-span-6" style="">
-        <Heading htmlheading="h1" size="large" class="text-text-dark">
-          Om os
-        </Heading>
-        <div class="">
+    <section class="mx-2xs md:mx-l mt-xl animate-fade-right">
+      <Heading htmlheading="h1" size="large" class="text-text-dark">
+        Om os
+      </Heading>
+
+      <div class="grid grid-cols-4 md:grid-cols-12 gap-2xs">
+        <div class="col-span-4 md:col-span-6">
           <Text class="text-text-dark">
             Nationalt Center for Kunst og Mental Sundhed er et forskningsbaseret
             mødested, hvor venlighed og respekt er det faste grundlag og hvor vi
@@ -95,13 +97,13 @@ const teamMembers = [
             </li>
           </ul>
         </div>
-      </div>
-      <div class="col-span-4 md:col-span-6 flex items-center" style="">
-        <img
-          src="public/img/omosbillede1.png"
-          alt="Workshop deltagere"
-          class="w-full h-auto"
-        />
+        <div class="col-span-4 md:col-span-6 flex items-start">
+          <img
+            src="public/img/omosbillede1.png"
+            alt="Workshop deltagere"
+            class="w-full h-auto"
+          />
+        </div>
       </div>
     </section>
 
@@ -142,15 +144,19 @@ const teamMembers = [
     <!-- ***************************** Start Kunst og psykiatri ***************************** -->
     <section class="col-span-4 md:col-span-12 bg-background-v5" style="">
       <div style="">
-        <Heading htmlheading="h3" size="small" class="text-text-dark mb-12">
-          Kunst og psykiatri
-        </Heading>
+        <div class="mx-2xs md:mx-l pt-m">
+          <Heading htmlheading="h3" size="small" class="text-text-dark">
+            Kunst og psykiatri
+          </Heading>
+        </div>
 
         <!-- 3 kolonner -->
-        <div class="grid grid-cols-4 md:grid-cols-3 gap-2xs mx-2xs md:mx-l">
+        <div
+          class="grid grid-cols-4 md:grid-cols-3 gap-2xs mx-2xs md:mx-l pt-xs pb-xs"
+        >
           <!-- Column 1 -->
           <div
-            class="col-span-4 md:col-span-1 md:px-8 md:border-r-2 md:border-text-dark"
+            class="col-span-4 md:col-span-1 md:border-r-2 md:border-text-dark"
           >
             <Text class="text-text-dark">
               Kunst har fra psykiatriens begyndelse været brugt som
@@ -168,7 +174,7 @@ const teamMembers = [
 
           <!-- Column 2 -->
           <div
-            class="col-span-4 md:col-span-1 md:px-8 md:border-r-2 md:border-text-dark"
+            class="col-span-4 md:col-span-1 md:border-r-2 md:border-text-dark"
           >
             <Text class="text-text-dark">
               I Center for Kunst og Mental Sundhed (CKMS) arbejder vi ud fra, at
@@ -187,7 +193,7 @@ const teamMembers = [
           </div>
 
           <!-- Column 3 -->
-          <div class="col-span-4 md:col-span-1 md:px-8">
+          <div class="col-span-4 md:col-span-1">
             <Text class="text-text-dark">
               I CKMS har vi videreuddannelse koncept som en hybrid mellem
               kunstgruppe og gruppeterapi intervention: Grupperne ledes af en
@@ -202,16 +208,12 @@ const teamMembers = [
 
         <!-- Sources Button -->
         <button
-          class="border-2 border-text-dark py-4 flex items-center justify-between text-left mx-2xs md:mx-l"
+          class="border-2 border-text-dark p-3xs flex items-center mx-2xs md:mx-l"
           type="button"
           aria-expanded="false"
         >
-          <div class="flex items-center gap-3">
-            <Heading
-              htmlheading="h4"
-              size="xsmall"
-              stylingclasses="text-text-dark"
-            >
+          <div>
+            <Heading htmlheading="h4" size="xsmall" class="text-text-dark">
               Kilder
             </Heading>
           </div>
@@ -228,21 +230,19 @@ const teamMembers = [
         >
           <div class="py-8 space-y-6 px-4">
             <Text class="text-text-dark">
-              <strong>Boal, A. (1979).</strong> Theatre of the Oppressed. Pluto Press.
+              Boal, A. (1979). Theatre of the Oppressed. Pluto Press.
             </Text>
             <Text class="text-text-dark">
-              <strong>Prinzhorn, H. (1922).</strong> Artistry of the Mentally Ill.
+              Prinzhorn, H. (1922). Artistry of the Mentally Ill.
               Springer-Verlag.
             </Text>
             <Text class="text-text-dark">
-              <strong>Foucault, M. (1961).</strong> Madness and Civilization. Pantheon
-              Books.
+              Foucault, M. (1961). Madness and Civilization. Pantheon Books.
             </Text>
             <Text class="text-text-dark">
-              <strong
-                >Csikszentmihalyi, M., & Selega Csikszentmihalyi, I. (1988).</strong
-              > Optimal Experience: Psychological Studies of Flow in Consciousness.
-              Cambridge University Press.
+              Csikszentmihalyi, M., & Selega Csikszentmihalyi, I. (1988).
+              Optimal Experience: Psychological Studies of Flow in
+              Consciousness. Cambridge University Press.
             </Text>
           </div>
         </div>
@@ -251,72 +251,45 @@ const teamMembers = [
     <!-- ***************************** End Kunst og psykiatri ***************************** -->
 
     <!-- ***************************** Start Aktivitetsteamet ***************************** -->
-    <section
-      class="col-span-4 md:col-span-12 py-12 md:py-20"
-      style="margin-left: calc(-1 * var(--grid-margin-mobile)); margin-right: calc(-1 * var(--grid-margin-mobile)); padding-left: 0; padding-right: 0;"
-    >
-      <div
-        style="padding-left: var(--grid-margin-mobile); padding-right: var(--grid-margin-mobile);"
-      >
-        <Heading htmlheading="h3" size="small" class="text-text-dark mb-8">
+    <section class="col-span-4 md:col-span-12">
+      <div class="mx-2xs md:mx-l">
+        <Heading htmlheading="h3" size="small" class="text-text-dark">
           Aktivitetsteamet
         </Heading>
       </div>
 
-      <div
-        class="aktivitet-carousel-wrapper"
-        style="position: relative; padding-left: var(--grid-margin-mobile); padding-right: var(--grid-margin-mobile);"
-      >
+      <div class="aktivitet-carousel-wrapper" style="position: relative;">
         <button
           id="aktivitet-prev"
           class="nav-button"
           aria-label="Forrige"
-          style="position:absolute;left:12px;top:50%;transform:translateY(-50%);z-index:60;background:transparent;border:none;padding:0;"
+          style="position:absolute;left:0;z-index:60;"
         >
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            focusable="false"
-            style="width:28px;height:28px;color:var(--color-text-dark);"
-          >
-            <path
-              d="M18 6 L10 12 L18 18"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              fill="none"></path>
-          </svg>
+          <img
+            src="/img/pilleft.svg"
+            alt="Forrige"
+            style="width:50px;height:50px;"
+          />
         </button>
         <button
           id="aktivitet-next"
           class="nav-button"
           aria-label="Næste"
-          style="position:absolute;right:12px;top:50%;transform:translateY(-50%);z-index:60;background:transparent;border:none;padding:0;"
+          style="position:absolute;right:0;z-index:60;"
         >
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            focusable="false"
-            style="width:28px;height:28px;color:var(--color-text-dark);"
-          >
-            <path
-              d="M6 6 L14 12 L6 18"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              fill="none"></path>
-          </svg>
+          <img
+            src="/img/pilright.svg"
+            alt="Næste"
+            style="width:50px;height:50px;"
+          />
         </button>
         <div
-          class="aktivitet-carousel overflow-x-auto snap-x snap-mandatory flex gap-4 md:gap-6 py-6"
-          style="scroll-padding-left: var(--grid-margin-mobile); scroll-padding-right: var(--grid-margin-mobile);"
+          class="aktivitet-carousel overflow-x-auto snap-x snap-mandatory flex gap-4xs md:gap-2xs"
           id="aktivitet-carousel"
         >
           {
             teamMembers.map((member) => (
-              <div class="card snap-center flex-shrink-0">
+              <div class="card snap-center ">
                 <AktivitetCard
                   image={member.image}
                   name={member.name}
@@ -326,266 +299,24 @@ const teamMembers = [
             ))
           }
         </div>
-
-        <style>
-          /* smooth container scrolling so JS doesn't need to animate */
-          .aktivitet-carousel {
-            scroll-behavior: smooth;
-          }
-
-          /* basic transition for cards (use Tailwind utilities where possible in markup)
-             keep a minimal fallback CSS for responsive scales */
-          .aktivitet-carousel .card {
-            transition:
-              transform 200ms ease,
-              opacity 200ms ease;
-          }
-
-          .nav-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 56px;
-            height: 56px;
-            background: var(--color-text-light);
-            border-radius: 9999px;
-            border: none;
-            color: var(--color-text-dark);
-          }
-          .nav-button svg {
-            width: 28px;
-            height: 28px;
-          }
-
-          /* mobile: larger single card view but slightly reduced for contrast */
-          .aktivitet-carousel .card {
-            flex: 0 0 80%;
-            max-width: 80%;
-            transform: scale(0.88);
-            opacity: 0.9;
-          }
-
-          @media (min-width: 768px) {
-            .aktivitet-carousel {
-              padding-bottom: 0;
-            }
-            /* show five cards across */
-            .aktivitet-carousel .card {
-              flex: 0 0 calc((100% - 64px) / 5);
-              max-width: calc((100% - 64px) / 5);
-              transform: scale(0.6);
-              opacity: 0.7;
-            }
-            /* center card is significantly larger */
-            .aktivitet-carousel .card.center {
-              transform: scale(1.36);
-              z-index: 50;
-              opacity: 1;
-            }
-          }
-
-          /* fallback for small screens when center class applies */
-          .aktivitet-carousel .card.center {
-            transform: scale(1.06);
-            opacity: 1;
-          }
-        </style>
-
-        <script>
-          (function () {
-            const container = document.getElementById("aktivitet-carousel");
-            const prevBtn = document.getElementById("aktivitet-prev");
-            const nextBtn = document.getElementById("aktivitet-next");
-            if (!container) return;
-
-            // original cards (before cloning)
-            const originals = Array.from(container.querySelectorAll(".card"));
-            const n = originals.length;
-            if (n === 0) return;
-
-            // mark originals so we can find them later
-            originals.forEach(
-              (el, i) => (el.dataset.originalIndex = String(i))
-            );
-
-            // create clones: prepend reversed, append normal order
-            for (let i = n - 1; i >= 0; i--) {
-              const clone = originals[i].cloneNode(true);
-              clone.dataset.clone = "true";
-              clone.dataset.originalIndex = String(i);
-              container.insertBefore(clone, container.firstChild);
-            }
-            for (let i = 0; i < n; i++) {
-              const clone = originals[i].cloneNode(true);
-              clone.dataset.clone = "true";
-              clone.dataset.originalIndex = String(i);
-              container.appendChild(clone);
-            }
-
-            const cards = () => Array.from(container.querySelectorAll(".card"));
-
-            function bindCardClicks() {
-              cards().forEach((el) => {
-                el.addEventListener("click", (e) => {
-                  const orig = Number(el.dataset.originalIndex);
-                  if (!Number.isNaN(orig)) goToIndex(orig);
-                });
-              });
-            }
-
-            // attach click handlers (clones were created above)
-            bindCardClicks();
-
-            function indexOfCenterOriginalIndex() {
-              const centerX = container.scrollLeft + container.clientWidth / 2;
-              let closestIndex = 0;
-              let closestDist = Infinity;
-              const list = cards();
-              list.forEach((el, idx) => {
-                const elCenter = el.offsetLeft + el.offsetWidth / 2;
-                const dist = Math.abs(elCenter - centerX);
-                if (dist < closestDist) {
-                  closestDist = dist;
-                  closestIndex = idx;
-                }
-              });
-              const el = list[closestIndex];
-              return parseInt(el.dataset.originalIndex, 10);
-            }
-
-            function setCenterClassByOriginalIndex(origIdx) {
-              cards().forEach((el) =>
-                el.classList.toggle(
-                  "center",
-                  Number(el.dataset.originalIndex) === origIdx
-                )
-              );
-            }
-
-            function goToIndex(i) {
-              // wrap index so navigation loops
-              i = ((i % n) + n) % n;
-              const target = container.querySelector(
-                `.card[data-original-index="${i}"]:not([data-clone])`
-              );
-              if (!target) return;
-              const left =
-                target.offsetLeft +
-                target.offsetWidth / 2 -
-                container.clientWidth / 2;
-              setCenterClassByOriginalIndex(i);
-              container.scrollTo({ left, behavior: "smooth" });
-            }
-
-            prevBtn &&
-              prevBtn.addEventListener("click", () => {
-                const idx = indexOfCenterOriginalIndex();
-                goToIndex(idx - 1);
-              });
-            nextBtn &&
-              nextBtn.addEventListener("click", () => {
-                const idx = indexOfCenterOriginalIndex();
-                goToIndex(idx + 1);
-              });
-
-            window.addEventListener("keydown", (e) => {
-              const active =
-                document.activeElement && document.activeElement.tagName;
-              if (active === "INPUT" || active === "TEXTAREA") return;
-              if (e.key === "ArrowLeft") {
-                e.preventDefault();
-                const idx = indexOfCenterOriginalIndex();
-                goToIndex(idx - 1);
-              }
-              if (e.key === "ArrowRight") {
-                e.preventDefault();
-                const idx = indexOfCenterOriginalIndex();
-                goToIndex(idx + 1);
-              }
-            });
-
-            // when user scrolls into clones, jump (without animation) to the matching original
-            let scrollTimer = null;
-            container.addEventListener(
-              "scroll",
-              () => {
-                if (scrollTimer) clearTimeout(scrollTimer);
-                scrollTimer = setTimeout(() => {
-                  const centerOrig = indexOfCenterOriginalIndex();
-                  // find the currently centered element (could be clone or original)
-                  const list = cards();
-                  const centerX =
-                    container.scrollLeft + container.clientWidth / 2;
-                  let closestEl = list[0];
-                  let closestDist = Infinity;
-                  list.forEach((el) => {
-                    const elCenter = el.offsetLeft + el.offsetWidth / 2;
-                    const dist = Math.abs(elCenter - centerX);
-                    if (dist < closestDist) {
-                      closestDist = dist;
-                      closestEl = el;
-                    }
-                  });
-
-                  // if centered element is a clone, snap to its original counterpart
-                  if (closestEl.dataset.clone === "true") {
-                    const orig = container.querySelector(
-                      `.card[data-original-index="${centerOrig}"]:not([data-clone])`
-                    );
-                    if (orig) {
-                      const left =
-                        orig.offsetLeft +
-                        orig.offsetWidth / 2 -
-                        container.clientWidth / 2;
-                      // temporarily disable smooth so the jump is instant
-                      const prevBehavior = container.style.scrollBehavior;
-                      container.style.scrollBehavior = "auto";
-                      container.scrollLeft = left;
-                      // restore smooth behavior next frame
-                      requestAnimationFrame(() => {
-                        container.style.scrollBehavior =
-                          prevBehavior || "smooth";
-                      });
-                    }
-                  }
-
-                  setCenterClassByOriginalIndex(centerOrig);
-                }, 120);
-              },
-              { passive: true }
-            );
-
-            window.addEventListener("resize", () => {
-              const idx = indexOfCenterOriginalIndex();
-              goToIndex(idx);
-            });
-
-            // init: center the 3rd original card (index 2) if available
-            requestAnimationFrame(() => {
-              const startIdx = Math.min(2, n - 1);
-              goToIndex(startIdx);
-            });
-          })();
-        </script>
       </div>
     </section>
     <!-- ***************************** End Aktivitetsteamet ***************************** -->
 
     <!-- ***************************** Start Vi glæder os til at høre fra dig! ***************************** -->
     <section
-      class="col-span-4 md:col-span-12 py-12 md:py-20 grid grid-cols-4 md:grid-cols-12"
-      style="margin-top: var(--spacing-xl); gap: var(--grid-gap);"
+      class="col-span-4 md:col-span-12 py-3xs md:py-2xs grid grid-cols-4 md:grid-cols-12 mx-2xs md:mx-l gap-xs"
     >
-      <!-- Pink box with text -->
+      <!-- Pink box  -->
       <div
-        class="col-span-4 md:col-span-6 bg-background-v3 p-8 md:p-12"
+        class="col-span-4 md:col-span-6 bg-background-v3 p-2xs md:p-xs"
         style="border-radius: 0 50px 0 50px;"
       >
-        <Heading htmlheading="h3" size="small" stylingclasses="text-text-dark">
+        <Heading htmlheading="h3" size="small" class="text-text-dark">
           Vi glæder os til at høre fra dig!
         </Heading>
 
-        <Text stylingclasses="text-text-dark mb-12">
+        <Text class="text-text-dark mb-xs">
           Nationalt Center for Kunst og Mental Sundhed har til huse i det
           tidligere Sankt Elisabeths Hospital, som blev stiftet af Sankt
           Elisabethsstiftelsen i 1904.
@@ -593,13 +324,10 @@ const teamMembers = [
 
         <div class="space-y-4">
           <div>
-            <Text
-              teksttype="brødtekstbold"
-              stylingclasses="text-text-dark mb-2"
-            >
+            <Text teksttype="brødtekstbold" class="text-text-dark mb-3xs">
               Kontakt os
             </Text>
-            <Text teksttype="brødtekst" stylingclasses="text-text-dark">
+            <Text class="text-text-dark">
               Psykiatrisk Center Amager<br />
               Hans Bogbinders Allé 3, 2.tv<br />
               2300 København S<br />
@@ -613,19 +341,15 @@ const teamMembers = [
       </div>
 
       <!-- Map (placeholder) -->
-      <div
-        class="col-span-4 md:col-span-6 flex flex-col"
-        style="gap: var(--spacing-xs);"
-      >
+      <div class="col-span-4 md:col-span-6 flex flex-col">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2250.4473319073043!2d12.58471!3d55.13234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465252f5c5c5c5c5%3A0x5c5c5c5c5c5c5c5c!2sHans%20Bogbinders%20All%C3%A9%203%2C%202300%20K%C3%B8benhavn%20S!5e0!3m2!1sda!2sdk!4v1639563045"
           width="100%"
           height="400"
-          style="border: 0; border-radius: 12px;"
           allowfullscreen=""
           loading="lazy"></iframe>
 
-        <Text teksttype="brødtekst" stylingclasses="text-text-dark">
+        <Text class="text-text-dark">
           Nærmeste metrostation er Amagerbrо (lige ved Amagercеntret), ca 1.2
           km. Herfra går bus nr. 5C direkte til døren (ca. 7 min)
         </Text>
@@ -634,13 +358,8 @@ const teamMembers = [
     <!-- ***************************** End Vi glæder os til at høre fra dig! ***************************** -->
 
     <!-- ***************************** Start Følg med på Instagram ***************************** -->
-    <section
-      class="col-span-4 md:col-span-12 py-12 md:py-20"
-      style="margin-top: var(--spacing-xl); padding-left: var(--grid-margin-mobile); padding-right: var(--grid-margin-mobile);"
-    >
-      <div
-        style="padding-left: var(--grid-margin-desktop); padding-right: var(--grid-margin-desktop);"
-      >
+    <section class="col-span-4 md:col-span-12" style="">
+      <div style="">
         <Heading
           htmlheading="h3"
           size="medium"
@@ -648,66 +367,37 @@ const teamMembers = [
         >
           Følg med på Instagram
         </Heading>
-
-        <InstagramCarousel
-          images={[
-            {
-              src: "public/img/instagram1.png",
-              alt: "Instagram billede 1",
-            },
-            {
-              src: "public/img/instagram2.png",
-              alt: "Instagram billede 2",
-            },
-            {
-              src: "public/img/instagram3.png",
-              alt: "Instagram billede 3",
-            },
-            {
-              src: "public/img/instagram4.png",
-              alt: "Instagram billede 4",
-            },
-            {
-              src: "public/img/instagram5.png",
-              alt: "Instagram billede 5",
-            },
-          ]}
-        />
       </div>
-    </section>
-    <!-- ***************************** End Følg med på Instagram ***************************** -->
+      <!-- ***************************** End Følg med på Instagram ***************************** -->
 
-    <!-- ***************************** Start Organisation og vedtægter ***************************** -->
-    <section
-      class="col-span-4 md:col-span-12 bg-background-v2 py-12 md:py-20"
-      style="margin-top: var(--spacing-xl); margin-left: calc(-1 * var(--grid-margin-mobile)); margin-right: calc(-1 * var(--grid-margin-mobile)); padding-left: var(--grid-margin-mobile); padding-right: var(--grid-margin-mobile);"
-    >
-      <div>
-        <div class="grid grid-cols-4 md:grid-cols-12 gap-8 items-start">
-          <!-- Left side - Text content -->
-          <div class="col-span-4 md:col-span-6">
-            <Heading htmlheading="h2" stylingclasses="text-text-dark mb-8">
-              Organisation og vedtægter
-            </Heading>
+      <!-- ***************************** Start Organisation og vedtægter ***************************** -->
+      <section class="col-span-4 md:col-span-12 bg-background-v2">
+        <div>
+          <div class="grid grid-cols-4 md:grid-cols-12 gap-3xs items-start">
+            <!-- Left side - Text content -->
+            <div class="col-span-4 md:col-span-6 mx-2xs md:mx-l">
+              <Heading htmlheading="h2" class="text-text-dark mb-m">
+                Organisation og vedtægter
+              </Heading>
 
-            <Text stylingclasses="text-text-dark mb-6">
-              Center for Kunst og Mental Sundhed (CKMS) er stiftet af Foreningen
-              Kunst og Mental Sundhed, grundlagt d. 26/02 2019 med civile og
-              statslige fondsmidler. Foreningen fastlægger mål og strategi for
-              CKMS.
-            </Text>
+              <Text stylingclasses="text-text-dark mb-m">
+                Center for Kunst og Mental Sundhed (CKMS) er stiftet af
+                Foreningen Kunst og Mental Sundhed, grundlagt d. 26/02 2019 med
+                civile og statslige fondsmidler. Foreningen fastlægger mål og
+                strategi for CKMS.
+              </Text>
 
-            <Heading
-              htmlheading="h4"
-              size="xsmallbold"
-              stylingclasses="text-text-dark mb-6"
-            >
-              Vedtægter pr. marts 2023
-            </Heading>
-          </div>
+              <Heading
+                htmlheading="h4"
+                size="xsmallbold"
+                stylingclasses="text-text-dark mb-xs"
+              >
+                Vedtægter pr. marts 2023
+              </Heading>
+            </div>
 
-          <!-- Right side - Circular logo -->
-          <!-- <div class="col-span-4 md:col-span-6 flex items-center justify-center">
+            <!-- Right side - Circular logo -->
+            <!-- <div class="col-span-4 md:col-span-6 flex items-center justify-center">
           <div class="w-64 h-64 md:w-96 md:h-96 relative">
             <svg viewBox="0 0 200 200" class="w-full h-full">
               <defs>
@@ -727,463 +417,673 @@ const teamMembers = [
           </div>
         </div> -->
 
-          <!-- Full-width two-column dropdowns (desktop spans both rows) -->
-          <div class="col-span-4 md:col-span-12 mt-6 md:mt-8">
-            <div class="grid grid-cols-4 md:grid-cols-12 items-stretch">
-              <!-- Left column -->
-              <div
-                class="col-span-4 md:col-span-6 border-t-2 border-text-dark h-full"
-              >
-                <button
-                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
-                  type="button"
-                  aria-expanded="false"
-                >
-                  <div class="flex items-center gap-3">
-                    <Text stylingclasses="text-text-dark">Navn og hjemsted</Text
-                    >
-                  </div>
-                  <img
-                    src="/img/pilned.svg"
-                    alt="Åbn"
-                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
-                  />
-                </button>
+            <!-- Full-width two-column dropdowns (desktop spans both rows) -->
+            <div class="col-span-4 md:col-span-12 mx-2xs md:mx-l">
+              <div class="grid grid-cols-4 md:grid-cols-12 items-stretch">
+                <!-- venstre kolonne -->
                 <div
-                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                  class="col-span-4 md:col-span-6 border-t-2 border-text-dark h-full pr-3xs"
                 >
-                  <div class="py-4 px-4">
-                    <Text stylingclasses="text-text-dark"
-                      >Foreningen Kunst og Mental Sundhed, Københavns Kommune,
-                      Hans Bogbinders Alle 3, 2. tv., Opgang 8.</Text
-                    >
+                  <button
+                    class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <div class="flex items-center gap-3">
+                      <Text stylingclasses="text-text-dark"
+                        >Navn og hjemsted</Text
+                      >
+                    </div>
+                    <img
+                      src="/img/pilned.svg"
+                      alt="Åbn"
+                      class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                    />
+                  </button>
+                  <div
+                    class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                  >
+                    <div class="py-4">
+                      <Text stylingclasses="text-text-dark"
+                        >Foreningen Kunst og Mental Sundhed, Københavns Kommune,
+                        Hans Bogbinders Alle 3, 2. tv., Opgang 8.</Text
+                      >
+                    </div>
+                  </div>
+
+                  <button
+                    class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <div class="flex items-center gap-3">
+                      <Text stylingclasses="text-text-dark">Formål</Text>
+                    </div>
+                    <img
+                      src="/img/pilned.svg"
+                      alt="Åbn"
+                      class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                    />
+                  </button>
+                  <div
+                    class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                  >
+                    <div class="py-4">
+                      <Text stylingclasses="text-text-dark"
+                        >Foreningen støtter og fremmer interessen for kunst og
+                        mental sundhed for brugere og professionelle. Den
+                        etablerer tværinstitutionelle platforme mellem
+                        psykiatriske behandlere, peer-styrede og kunstneriske
+                        organisationer via CKMS.</Text
+                      >
+                    </div>
+                  </div>
+
+                  <button
+                    class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <div class="flex items-center gap-3">
+                      <Text stylingclasses="text-text-dark"
+                        >CKSM har fire hovedformål</Text
+                      >
+                    </div>
+                    <img
+                      src="/img/pilned.svg"
+                      alt="Åbn"
+                      class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                    />
+                  </button>
+                  <div
+                    class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                  >
+                    <div class="py-4">
+                      <ul class="list-disc ml-5 space-y-2">
+                        <li>
+                          <Text stylingclasses="text-text-dark"
+                            >At være et kompetence- og videnscenter.</Text
+                          >
+                        </li>
+                        <li>
+                          <Text stylingclasses="text-text-dark"
+                            >At opdyrke tvær-institutionelle kunstprojekter.</Text
+                          >
+                        </li>
+                        <li>
+                          <Text stylingclasses="text-text-dark"
+                            >At skabe recovery-interventioner og
+                            rehabiliteringstilbud for psykisk sårbare.</Text
+                          >
+                        </li>
+                        <li>
+                          <Text stylingclasses="text-text-dark"
+                            >At skabe platforme for peer-drevne aktiviteter.</Text
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <button
+                    class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <div class="flex items-center gap-3">
+                      <Text stylingclasses="text-text-dark">Bestyrelse</Text>
+                    </div>
+                    <img
+                      src="/img/pilned.svg"
+                      alt="Åbn"
+                      class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                    />
+                  </button>
+                  <div
+                    class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                  >
+                    <div class="py-4">
+                      <Text stylingclasses="text-text-dark"
+                        >Daglig ledelse varetages af bestyrelsen, som
+                        konstituerer sig med formand, næstformand og kasserer.
+                        Bestyrelsen kan oprette samarbejdsgrupper og delegerer
+                        driften til et forretningsudvalg (formand, næstformand,
+                        kasserer). Bestyrelsen afholder fire årlige møder og har
+                        tegningsret sammen med kasserer.</Text
+                      >
+                    </div>
+                  </div>
+
+                  <button
+                    class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <div class="flex items-center gap-3">
+                      <Text stylingclasses="text-text-dark">Regnskab</Text>
+                    </div>
+                    <img
+                      src="/img/pilned.svg"
+                      alt="Åbn"
+                      class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                    />
+                  </button>
+                  <div
+                    class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                  >
+                    <div class="py-4">
+                      <Text stylingclasses="text-text-dark">Kalenderåret.</Text>
+                    </div>
+                  </div>
+
+                  <button
+                    class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <div class="flex items-center gap-3">
+                      <Text stylingclasses="text-text-dark">Opløsning</Text>
+                    </div>
+                    <img
+                      src="/img/pilned.svg"
+                      alt="Åbn"
+                      class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                    />
+                  </button>
+                  <div
+                    class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                  >
+                    <div class="py-4">
+                      <Text stylingclasses="text-text-dark"
+                        >Kræver ¾-flertal på generalforsamling eller
+                        ekstraordinær generalforsamling. Midler overgår til
+                        almennyttige formål.</Text
+                      >
+                    </div>
                   </div>
                 </div>
 
-                <button
-                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
-                  type="button"
-                  aria-expanded="false"
-                >
-                  <div class="flex items-center gap-3">
-                    <Text stylingclasses="text-text-dark">Formål</Text>
-                  </div>
-                  <img
-                    src="/img/pilned.svg"
-                    alt="Åbn"
-                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
-                  />
-                </button>
+                <!-- højre kolonne -->
                 <div
-                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                  class="col-span-4 md:col-span-6 border-t-2 md:border-l-2 border-text-dark h-full pl-3xs"
                 >
-                  <div class="py-4 px-4">
-                    <Text stylingclasses="text-text-dark"
-                      >Foreningen støtter og fremmer interessen for kunst og
-                      mental sundhed for brugere og professionelle. Den
-                      etablerer tværinstitutionelle platforme mellem
-                      psykiatriske behandlere, peer-styrede og kunstneriske
-                      organisationer via CKMS.</Text
-                    >
+                  <button
+                    class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <div class="flex items-center gap-3">
+                      <Text stylingclasses="text-text-dark">Organisation</Text>
+                    </div>
+                    <img
+                      src="/img/pilned.svg"
+                      alt="Åbn"
+                      class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                    />
+                  </button>
+                  <div
+                    class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                  >
+                    <div class="py-4">
+                      <Text stylingclasses="text-text-dark"
+                        >Generalforsamlingen er foreningens øverste ledelse.
+                        Generalforsamlingen vælger bestyrelsen for to år ad
+                        gangen, med mindst tre personer på valg hvert år.
+                        Kasserer og suppleanter vælges årligt.</Text
+                      >
+                    </div>
                   </div>
-                </div>
 
-                <button
-                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
-                  type="button"
-                  aria-expanded="false"
-                >
-                  <div class="flex items-center gap-3">
-                    <Text stylingclasses="text-text-dark"
-                      >CKSM har fire hovedformål</Text
-                    >
+                  <button
+                    class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <div class="flex items-center gap-3">
+                      <Text stylingclasses="text-text-dark"
+                        >Generalforsamling</Text
+                      >
+                    </div>
+                    <img
+                      src="/img/pilned.svg"
+                      alt="Åbn"
+                      class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                    />
+                  </button>
+                  <div
+                    class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                  >
+                    <div class="py-4">
+                      <Text stylingclasses="text-text-dark mb-4"
+                        >Indkaldes af bestyrelsen med 14 dages varsel. Ordinær
+                        generalforsamling afholdes inden udgangen af marts og
+                        omfatter:</Text
+                      >
+                      <ul class="list-disc ml-5 space-y-2">
+                        <li>
+                          <Text stylingclasses="text-text-dark"
+                            >Valg af dirigent</Text
+                          >
+                        </li>
+                        <li>
+                          <Text stylingclasses="text-text-dark"
+                            >Formandens beretning</Text
+                          >
+                        </li>
+                        <li>
+                          <Text stylingclasses="text-text-dark"
+                            >Regnskab, budget og kontingent</Text
+                          >
+                        </li>
+                        <li>
+                          <Text stylingclasses="text-text-dark"
+                            >Indkomne forslag</Text
+                          >
+                        </li>
+                        <li>
+                          <Text stylingclasses="text-text-dark">Valg</Text>
+                        </li>
+                        <li>
+                          <Text stylingclasses="text-text-dark">Eventuelt</Text>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                  <img
-                    src="/img/pilned.svg"
-                    alt="Åbn"
-                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
-                  />
-                </button>
-                <div
-                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
-                >
-                  <div class="py-4 px-4">
-                    <ul class="list-disc ml-5 space-y-2">
-                      <li>
-                        <Text stylingclasses="text-text-dark"
-                          >At være et kompetence- og videnscenter.</Text
-                        >
-                      </li>
-                      <li>
-                        <Text stylingclasses="text-text-dark"
-                          >At opdyrke tvær-institutionelle kunstprojekter.</Text
-                        >
-                      </li>
-                      <li>
-                        <Text stylingclasses="text-text-dark"
-                          >At skabe recovery-interventioner og
-                          rehabiliteringstilbud for psykisk sårbare.</Text
-                        >
-                      </li>
-                      <li>
-                        <Text stylingclasses="text-text-dark"
-                          >At skabe platforme for peer-drevne aktiviteter.</Text
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                </div>
 
-                <button
-                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
-                  type="button"
-                  aria-expanded="false"
-                >
-                  <div class="flex items-center gap-3">
-                    <Text stylingclasses="text-text-dark">Bestyrelse</Text>
+                  <button
+                    class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <div class="flex items-center gap-3">
+                      <Text stylingclasses="text-text-dark">Medlemskab</Text>
+                    </div>
+                    <img
+                      src="/img/pilned.svg"
+                      alt="Åbn"
+                      class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                    />
+                  </button>
+                  <div
+                    class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                  >
+                    <div class="py-4">
+                      <Text stylingclasses="text-text-dark"
+                        >Årligt medlemskab for personer, der støtter foreningens
+                        formål.</Text
+                      >
+                    </div>
                   </div>
-                  <img
-                    src="/img/pilned.svg"
-                    alt="Åbn"
-                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
-                  />
-                </button>
-                <div
-                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
-                >
-                  <div class="py-4 px-4">
-                    <Text stylingclasses="text-text-dark"
-                      >Daglig ledelse varetages af bestyrelsen, som konstituerer
-                      sig med formand, næstformand og kasserer. Bestyrelsen kan
-                      oprette samarbejdsgrupper og delegerer driften til et
-                      forretningsudvalg (formand, næstformand, kasserer).
-                      Bestyrelsen afholder fire årlige møder og har tegningsret
-                      sammen med kasserer.</Text
-                    >
-                  </div>
-                </div>
 
-                <button
-                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
-                  type="button"
-                  aria-expanded="false"
-                >
-                  <div class="flex items-center gap-3">
-                    <Text stylingclasses="text-text-dark">Regnskab</Text>
+                  <button
+                    class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <div class="flex items-center gap-3">
+                      <Text stylingclasses="text-text-dark"
+                        >Kontingent og finansiering</Text
+                      >
+                    </div>
+                    <img
+                      src="/img/pilned.svg"
+                      alt="Åbn"
+                      class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                    />
+                  </button>
+                  <div
+                    class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                  >
+                    <div class="py-4">
+                      <Text stylingclasses="text-text-dark"
+                        >Godkendes af generalforsamlingen. Aktuelt 200 kr./år.
+                        Finansiering sker via medlemsbidrag, sponsorer, fonde og
+                        donationer.</Text
+                      >
+                    </div>
                   </div>
-                  <img
-                    src="/img/pilned.svg"
-                    alt="Åbn"
-                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
-                  />
-                </button>
-                <div
-                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
-                >
-                  <div class="py-4 px-4">
-                    <Text stylingclasses="text-text-dark">Kalenderåret.</Text>
-                  </div>
-                </div>
 
-                <button
-                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
-                  type="button"
-                  aria-expanded="false"
-                >
-                  <div class="flex items-center gap-3">
-                    <Text stylingclasses="text-text-dark">Opløsning</Text>
+                  <button
+                    class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <div class="flex items-center gap-3">
+                      <Text stylingclasses="text-text-dark"
+                        >Vedtægtsændringer</Text
+                      >
+                    </div>
+                    <img
+                      src="/img/pilned.svg"
+                      alt="Åbn"
+                      class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                    />
+                  </button>
+                  <div
+                    class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                  >
+                    <div class="py-4">
+                      <Text stylingclasses="text-text-dark"
+                        >Kræver ¾-flertal på generalforsamlingen.</Text
+                      >
+                    </div>
                   </div>
-                  <img
-                    src="/img/pilned.svg"
-                    alt="Åbn"
-                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
-                  />
-                </button>
-                <div
-                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
-                >
-                  <div class="py-4 px-4">
-                    <Text stylingclasses="text-text-dark"
-                      >Kræver ¾-flertal på generalforsamling eller ekstraordinær
-                      generalforsamling. Midler overgår til almennyttige formål.</Text
-                    >
-                  </div>
-                </div>
-              </div>
 
-              <!-- Right column -->
-              <div
-                class="col-span-4 md:col-span-6 border-t-2 md:border-l-2 border-text-dark h-full"
-              >
-                <button
-                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
-                  type="button"
-                  aria-expanded="false"
-                >
-                  <div class="flex items-center gap-3">
-                    <Text stylingclasses="text-text-dark">Organisation</Text>
-                  </div>
-                  <img
-                    src="/img/pilned.svg"
-                    alt="Åbn"
-                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
-                  />
-                </button>
-                <div
-                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
-                >
-                  <div class="py-4 px-4">
-                    <Text stylingclasses="text-text-dark"
-                      >Generalforsamlingen er foreningens øverste ledelse.
-                      Generalforsamlingen vælger bestyrelsen for to år ad
-                      gangen, med mindst tre personer på valg hvert år. Kasserer
-                      og suppleanter vælges årligt.</Text
-                    >
-                  </div>
-                </div>
-
-                <button
-                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
-                  type="button"
-                  aria-expanded="false"
-                >
-                  <div class="flex items-center gap-3">
-                    <Text stylingclasses="text-text-dark"
-                      >Generalforsamling</Text
-                    >
-                  </div>
-                  <img
-                    src="/img/pilned.svg"
-                    alt="Åbn"
-                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
-                  />
-                </button>
-                <div
-                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
-                >
-                  <div class="py-4 px-4">
-                    <Text stylingclasses="text-text-dark mb-4"
-                      >Indkaldes af bestyrelsen med 14 dages varsel. Ordinær
-                      generalforsamling afholdes inden udgangen af marts og
-                      omfatter:</Text
-                    >
-                    <ul class="list-disc ml-5 space-y-2">
-                      <li>
-                        <Text stylingclasses="text-text-dark"
-                          >Valg af dirigent</Text
-                        >
-                      </li>
-                      <li>
-                        <Text stylingclasses="text-text-dark"
-                          >Formandens beretning</Text
-                        >
-                      </li>
-                      <li>
-                        <Text stylingclasses="text-text-dark"
-                          >Regnskab, budget og kontingent</Text
-                        >
-                      </li>
-                      <li>
-                        <Text stylingclasses="text-text-dark"
-                          >Indkomne forslag</Text
-                        >
-                      </li>
-                      <li>
-                        <Text stylingclasses="text-text-dark">Valg</Text>
-                      </li>
-                      <li>
-                        <Text stylingclasses="text-text-dark">Eventuelt</Text>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <button
-                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
-                  type="button"
-                  aria-expanded="false"
-                >
-                  <div class="flex items-center gap-3">
-                    <Text stylingclasses="text-text-dark">Medlemskab</Text>
-                  </div>
-                  <img
-                    src="/img/pilned.svg"
-                    alt="Åbn"
-                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
-                  />
-                </button>
-                <div
-                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
-                >
-                  <div class="py-4 px-4">
-                    <Text stylingclasses="text-text-dark"
-                      >Årligt medlemskab for personer, der støtter foreningens
-                      formål.</Text
-                    >
-                  </div>
-                </div>
-
-                <button
-                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
-                  type="button"
-                  aria-expanded="false"
-                >
-                  <div class="flex items-center gap-3">
-                    <Text stylingclasses="text-text-dark"
-                      >Kontingent og finansiering</Text
-                    >
-                  </div>
-                  <img
-                    src="/img/pilned.svg"
-                    alt="Åbn"
-                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
-                  />
-                </button>
-                <div
-                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
-                >
-                  <div class="py-4 px-4">
-                    <Text stylingclasses="text-text-dark"
-                      >Godkendes af generalforsamlingen. Aktuelt 200 kr./år.
-                      Finansiering sker via medlemsbidrag, sponsorer, fonde og
-                      donationer.</Text
-                    >
-                  </div>
-                </div>
-
-                <button
-                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
-                  type="button"
-                  aria-expanded="false"
-                >
-                  <div class="flex items-center gap-3">
-                    <Text stylingclasses="text-text-dark"
-                      >Vedtægtsændringer</Text
-                    >
-                  </div>
-                  <img
-                    src="/img/pilned.svg"
-                    alt="Åbn"
-                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
-                  />
-                </button>
-                <div
-                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
-                >
-                  <div class="py-4 px-4">
-                    <Text stylingclasses="text-text-dark"
-                      >Kræver ¾-flertal på generalforsamlingen.</Text
-                    >
-                  </div>
-                </div>
-
-                <button
-                  class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
-                  type="button"
-                  aria-expanded="false"
-                >
-                  <div class="flex items-center gap-3">
-                    <Text stylingclasses="text-text-dark"
-                      >Ekstraordinær generalforsamling</Text
-                    >
-                  </div>
-                  <img
-                    src="/img/pilned.svg"
-                    alt="Åbn"
-                    class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
-                  />
-                </button>
-                <div
-                  class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
-                >
-                  <div class="py-4 px-4">
-                    <Text stylingclasses="text-text-dark"
-                      >Kan indkaldes af bestyrelsen eller 1/3 af medlemmerne,
-                      med motiveret dagsorden.</Text
-                    >
+                  <button
+                    class="w-full border-b-2 border-text-dark py-4 flex items-center justify-between text-left"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <div class="flex items-center gap-3">
+                      <Text stylingclasses="text-text-dark"
+                        >Ekstraordinær generalforsamling</Text
+                      >
+                    </div>
+                    <img
+                      src="/img/pilned.svg"
+                      alt="Åbn"
+                      class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+                    />
+                  </button>
+                  <div
+                    class="dropdown-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                  >
+                    <div class="py-4">
+                      <Text stylingclasses="text-text-dark"
+                        >Kan indkaldes af bestyrelsen eller 1/3 af medlemmerne,
+                        med motiveret dagsorden.</Text
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Full-width buttons below list -->
-          <div class="col-span-4 md:col-span-12 mt-12">
-            <div class="grid grid-cols-4 md:grid-cols-12">
-              <div
-                class="col-span-4 md:col-span-10 md:col-start-2 flex flex-col md:flex-row gap-4 md:justify-between"
-              >
-                <button
-                  class="border-2 border-text-dark px-8 py-4 text-text-dark hover:bg-text-dark hover:text-background-v2 transition-colors flex items-center justify-center gap-2"
+            <!-- Full-width buttons below list -->
+            <div class="col-span-4 md:col-span-12 mt-12">
+              <div class="grid grid-cols-4 md:grid-cols-12">
+                <div
+                  class="col-span-4 md:col-span-10 md:col-start-2 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 md:max-w-3xl mx-auto"
                 >
-                  <Text stylingclasses="text-text-dark"
-                    >Se medlemmer af bestyrelsen</Text
-                  >
-                  <svg
-                    class="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 5l7 7-7 7"></path>
-                  </svg>
-                </button>
-
-                <button
-                  class="border-2 border-text-dark px-8 py-4 text-text-dark hover:bg-text-dark hover:text-background-v2 transition-colors flex items-center justify-center gap-2"
-                >
-                  <Text stylingclasses="text-text-dark">Læs vedtægter</Text>
-                  <svg
-                    class="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 5l7 7-7 7"></path>
-                  </svg>
-                </button>
+                  <Button>Se medlemmer af bestyrelsen</Button>
+                  <Button>Læs vedtægter</Button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+      <!-- ***************************** End Organisation og vedtægter ***************************** -->
     </section>
-    <!-- ***************************** End Organisation og vedtægter ***************************** -->
-  </div>
 
-  <script>
-    // Dropdowns in Kunst og psykiatri and Organisation og vedtægter
-    const allDropdownButtons = document.querySelectorAll(
-      "button[aria-expanded]"
-    );
-    allDropdownButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const panel = btn.nextElementSibling;
-        const arrow = btn.querySelector(".dropdown-arrow");
-        const expanded = btn.getAttribute("aria-expanded") === "true";
+    <style>
+      /* smooth container scrolling so JS doesn't need to animate */
+      .aktivitet-carousel {
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .aktivitet-carousel::-webkit-scrollbar {
+        display: none;
+      }
 
-        btn.setAttribute("aria-expanded", (!expanded).toString());
+      /* basic transition for cards (use Tailwind utilities where possible in markup)
+       keep a minimal fallback CSS for responsive scales */
+      .aktivitet-carousel .card {
+        transition:
+          transform 200ms ease,
+          opacity 200ms ease;
+      }
 
-        if (panel) {
-          if (expanded) {
-            // Closing
-            panel.style.maxHeight = "0px";
-            if (arrow) arrow.style.transform = "rotate(0deg)";
-          } else {
-            // Opening
-            panel.style.maxHeight = panel.scrollHeight + "px";
-            if (arrow) arrow.style.transform = "rotate(180deg)";
-          }
+      .nav-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        background: var(--color-text-light);
+        border-radius: 9999px;
+        border: none;
+        color: var(--color-text-dark);
+      }
+      .nav-button svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      /* mobile: larger single card view but slightly reduced for contrast */
+      .aktivitet-carousel .card {
+        flex: 0 0 80%;
+        max-width: 80%;
+        transform: scale(0.88);
+        opacity: 0.9;
+      }
+
+      @media (min-width: 768px) {
+        .aktivitet-carousel {
+          padding-bottom: 0;
         }
+        /* show five cards across */
+        .aktivitet-carousel .card {
+          flex: 0 0 calc((100% - 64px) / 5);
+          max-width: calc((100% - 64px) / 5);
+          transform: scale(0.6);
+          opacity: 0.7;
+        }
+        /* center card is significantly larger */
+        .aktivitet-carousel .card.center {
+          transform: scale(1.36);
+          z-index: 50;
+          opacity: 1;
+        }
+      }
+
+      /* fallback for small screens when center class applies */
+      .aktivitet-carousel .card.center {
+        transform: scale(1.06);
+        opacity: 1;
+      }
+    </style>
+
+    <script>
+      (function () {
+        const container = document.getElementById("aktivitet-carousel");
+        const prevBtn = document.getElementById("aktivitet-prev");
+        const nextBtn = document.getElementById("aktivitet-next");
+        if (!container) return;
+
+        // original cards (before cloning)
+        const originals = Array.from(container.querySelectorAll(".card"));
+        const n = originals.length;
+        if (n === 0) return;
+
+        // mark originals so we can find them later
+        originals.forEach((el, i) => (el.dataset.originalIndex = String(i)));
+
+        // create clones: prepend reversed, append normal order
+        for (let i = n - 1; i >= 0; i--) {
+          const clone = originals[i].cloneNode(true);
+          clone.dataset.clone = "true";
+          clone.dataset.originalIndex = String(i);
+          container.insertBefore(clone, container.firstChild);
+        }
+        for (let i = 0; i < n; i++) {
+          const clone = originals[i].cloneNode(true);
+          clone.dataset.clone = "true";
+          clone.dataset.originalIndex = String(i);
+          container.appendChild(clone);
+        }
+
+        const cards = () => Array.from(container.querySelectorAll(".card"));
+
+        function bindCardClicks() {
+          cards().forEach((el) => {
+            el.addEventListener("click", () => {
+              const orig = Number(el.dataset.originalIndex);
+              if (!Number.isNaN(orig)) goToIndex(orig);
+            });
+          });
+        }
+
+        // attach click handlers (clones were created above)
+        bindCardClicks();
+
+        function indexOfCenterOriginalIndex() {
+          const centerX = container.scrollLeft + container.clientWidth / 2;
+          let closestIndex = 0;
+          let closestDist = Infinity;
+          const list = cards();
+          list.forEach((el, idx) => {
+            const elCenter = el.offsetLeft + el.offsetWidth / 2;
+            const dist = Math.abs(elCenter - centerX);
+            if (dist < closestDist) {
+              closestDist = dist;
+              closestIndex = idx;
+            }
+          });
+          const el = list[closestIndex];
+          return parseInt(el.dataset.originalIndex, 10);
+        }
+
+        function setCenterClassByOriginalIndex(origIdx) {
+          cards().forEach((el) =>
+            el.classList.toggle(
+              "center",
+              Number(el.dataset.originalIndex) === origIdx
+            )
+          );
+        }
+
+        function goToIndex(i) {
+          // wrap index so navigation loops
+          i = ((i % n) + n) % n;
+          const target = container.querySelector(
+            `.card[data-original-index="${i}"]:not([data-clone])`
+          );
+          if (!target) return;
+          const left =
+            target.offsetLeft +
+            target.offsetWidth / 2 -
+            container.clientWidth / 2;
+          setCenterClassByOriginalIndex(i);
+          container.scrollTo({ left, behavior: "smooth" });
+        }
+
+        prevBtn &&
+          prevBtn.addEventListener("click", () => {
+            const idx = indexOfCenterOriginalIndex();
+            goToIndex(idx - 1);
+          });
+        nextBtn &&
+          nextBtn.addEventListener("click", () => {
+            const idx = indexOfCenterOriginalIndex();
+            goToIndex(idx + 1);
+          });
+
+        window.addEventListener("keydown", (e) => {
+          const active =
+            document.activeElement && document.activeElement.tagName;
+          if (active === "INPUT" || active === "TEXTAREA") return;
+          if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            const idx = indexOfCenterOriginalIndex();
+            goToIndex(idx - 1);
+          }
+          if (e.key === "ArrowRight") {
+            e.preventDefault();
+            const idx = indexOfCenterOriginalIndex();
+            goToIndex(idx + 1);
+          }
+        });
+
+        // when user scrolls into clones, jump (without animation) to the matching original
+        let scrollTimer = null;
+        container.addEventListener(
+          "scroll",
+          () => {
+            if (scrollTimer) clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(() => {
+              const centerOrig = indexOfCenterOriginalIndex();
+              // find the currently centered element (could be clone or original)
+              const list = cards();
+              const centerX = container.scrollLeft + container.clientWidth / 2;
+              let closestEl = list[0];
+              let closestDist = Infinity;
+              list.forEach((el) => {
+                const elCenter = el.offsetLeft + el.offsetWidth / 2;
+                const dist = Math.abs(elCenter - centerX);
+                if (dist < closestDist) {
+                  closestDist = dist;
+                  closestEl = el;
+                }
+              });
+
+              // if centered element is a clone, snap to its original counterpart
+              if (closestEl.dataset.clone === "true") {
+                const orig = container.querySelector(
+                  `.card[data-original-index="${centerOrig}"]:not([data-clone])`
+                );
+                if (orig) {
+                  const left =
+                    orig.offsetLeft +
+                    orig.offsetWidth / 2 -
+                    container.clientWidth / 2;
+                  // temporarily disable smooth so the jump is instant
+                  const prevBehavior = container.style.scrollBehavior;
+                  container.style.scrollBehavior = "auto";
+                  container.scrollLeft = left;
+                  // restore smooth behavior next frame
+                  requestAnimationFrame(() => {
+                    container.style.scrollBehavior = prevBehavior || "smooth";
+                  });
+                }
+              }
+
+              setCenterClassByOriginalIndex(centerOrig);
+            }, 120);
+          },
+          { passive: true }
+        );
+
+        window.addEventListener("resize", () => {
+          const idx = indexOfCenterOriginalIndex();
+          goToIndex(idx);
+        });
+
+        // init: center the 3rd original card (index 2) if available
+        requestAnimationFrame(() => {
+          const startIdx = Math.min(2, n - 1);
+          goToIndex(startIdx);
+        });
+      })();
+    </script>
+
+    <script>
+      // Dropdowns in Kunst og psykiatri and Organisation og vedtægter
+      const allDropdownButtons = document.querySelectorAll(
+        "button[aria-expanded]"
+      );
+      allDropdownButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const panel = btn.nextElementSibling;
+          const arrow = btn.querySelector(".dropdown-arrow");
+          const expanded = btn.getAttribute("aria-expanded") === "true";
+
+          btn.setAttribute("aria-expanded", (!expanded).toString());
+
+          if (panel) {
+            if (expanded) {
+              // Closing
+              panel.style.maxHeight = "0px";
+              if (arrow) arrow.style.transform = "rotate(0deg)";
+            } else {
+              // Opening
+              panel.style.maxHeight = panel.scrollHeight + "px";
+              if (arrow) arrow.style.transform = "rotate(180deg)";
+            }
+          }
+        });
       });
-    });
-  </script>
+    </script>
+  </div>
 </MainLayout>
