@@ -49,6 +49,7 @@ const teamMembers = [
 <MainLayout title="Om os">
   <div class="flex flex-col gap-m md:gap-xl">
     <!-- ***************************** Start Om os ***************************** -->
+
     <section class="grid grid-cols-4 md:grid-cols-12 mx-2xs md:mx-l">
       <div class="col-span-4 md:col-span-6" style="">
         <Heading htmlheading="h1" size="large" class="text-text-dark">
@@ -250,7 +251,323 @@ const teamMembers = [
     <!-- ***************************** End Kunst og psykiatri ***************************** -->
 
     <!-- ***************************** Start Aktivitetsteamet ***************************** -->
-    <section class="col-span-4 md:col-span-12 py-12 md:py-20" style="">
+    <section
+      class="col-span-4 md:col-span-12 py-12 md:py-20"
+      style="margin-left: calc(-1 * var(--grid-margin-mobile)); margin-right: calc(-1 * var(--grid-margin-mobile)); padding-left: 0; padding-right: 0;"
+    >
+      <div
+        style="padding-left: var(--grid-margin-mobile); padding-right: var(--grid-margin-mobile);"
+      >
+        <Heading htmlheading="h3" size="small" class="text-text-dark mb-8">
+          Aktivitetsteamet
+        </Heading>
+      </div>
+
+      <div
+        class="aktivitet-carousel-wrapper"
+        style="position: relative; padding-left: var(--grid-margin-mobile); padding-right: var(--grid-margin-mobile);"
+      >
+        <button
+          id="aktivitet-prev"
+          class="nav-button"
+          aria-label="Forrige"
+          style="position:absolute;left:12px;top:50%;transform:translateY(-50%);z-index:60;background:transparent;border:none;padding:0;"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+            style="width:28px;height:28px;color:var(--color-text-dark);"
+          >
+            <path
+              d="M18 6 L10 12 L18 18"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              fill="none"></path>
+          </svg>
+        </button>
+        <button
+          id="aktivitet-next"
+          class="nav-button"
+          aria-label="Næste"
+          style="position:absolute;right:12px;top:50%;transform:translateY(-50%);z-index:60;background:transparent;border:none;padding:0;"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+            style="width:28px;height:28px;color:var(--color-text-dark);"
+          >
+            <path
+              d="M6 6 L14 12 L6 18"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              fill="none"></path>
+          </svg>
+        </button>
+        <div
+          class="aktivitet-carousel overflow-x-auto snap-x snap-mandatory flex gap-4 md:gap-6 py-6"
+          style="scroll-padding-left: var(--grid-margin-mobile); scroll-padding-right: var(--grid-margin-mobile);"
+          id="aktivitet-carousel"
+        >
+          {
+            teamMembers.map((member) => (
+              <div class="card snap-center flex-shrink-0">
+                <AktivitetCard
+                  image={member.image}
+                  name={member.name}
+                  description={member.description}
+                />
+              </div>
+            ))
+          }
+        </div>
+
+        <style>
+          /* smooth container scrolling so JS doesn't need to animate */
+          .aktivitet-carousel {
+            scroll-behavior: smooth;
+          }
+
+          /* basic transition for cards (use Tailwind utilities where possible in markup)
+             keep a minimal fallback CSS for responsive scales */
+          .aktivitet-carousel .card {
+            transition:
+              transform 200ms ease,
+              opacity 200ms ease;
+          }
+
+          .nav-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            background: var(--color-text-light);
+            border-radius: 9999px;
+            border: none;
+            color: var(--color-text-dark);
+          }
+          .nav-button svg {
+            width: 28px;
+            height: 28px;
+          }
+
+          /* mobile: larger single card view but slightly reduced for contrast */
+          .aktivitet-carousel .card {
+            flex: 0 0 80%;
+            max-width: 80%;
+            transform: scale(0.88);
+            opacity: 0.9;
+          }
+
+          @media (min-width: 768px) {
+            .aktivitet-carousel {
+              padding-bottom: 0;
+            }
+            /* show five cards across */
+            .aktivitet-carousel .card {
+              flex: 0 0 calc((100% - 64px) / 5);
+              max-width: calc((100% - 64px) / 5);
+              transform: scale(0.6);
+              opacity: 0.7;
+            }
+            /* center card is significantly larger */
+            .aktivitet-carousel .card.center {
+              transform: scale(1.36);
+              z-index: 50;
+              opacity: 1;
+            }
+          }
+
+          /* fallback for small screens when center class applies */
+          .aktivitet-carousel .card.center {
+            transform: scale(1.06);
+            opacity: 1;
+          }
+        </style>
+
+        <script>
+          (function () {
+            const container = document.getElementById("aktivitet-carousel");
+            const prevBtn = document.getElementById("aktivitet-prev");
+            const nextBtn = document.getElementById("aktivitet-next");
+            if (!container) return;
+
+            // original cards (before cloning)
+            const originals = Array.from(container.querySelectorAll(".card"));
+            const n = originals.length;
+            if (n === 0) return;
+
+            // mark originals so we can find them later
+            originals.forEach(
+              (el, i) => (el.dataset.originalIndex = String(i))
+            );
+
+            // create clones: prepend reversed, append normal order
+            for (let i = n - 1; i >= 0; i--) {
+              const clone = originals[i].cloneNode(true);
+              clone.dataset.clone = "true";
+              clone.dataset.originalIndex = String(i);
+              container.insertBefore(clone, container.firstChild);
+            }
+            for (let i = 0; i < n; i++) {
+              const clone = originals[i].cloneNode(true);
+              clone.dataset.clone = "true";
+              clone.dataset.originalIndex = String(i);
+              container.appendChild(clone);
+            }
+
+            const cards = () => Array.from(container.querySelectorAll(".card"));
+
+            function bindCardClicks() {
+              cards().forEach((el) => {
+                el.addEventListener("click", (e) => {
+                  const orig = Number(el.dataset.originalIndex);
+                  if (!Number.isNaN(orig)) goToIndex(orig);
+                });
+              });
+            }
+
+            // attach click handlers (clones were created above)
+            bindCardClicks();
+
+            function indexOfCenterOriginalIndex() {
+              const centerX = container.scrollLeft + container.clientWidth / 2;
+              let closestIndex = 0;
+              let closestDist = Infinity;
+              const list = cards();
+              list.forEach((el, idx) => {
+                const elCenter = el.offsetLeft + el.offsetWidth / 2;
+                const dist = Math.abs(elCenter - centerX);
+                if (dist < closestDist) {
+                  closestDist = dist;
+                  closestIndex = idx;
+                }
+              });
+              const el = list[closestIndex];
+              return parseInt(el.dataset.originalIndex, 10);
+            }
+
+            function setCenterClassByOriginalIndex(origIdx) {
+              cards().forEach((el) =>
+                el.classList.toggle(
+                  "center",
+                  Number(el.dataset.originalIndex) === origIdx
+                )
+              );
+            }
+
+            function goToIndex(i) {
+              // wrap index so navigation loops
+              i = ((i % n) + n) % n;
+              const target = container.querySelector(
+                `.card[data-original-index="${i}"]:not([data-clone])`
+              );
+              if (!target) return;
+              const left =
+                target.offsetLeft +
+                target.offsetWidth / 2 -
+                container.clientWidth / 2;
+              setCenterClassByOriginalIndex(i);
+              container.scrollTo({ left, behavior: "smooth" });
+            }
+
+            prevBtn &&
+              prevBtn.addEventListener("click", () => {
+                const idx = indexOfCenterOriginalIndex();
+                goToIndex(idx - 1);
+              });
+            nextBtn &&
+              nextBtn.addEventListener("click", () => {
+                const idx = indexOfCenterOriginalIndex();
+                goToIndex(idx + 1);
+              });
+
+            window.addEventListener("keydown", (e) => {
+              const active =
+                document.activeElement && document.activeElement.tagName;
+              if (active === "INPUT" || active === "TEXTAREA") return;
+              if (e.key === "ArrowLeft") {
+                e.preventDefault();
+                const idx = indexOfCenterOriginalIndex();
+                goToIndex(idx - 1);
+              }
+              if (e.key === "ArrowRight") {
+                e.preventDefault();
+                const idx = indexOfCenterOriginalIndex();
+                goToIndex(idx + 1);
+              }
+            });
+
+            // when user scrolls into clones, jump (without animation) to the matching original
+            let scrollTimer = null;
+            container.addEventListener(
+              "scroll",
+              () => {
+                if (scrollTimer) clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(() => {
+                  const centerOrig = indexOfCenterOriginalIndex();
+                  // find the currently centered element (could be clone or original)
+                  const list = cards();
+                  const centerX =
+                    container.scrollLeft + container.clientWidth / 2;
+                  let closestEl = list[0];
+                  let closestDist = Infinity;
+                  list.forEach((el) => {
+                    const elCenter = el.offsetLeft + el.offsetWidth / 2;
+                    const dist = Math.abs(elCenter - centerX);
+                    if (dist < closestDist) {
+                      closestDist = dist;
+                      closestEl = el;
+                    }
+                  });
+
+                  // if centered element is a clone, snap to its original counterpart
+                  if (closestEl.dataset.clone === "true") {
+                    const orig = container.querySelector(
+                      `.card[data-original-index="${centerOrig}"]:not([data-clone])`
+                    );
+                    if (orig) {
+                      const left =
+                        orig.offsetLeft +
+                        orig.offsetWidth / 2 -
+                        container.clientWidth / 2;
+                      // temporarily disable smooth so the jump is instant
+                      const prevBehavior = container.style.scrollBehavior;
+                      container.style.scrollBehavior = "auto";
+                      container.scrollLeft = left;
+                      // restore smooth behavior next frame
+                      requestAnimationFrame(() => {
+                        container.style.scrollBehavior =
+                          prevBehavior || "smooth";
+                      });
+                    }
+                  }
+
+                  setCenterClassByOriginalIndex(centerOrig);
+                }, 120);
+              },
+              { passive: true }
+            );
+
+            window.addEventListener("resize", () => {
+              const idx = indexOfCenterOriginalIndex();
+              goToIndex(idx);
+            });
+
+            // init: center the 3rd original card (index 2) if available
+            requestAnimationFrame(() => {
+              const startIdx = Math.min(2, n - 1);
+              goToIndex(startIdx);
+            });
+          })();
+        </script>
+      </div>
     </section>
     <!-- ***************************** End Aktivitetsteamet ***************************** -->
 
@@ -870,5 +1187,3 @@ const teamMembers = [
     });
   </script>
 </MainLayout>
-
->
