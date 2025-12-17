@@ -6,7 +6,7 @@
 @import "tailwindcss-intersect";
 
 @plugin "daisyui" {
-  themes: all;
+  utilities: true;
 }
 
 @theme {
