@@ -1,6 +1,104 @@
 ---
+import Heading from "./Heading.astro";
+import Text from "./Text.astro";
 ---
-<div>
-<p>Footer - tilføj footerindhold</p>
-</div>
-  
+
+<footer class="bg-footer text-text-light w-full" role="contentinfo">
+  <div class="mx-2xs md:mx-l py-2xs md:py-xs flex items-center">
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-2xs gap-x-xs"
+    >
+      <div class="space-y-3xs lg:col-start-2 lg:row-start-1">
+        <Heading
+          htmlheading="h4"
+          size="xsmallbold"
+          stylingclasses="leading-tight"
+        >
+          Kontakt os
+        </Heading>
+        <div class="space-y-[4px] leading-tight">
+          <Text teksttype="brødtekst">Psykiatrisk Center Amager</Text>
+          <Text teksttype="brødtekst">Hans Bogbinders Allé 3, 2.tv</Text>
+          <Text teksttype="brødtekst">2300 København S</Text>
+        </div>
+        <a
+          href="mailto:info@ckms.dk"
+          class="inline-block hover:opacity-80 transition-opacity"
+        >
+          <Text teksttype="brødtekst" stylingclasses="leading-tight"
+            >Mail: info@ckms.dk</Text
+          >
+        </a>
+      </div>
+
+      <div class="space-y-3xs lg:col-start-3 lg:row-start-1">
+        <Heading
+          htmlheading="h4"
+          size="xsmallbold"
+          stylingclasses="leading-tight"
+        >
+          SoMe
+        </Heading>
+        <div class="space-y-[4px] leading-snug">
+          <Text teksttype="brødtekst"
+            >Følg med på vores socialemedier for nye opdateringer</Text
+          >
+        </div>
+        <div class="flex items-center gap-3xs">
+          <a
+            aria-label="Instagram"
+            href="#"
+            class="inline-flex items-center justify-center hover:opacity-80 transition-opacity"
+          >
+            <img src="/img/instagram.svg" alt="Instagram" loading="lazy" />
+          </a>
+          <a
+            aria-label="Facebook"
+            href="#"
+            class="inline-flex items-center justify-center hover:opacity-80 transition-opacity"
+          >
+            <img src="/img/facebook.svg" alt="Facebook" loading="lazy" />
+          </a>
+          <a
+            aria-label="YouTube"
+            href="#"
+            class="inline-flex items-center justify-center hover:opacity-80 transition-opacity"
+          >
+            <img src="/img/youtube.svg" alt="YouTube" loading="lazy" />
+          </a>
+        </div>
+      </div>
+
+      <div class="space-y-3xs lg:col-start-4 lg:row-start-1">
+        <a href="#" class="block hover:opacity-80 transition-opacity">
+          <Heading
+            htmlheading="h4"
+            size="xsmallbold"
+            stylingclasses="leading-tight"
+          >
+            Ledige stillinger
+          </Heading>
+        </a>
+        <a href="#" class="block hover:opacity-80 transition-opacity">
+          <Heading
+            htmlheading="h4"
+            size="xsmallbold"
+            stylingclasses="leading-tight"
+          >
+            Policy
+          </Heading>
+        </a>
+      </div>
+
+      <!-- Logo: last on mobile, first on desktop via col-start -->
+      <div class="flex items-start lg:col-start-1 lg:row-start-1">
+        <img
+          src="/img/logo.svg"
+          alt="Nationalt Center for Kunst og Mental Sundhed"
+          class="max-w-full"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</footer>
