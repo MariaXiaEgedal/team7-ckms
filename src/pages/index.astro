@@ -11,6 +11,7 @@ import CardWorkshop from "../components/CardWorkshop.astro";
 import TildigSection from "../components/TildigSection.astro";
 import Formular from "../components/Formular.astro";
 import UdstillingCard from "../components/UdstillingCard.astro";
+import NewsCard from "../components/NewsCard.astro";
 ---
 
 <MainLayout title="CKMS">
@@ -262,7 +263,7 @@ import UdstillingCard from "../components/UdstillingCard.astro";
       </div>
 
       <div class="mx-2xs md:mx-l">
-        <Text teksttype="billedtekst" class="mt-2xs"
+        <Text teksttype="billedtekst"
           ><span class="font-bold">Every Year When the Lilacs Bloom</span> - Videoværk
           af Alice Topsøe-Jensen, 2020 - Oplev værket med lyd, og læs kunstnerens
           præsentation</Text
@@ -273,7 +274,78 @@ import UdstillingCard from "../components/UdstillingCard.astro";
 
     <!-- ***************************** Start Nyt fra CKMS ***************************** -->
     <section class="bg-background-v5 mx-2xs md:mx-l">
-      <p>Nyt fra CKMS</p>
+      <Heading
+        htmlheading="h2"
+        size="medium"
+        stylingclasses="mb-xs md:mb-m animate-fade-right"
+        >Nyt fra CKMS
+      </Heading>
+
+      <!-- Mobile/tablet: carousel under lg -->
+      <div class="lg:hidden">
+        <div class="carousel w-full gap-2xs">
+          <div class="carousel-item w-2/3">
+            <NewsCard
+              date="5. DECEMBER"
+              title="Symposium for kunstnere og co-terapeuter"
+              description="Fredag var alle kreative og co-terapeuter inviteret til symposium hos CKMS, der for første gang havde mulighed for at samle alle på denne måde i den stemmingsfulde Kirkesal."
+              imageSrc="/img/news1.webp"
+              imageAlt="Gruppe mennesker samlet i kirkesal"
+              linkText="Læs mere"
+            />
+          </div>
+          <div class="carousel-item w-2/3">
+            <NewsCard
+              date="2. DECEMBER"
+              title="Ny skrivegruppe på vej i Vordingborg"
+              description="Sneen falder tæt over Vordingborg, da CKMS er på besøg hos Region Sjælland for at lave Åben Skrivecafé for brugere af psykiatrien. Skrivecaféen er en smagssprøve på, hvordan en"
+              imageSrc="/img/news2.webp"
+              imageAlt="To kvinder smiler til kameraet"
+              linkText="Læs mere"
+            />
+          </div>
+          <div class="carousel-item w-2/3">
+            <NewsCard
+              date="28. NOVEMBER"
+              title="Super god eftermiddag da Åben Scene og Åben Skrivecafé 'mødtes'"
+              description="Tak for alle, der var mødt op til Åben Scene torsdag. Det var en super god eftermiddag. Igen havde vi besøg af tre musikere fra Rytmekons. Denne gang havde Jonas Engell,"
+              imageSrc="/img/news3.webp"
+              imageAlt="Folk sidder sammen til workshop"
+              linkText="Læs mere"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop: grid on lg and up -->
+      <div class="hidden lg:grid grid-cols-3 gap-2xs">
+        <NewsCard
+          date="5. DECEMBER"
+          title="Symposium for kunstnere og co-terapeuter"
+          description="Fredag var alle kreative og co-terapeuter inviteret til symposium hos CKMS, der for første gang havde mulighed for at samle alle på denne måde i den stemmingsfulde Kirkesal."
+          imageSrc="/img/news1.webp"
+          imageAlt="Gruppe mennesker samlet i kirkesal"
+          linkText="Læs mere"
+        />
+
+        <NewsCard
+          date="2. DECEMBER"
+          title="Ny skrivegruppe på vej i Vordingborg"
+          description="Sneen falder tæt over Vordingborg, da CKMS er på besøg hos Region Sjælland for at lave Åben Skrivecafé for brugere af psykiatrien. Skrivecaféen er en smagssprøve på, hvordan en"
+          imageSrc="/img/news2.webp"
+          imageAlt="To kvinder smiler til kameraet"
+          linkText="Læs mere"
+        />
+
+        <NewsCard
+          date="28. NOVEMBER"
+          title="Super god eftermiddag da Åben Scene og Åben Skrivecafé 'mødtes'"
+          description="Tak for alle, der var mødt op til Åben Scene torsdag. Det var en super god eftermiddag. Igen havde vi besøg af tre musikere fra Rytmekons. Denne gang havde Jonas Engell,"
+          imageSrc="/img/news3.webp"
+          imageAlt="Folk sidder sammen til workshop"
+          linkText="Læs mere"
+        />
+      </div>
     </section>
     <!-- ***************************** End Nyt fra CKMS ***************************** -->
 

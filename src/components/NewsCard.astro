@@ -1,0 +1,58 @@
+---
+import Text from "./Text.astro";
+import Heading from "./Heading.astro";
+
+const {
+  date,
+  title,
+  description,
+  imageSrc,
+  imageAlt,
+  linkText = "Læs mere",
+} = Astro.props;
+---
+
+<article class="flex flex-col">
+  <div class="relative aspect-square mb-4xs md:mb-3xs">
+    <img
+      src={imageSrc}
+      alt={imageAlt}
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+  </div>
+
+  <Text teksttype="billedtekst" stylingclasses="font-bold mb-3xs md:mb-2xs"
+    >{date}
+  </Text>
+
+  <Heading
+    htmlheading="h4"
+    size="xsmall"
+    stylingclasses="text-text-dark mb-3xs md:mb-2xs"
+  >
+    {title}
+  </Heading>
+
+  <Text stylingclasses="mb-3xs md:mb-2xs">
+    {description}
+  </Text>
+
+  <Text
+    teksttype="billedtekst"
+    stylingclasses="font-bold flex items-center gap-4xs hover:underline"
+  >
+    {linkText}
+    <svg
+      class="h-4 w-4 stroke-current shrink-0 self-center"
+      viewBox="0 0 10 10"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M2 8L8 2M4 2h4v4"
+        stroke-width="1"
+        stroke-linecap="butt"
+        stroke-linejoin="miter"></path>
+    </svg>
+  </Text>
+</article>
