@@ -1,0 +1,111 @@
+---
+import Text from "./Text.astro";
+export interface ImageItem {
+  src: string;
+  alt?: string;
+}
+interface Props {
+  handle?: string;
+  handleHref?: string;
+}
+
+const images: ImageItem[] = [
+  { src: "/img/instagram1.png", alt: "Instagram billede 1" },
+  { src: "/img/instagram2.png", alt: "Instagram billede 2" },
+  { src: "/img/instagram3.png", alt: "Instagram billede 3" },
+  { src: "/img/instagram4.png", alt: "Instagram billede 4" },
+  { src: "/img/instagram5.png", alt: "Instagram billede 5" },
+];
+
+const {
+  handle = "@centerkunstmentalsundhed",
+  handleHref = "https://www.instagram.com/centerkunstmentalsundhed/",
+} = Astro.props;
+---
+
+<div class="w-full py-m">
+  <div class="mx-2xs md:mx-l mb-2xs">
+    <div
+      class="flex items-center justify-center gap-2xs"
+      id="instagram-carousel"
+    >
+      {
+        images.map((img, index) => (
+          <div
+            class={`instagram-card transition-transform duration-300 ${index === 2 ? "scale-110" : ""}`}
+            data-index={index}
+          >
+            <img
+              src={img.src}
+              alt={img.alt}
+              class="w-full h-[240px] md:h-[320px] object-cover"
+              loading="lazy"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div class="mx-2xs md:mx-l">
+    <Text teksttype="brødtekst" stylingclasses="text-text-dark">
+      <a
+        href={handleHref}
+        class="underline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {handle}
+      </a>
+    </Text>
+  </div>
+</div>
+
+<style>
+  .instagram-card {
+    flex: 0 0 auto;
+    width: calc((100% - 4 * var(--spacing-2xs)) / 5);
+  }
+
+  @media (max-width: 767px) {
+    .instagram-card {
+      width: calc((100% - 4 * var(--spacing-4xs)) / 5);
+    }
+  }
+</style>
+
+<script>
+  const carousel = document.getElementById("instagram-carousel");
+  if (carousel) {
+    const cards = Array.from(carousel.querySelectorAll(".instagram-card"));
+    const totalImages = 5;
+    let centerIndex = 2;
+
+    function rotateImages() {
+      // Remove scale from current center
+      cards.forEach((card) => card.classList.remove("scale-110"));
+
+      // Rotate image sources
+      const firstSrc = cards[0].querySelector("img")?.getAttribute("src");
+      for (let i = 0; i < cards.length - 1; i++) {
+        const nextSrc = cards[i + 1].querySelector("img")?.getAttribute("src");
+        const img = cards[i].querySelector("img");
+        if (img && nextSrc) {
+          img.setAttribute("src", nextSrc);
+        }
+      }
+      const lastImg = cards[cards.length - 1].querySelector("img");
+      if (lastImg && firstSrc) {
+        lastImg.setAttribute("src", firstSrc);
+      }
+
+      // Scale center card
+      cards[centerIndex].classList.add("scale-110");
+    }
+
+    // Initial center scale
+    cards[centerIndex].classList.add("scale-110");
+
+    // Auto-rotate every 2 seconds
+    setInterval(rotateImages, 2000);
+  }
+</script>
