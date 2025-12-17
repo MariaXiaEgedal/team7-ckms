@@ -5,6 +5,7 @@ import Heading from "../components/Heading.astro";
 import Text from "../components/Text.astro";
 import Button from "../components/Button.astro";
 import type { ImageMetadata } from "astro";
+import NewsCard from "../components/NewsCard.astro";
 
 const dayNames = ["Man", "Tirs", "Ons", "Tors", "Fre", "Lør", "Søn"];
 
@@ -22,6 +23,73 @@ const primaryColors = [
   "var(--color-primary-blue)",
   "var(--color-primary-turquoise)",
   "var(--color-primary-dustyyellow)",
+];
+
+// Data for news section with categories
+type NewsItem = {
+  date: string;
+  title: string;
+  description: string;
+  imageSrc: string;
+  imageAlt: string;
+  category: "nyheder" | "forskning" | "arrangementer";
+};
+
+const newsItems: NewsItem[] = [
+  {
+    date: "5. DECEMBER",
+    title: "Symposium for kunstnere og co-terapeuter",
+    description:
+      "Fredag var alle kreative og co-terapeuter inviteret til symposium hos CKMS, der for første gang havde mulighed for at samle alle på denne måde i den stemmingsfulde Kirkesal.",
+    imageSrc: "/img/news1.webp",
+    imageAlt: "Gruppe mennesker samlet i kirkesal",
+    category: "nyheder",
+  },
+  {
+    date: "2. DECEMBER",
+    title: "Ny skrivegruppe på vej i Vordingborg",
+    description:
+      "Sneen falder tæt over Vordingborg, da CKMS er på besøg hos Region Sjælland for at lave Åben Skrivecafé for brugere af psykiatrien. Skrivecaféen er en smagssprøve på, hvordan en",
+    imageSrc: "/img/news2.webp",
+    imageAlt: "To kvinder smiler til kameraet",
+    category: "arrangementer",
+  },
+  {
+    date: "28. NOVEMBER",
+    title: "Super god eftermiddag da Åben Scene og Åben Skrivecafé 'mødtes'",
+    description:
+      "Tak for alle, der var mødt op til Åben Scene torsdag. Det var en super god eftermiddag. Igen havde vi besøg af tre musikere fra Rytmekons. Denne gang havde Jonas Engell,",
+    imageSrc: "/img/news3.webp",
+    imageAlt: "Folk sidder sammen til workshop",
+    category: "nyheder",
+  },
+  {
+    date: "21. NOVEMBER",
+    title: "Forskningsrapport: Deltagerfokuseret kunst og trivsel",
+    description:
+      "Ny foranalyse peger på positive effekter af deltagerfokuserede kunstforløb i psykiatrien, bl.a. øget trivsel og fællesskab.",
+    imageSrc: "/img/news4.png",
+    imageAlt: "Præsentation i sal",
+    category: "forskning",
+  },
+  {
+    date: "16. NOVEMBER",
+    title: "Åben Scene – ekstra dato",
+    description:
+      "Efter stor efterspørgsel har vi åbnet en ekstra Åben Scene-session i december.",
+    imageSrc: "/img/news5.png",
+    imageAlt: "Publikum klapper",
+    category: "arrangementer",
+  },
+  {
+    date: "10. NOVEMBER",
+    title: "Publikation: Kunst, omsorg og fællesskab",
+    description:
+      "CKMS udgiver en ny publikation om kunst, omsorg og fællesskab i samarbejde med forskere og praktikere.",
+    imageSrc: "/img/news6.png",
+    imageAlt: "Bog og noter",
+    category: "forskning",
+  },
 ];
 
 const decemberCells: CalendarCell[] = [
@@ -169,8 +237,131 @@ const decemberCells: CalendarCell[] = [
   <!-- ***************************** End Eventkalender ***************************** -->
 
   <!-- ***************************** Start Nyt fra CKMS ***************************** -->
-  <section class="bg-background-v3">
-    <p>Nyt fra CKMS</p>
+
+  <section class="mx-2xs md:mx-l">
+    <Heading
+      htmlheading="h2"
+      size="medium"
+      stylingclasses="mb-xs md:mb-m animate-fade-right"
+      >Nyt fra CKMS
+    </Heading>
+    <!-- Filter/Search bar -->
+    <div class="relative mb-xs md:mb-s py-2">
+      <div
+        class="flex items-center gap-6 md:gap-8 flex-1 border-b-2 border-text-dark pb-1"
+      >
+        <button
+          type="button"
+          class="px-3 py-2 text-text-dark hover:opacity-80"
+          data-news-filter="alle"
+        >
+          <Text as="span" teksttype="brødtekst" stylingclasses="text-text-dark"
+            >Se alle</Text
+          >
+        </button>
+        <button type="button" class="text-text-dark" data-news-filter="nyheder">
+          <Text as="span" teksttype="brødtekst" stylingclasses="text-text-dark"
+            >Nyheder</Text
+          >
+        </button>
+        <button
+          type="button"
+          class="text-text-dark"
+          data-news-filter="forskning"
+        >
+          <Text as="span" teksttype="brødtekst" stylingclasses="text-text-dark"
+            >Forskning</Text
+          >
+        </button>
+        <button
+          type="button"
+          class="text-text-dark"
+          data-news-filter="arrangementer"
+        >
+          <Text as="span" teksttype="brødtekst" stylingclasses="text-text-dark"
+            >Arrangementer</Text
+          >
+        </button>
+        <div class="ml-auto flex items-center gap-2">
+          <input
+            id="news-search"
+            type="text"
+            placeholder="Søg"
+            class="bg-transparent outline-none text-text-dark placeholder-text-dark/70 w-[160px] md:w-[240px] text-[18px] md:text-[22px] font-light font-onsite"
+          />
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"
+            ></circle>
+            <path
+              d="M20 20L17 17"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile/tablet: carousel under lg -->
+    <div class="lg:hidden mb-xs" id="news-mobile">
+      <div class="carousel w-full gap-2xs" data-news-list>
+        {
+          newsItems.map((item) => (
+            <div
+              class="carousel-item w-2/3"
+              data-news-card
+              data-category={item.category}
+              data-search={(item.title + " " + item.description).toLowerCase()}
+            >
+              <NewsCard
+                date={item.date}
+                title={item.title}
+                description={item.description}
+                imageSrc={item.imageSrc}
+                imageAlt={item.imageAlt}
+                linkText="Læs mere"
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Desktop: grid on lg and up -->
+    <div
+      class="hidden lg:grid grid-cols-3 gap-2xs mb-m"
+      id="news-desktop"
+      data-news-grid
+    >
+      {
+        newsItems.map((item) => (
+          <div
+            data-news-card
+            data-category={item.category}
+            data-search={(item.title + " " + item.description).toLowerCase()}
+          >
+            <NewsCard
+              date={item.date}
+              title={item.title}
+              description={item.description}
+              imageSrc={item.imageSrc}
+              imageAlt={item.imageAlt}
+              linkText="Læs mere"
+            />
+          </div>
+        ))
+      }
+    </div>
+    <div class="flex justify-center">
+      <Button>Se flere</Button>
+    </div>
   </section>
   <!-- ***************************** End Nyt fra CKMS ***************************** -->
 
@@ -508,113 +699,168 @@ const decemberCells: CalendarCell[] = [
     </div>
   </section>
   <!-- ***************************** End Bestil et foredrag ***************************** -->
-</MainLayout>
 
-<script>
-  const detailPanel = document.getElementById("mobile-day-detail");
-  const dateEl = detailPanel?.querySelector("[data-detail-date]");
-  const listEl = detailPanel?.querySelector("[data-detail-list]");
-  const emptyEl = detailPanel?.querySelector("[data-detail-empty]");
-  const closeBtn = detailPanel?.querySelector("[data-close-btn]");
-  const isMobile = window.matchMedia("(max-width: 767px)");
+  <script>
+    const detailPanel = document.getElementById("mobile-day-detail");
+    const dateEl = detailPanel?.querySelector("[data-detail-date]");
+    const listEl = detailPanel?.querySelector("[data-detail-list]");
+    const emptyEl = detailPanel?.querySelector("[data-detail-empty]");
+    const closeBtn = detailPanel?.querySelector("[data-close-btn]");
+    const isMobile = window.matchMedia("(max-width: 767px)");
 
-  function closePanel() {
-    if (detailPanel) {
-      detailPanel.style.maxHeight = "0";
-    }
-  }
-
-  function openPanel() {
-    if (detailPanel) {
-      detailPanel.style.maxHeight = "80vh";
-    }
-  }
-
-  function renderDetail(dateLabel, events) {
-    if (!detailPanel || !isMobile.matches) return;
-
-    if (dateEl) dateEl.textContent = dateLabel;
-
-    if (listEl) {
-      listEl.innerHTML = "";
-
-      if (events.length > 0) {
-        emptyEl?.classList.add("hidden");
-        events.forEach((evt) => {
-          const li = document.createElement("li");
-          li.className = "rounded-lg p-xs md:p-s";
-
-          const time = document.createElement("div");
-          time.className =
-            "text-[18px] md:text-[22px] font-light font-onsite text-text-dark mb-xs";
-          time.textContent = evt.time;
-          li.appendChild(time);
-
-          const title = document.createElement("div");
-          title.className =
-            "text-[18px] md:text-[22px] font-light font-onsite text-text-dark";
-          title.textContent = evt.title;
-          li.appendChild(title);
-
-          if (evt.subtitle) {
-            const subtitle = document.createElement("div");
-            subtitle.className =
-              "text-[18px] md:text-[22px] font-light font-onsite text-text-dark mt-xs";
-            subtitle.textContent = evt.subtitle;
-            li.appendChild(subtitle);
-          }
-
-          listEl.appendChild(li);
-        });
-      } else {
-        emptyEl?.classList.remove("hidden");
+    function closePanel() {
+      if (detailPanel) {
+        detailPanel.style.maxHeight = "0";
       }
     }
 
-    openPanel();
-  }
-
-  function handleClick(event) {
-    const target = event.currentTarget;
-    if (!(target instanceof HTMLElement)) return;
-    const dateLabel = target.dataset.date;
-    const rawEvents = target.dataset.events;
-    if (!dateLabel || rawEvents === undefined) return;
-    try {
-      const events = JSON.parse(decodeURIComponent(rawEvents));
-      renderDetail(dateLabel, events);
-    } catch (err) {
-      console.error("Kunne ikke læse event data", err);
+    function openPanel() {
+      if (detailPanel) {
+        detailPanel.style.maxHeight = "80vh";
+      }
     }
-  }
 
-  function bindMobileClicks() {
-    if (!isMobile.matches) return;
-    document.querySelectorAll("[data-day-index]").forEach((button) => {
-      button.removeEventListener("click", handleClick);
-      button.addEventListener("click", handleClick);
+    function renderDetail(dateLabel, events) {
+      if (!detailPanel || !isMobile.matches) return;
+
+      if (dateEl) dateEl.textContent = dateLabel;
+
+      if (listEl) {
+        listEl.innerHTML = "";
+
+        if (events.length > 0) {
+          emptyEl?.classList.add("hidden");
+          events.forEach((evt) => {
+            const li = document.createElement("li");
+            li.className = "rounded-lg p-xs md:p-s";
+
+            const time = document.createElement("div");
+            time.className =
+              "text-[18px] md:text-[22px] font-light font-onsite text-text-dark mb-xs";
+            time.textContent = evt.time;
+            li.appendChild(time);
+
+            const title = document.createElement("div");
+            title.className =
+              "text-[18px] md:text-[22px] font-light font-onsite text-text-dark";
+            title.textContent = evt.title;
+            li.appendChild(title);
+
+            if (evt.subtitle) {
+              const subtitle = document.createElement("div");
+              subtitle.className =
+                "text-[18px] md:text-[22px] font-light font-onsite text-text-dark mt-xs";
+              subtitle.textContent = evt.subtitle;
+              li.appendChild(subtitle);
+            }
+
+            listEl.appendChild(li);
+          });
+        } else {
+          emptyEl?.classList.remove("hidden");
+        }
+      }
+
+      openPanel();
+    }
+
+    function handleClick(event) {
+      const target = event.currentTarget;
+      if (!(target instanceof HTMLElement)) return;
+      const dateLabel = target.dataset.date;
+      const rawEvents = target.dataset.events;
+      if (!dateLabel || rawEvents === undefined) return;
+      try {
+        const events = JSON.parse(decodeURIComponent(rawEvents));
+        renderDetail(dateLabel, events);
+      } catch (err) {
+        console.error("Kunne ikke læse event data", err);
+      }
+    }
+
+    function bindMobileClicks() {
+      if (!isMobile.matches) return;
+      document.querySelectorAll("[data-day-index]").forEach((button) => {
+        button.removeEventListener("click", handleClick);
+        button.addEventListener("click", handleClick);
+      });
+    }
+
+    closeBtn?.addEventListener("click", closePanel);
+
+    bindMobileClicks();
+    isMobile.addEventListener("change", bindMobileClicks);
+
+    // Udstillinger carousel nav
+    const carousel = document.getElementById("udstillinger-carousel");
+    const prevBtn = document.getElementById("aktivitet-prev");
+    const nextBtn = document.getElementById("aktivitet-next");
+
+    function scrollCarousel(direction) {
+      if (!carousel) return;
+      const scrollAmount = carousel.clientWidth * 0.8;
+      carousel.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+
+    prevBtn?.addEventListener("click", () => scrollCarousel("left"));
+    nextBtn?.addEventListener("click", () => scrollCarousel("right"));
+
+    // News filter + search
+    const filterButtons = Array.from(
+      document.querySelectorAll("[data-news-filter]")
+    ) as HTMLButtonElement[];
+    const searchInput = document.getElementById(
+      "news-search"
+    ) as HTMLInputElement | null;
+    const cards = Array.from(
+      document.querySelectorAll("[data-news-card]")
+    ) as HTMLElement[];
+
+    let currentCategory: "alle" | "nyheder" | "forskning" | "arrangementer" =
+      "alle";
+    let currentQuery = "";
+
+    function applyNewsFilters() {
+      const q = currentQuery.trim().toLowerCase();
+      cards.forEach((el) => {
+        const cat = (el.getAttribute("data-category") || "").toLowerCase();
+        const hay = (el.getAttribute("data-search") || "").toLowerCase();
+        const matchCat = currentCategory === "alle" || cat === currentCategory;
+        const matchQuery = q === "" || hay.includes(q);
+        el.classList.toggle("hidden", !(matchCat && matchQuery));
+      });
+
+      // active state styling: add border box around active filter button
+      filterButtons.forEach((btn) => {
+        const isActive =
+          btn.getAttribute("data-news-filter") === currentCategory;
+        btn.classList.toggle("px-3", isActive);
+        btn.classList.toggle("py-2", isActive);
+        btn.classList.toggle("border-2", isActive);
+        btn.classList.toggle("border-text-dark", isActive);
+        btn.classList.toggle("opacity-60", !isActive);
+      });
+    }
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const val = (btn.getAttribute("data-news-filter") ||
+          "alle") as typeof currentCategory;
+        currentCategory = val;
+        applyNewsFilters();
+      });
     });
-  }
 
-  closeBtn?.addEventListener("click", closePanel);
-
-  bindMobileClicks();
-  isMobile.addEventListener("change", bindMobileClicks);
-
-  // Udstillinger carousel nav
-  const carousel = document.getElementById("udstillinger-carousel");
-  const prevBtn = document.getElementById("aktivitet-prev");
-  const nextBtn = document.getElementById("aktivitet-next");
-
-  function scrollCarousel(direction) {
-    if (!carousel) return;
-    const scrollAmount = carousel.clientWidth * 0.8;
-    carousel.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
+    searchInput?.addEventListener("input", (e) => {
+      const target = e.target as HTMLInputElement;
+      currentQuery = target.value || "";
+      applyNewsFilters();
     });
-  }
 
-  prevBtn?.addEventListener("click", () => scrollCarousel("left"));
-  nextBtn?.addEventListener("click", () => scrollCarousel("right"));
-</script>
+    // initial
+    applyNewsFilters();
+  </script>
+</MainLayout>
