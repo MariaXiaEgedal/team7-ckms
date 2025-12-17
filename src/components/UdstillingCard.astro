@@ -1,0 +1,38 @@
+---
+import Heading from "./Heading.astro";
+
+const { bgColor, textColor, headingh3, headingh4, imgSrc, imgAlt, number } =
+  Astro.props;
+---
+
+<div class:list={["relative rounded-tr-s md:rounded-tr-l p-s md:p-m", bgColor]}>
+  <!-- Heading h3 -->
+  <Heading
+    htmlheading="h3"
+    size="medium"
+    stylingclasses={`mb-2xs md:mb-xs ${textColor}`}
+  >
+    {headingh3}
+  </Heading>
+
+  <!-- Heading h4 -->
+  <Heading
+    htmlheading="h4"
+    size="xsmall"
+    stylingclasses={`${textColor} mb-2xs md:mb-xs `}
+  >
+    {headingh4}
+  </Heading>
+
+  <!-- Image -->
+  <div class="mb-m overflow-hidden">
+    <img src={imgSrc} alt={imgAlt} class="w-full h-auto object-cover" />
+  </div>
+
+  <!-- Number -->
+  <div
+    class={`absolute bottom-s right-s ${textColor} text-9xl md:text-[12rem] lg:text-[14rem] font-gestura`}
+  >
+    {number}
+  </div>
+</div>
