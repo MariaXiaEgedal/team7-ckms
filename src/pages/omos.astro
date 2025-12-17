@@ -369,16 +369,16 @@ const teamMembers = [
     <!-- ***************************** End Følg med på Instagram ***************************** -->
 
     <!-- ***************************** Start Organisation og vedtægter ***************************** -->
-    <section class="col-span-4 md:col-span-12 bg-background-v2">
+    <section class="col-span-4 md:col-span-12 bg-background-v2 mb-m">
       <div>
-        <div class="grid grid-cols-4 md:grid-cols-12 gap-3xs items-start">
+        <div class="grid grid-cols-4 md:grid-cols-12 gap-3xs items-start mt-m">
           <!-- Left side - Text content -->
           <div class="col-span-4 md:col-span-6 mx-2xs md:mx-l">
-            <Heading htmlheading="h2" class="text-text-dark mb-m">
+            <Heading htmlheading="h2" class="text-text-dark">
               Organisation og vedtægter
             </Heading>
 
-            <Text stylingclasses="text-text-dark mb-m">
+            <Text stylingclasses="text-text-dark mt-xs mb-m">
               Center for Kunst og Mental Sundhed (CKMS) er stiftet af Foreningen
               Kunst og Mental Sundhed, grundlagt d. 26/02 2019 med civile og
               statslige fondsmidler. Foreningen fastlægger mål og strategi for
@@ -395,25 +395,19 @@ const teamMembers = [
           </div>
 
           <!-- Right side - Circular logo -->
-          <!-- <div class="col-span-4 md:col-span-6 flex items-center justify-center">
-          <div class="w-64 h-64 md:w-96 md:h-96 relative">
-            <svg viewBox="0 0 200 200" class="w-full h-full">
-              <defs>
-                <path
-                  id="circlePath"
-                  d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
-                ></path>
-              </defs>
-              <text
-                class="text-[14px] md:text-[16px] font-onsite-extended fill-text-dark"
-              >
-                <textPath href="#circlePath" startOffset="0%">
-                  Center for • Kunst og Mental Sundhed •
-                </textPath>
-              </text>
-            </svg>
+          <div
+            class="col-span-4 md:col-span-6 flex justify-center items-center mx-2xs md:mx-l mt-xs md:mt-0 md:self-center"
+          >
+            <div
+              class="w-48 h-40 md:w-64 md:h-64 flex items-center justify-center"
+            >
+              <img
+                src="/img/cirkel.svg"
+                alt="Kunst og Mental Sundhed cirkellogo"
+                class="w-full h-full object-contain spin-slow"
+              />
+            </div>
           </div>
-        </div> -->
 
           <!-- Full-width two-column dropdowns (desktop spans both rows) -->
           <div class="col-span-4 md:col-span-12 mx-2xs md:mx-l">
@@ -845,6 +839,19 @@ const teamMembers = [
     .nav-button svg {
       width: 28px;
       height: 28px;
+    }
+
+    .spin-slow {
+      animation: spin-slow 18s linear infinite;
+    }
+
+    @keyframes spin-slow {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     /* mobile: larger single card view but slightly reduced for contrast */
