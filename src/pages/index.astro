@@ -37,8 +37,9 @@ import UdstillingCard from "../components/UdstillingCard.astro";
           class="col-span-4 md:col-span-5 md:col-start-8 text-text-dark md:order-2"
         >
           <Text stylingclasses="mb-2xs md:mb-xs">
-            Vi arbejder for en psykiatri med mere fokus på det hele menneske -
-            med ligeværd, kreativitet, venlighed og tryghed.
+            Vi arbejder for en psykiatri med mere fokus på <span
+              class="font-bold">det hele menneske</span
+            > - med ligeværd, kreativitet, venlighed og tryghed.
           </Text>
 
           <Text stylingclasses="mb-2xs md:mb-xs">
@@ -246,8 +247,27 @@ import UdstillingCard from "../components/UdstillingCard.astro";
     <!-- ***************************** End Udstillinger i CKMS ***************************** -->
 
     <!-- ***************************** Start Video ***************************** -->
-    <section class="bg-background-v4">
-      <p>Video</p>
+    <section class="">
+      <div class="mb-3xs">
+        <iframe
+          width="100%"
+          height="500"
+          src="https://www.youtube.com/embed/tCoDAy6WYq4?autoplay=1&mute=1"
+          title="Every Year When the Lilacs Bloom"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        >
+        </iframe>
+      </div>
+
+      <div class="mx-2xs md:mx-l">
+        <Text teksttype="billedtekst" class="mt-2xs"
+          ><span class="font-bold">Every Year When the Lilacs Bloom</span> - Videoværk
+          af Alice Topsøe-Jensen, 2020 - Oplev værket med lyd, og læs kunstnerens
+          præsentation</Text
+        >
+      </div>
     </section>
     <!-- ***************************** End Video ***************************** -->
 
