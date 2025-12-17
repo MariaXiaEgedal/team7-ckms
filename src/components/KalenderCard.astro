@@ -1,0 +1,109 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import Text from "./Text.astro";
+
+type EventEntry = { time: string; title: string; subtitle?: string };
+
+const {
+  dateLabel,
+  events = [],
+  image,
+  imageAlt,
+  backgroundColor,
+}: {
+  dateLabel: string;
+  events?: EventEntry[];
+  image?: ImageMetadata;
+  imageAlt?: string;
+  backgroundColor?: string;
+} = Astro.props;
+
+const fallbackColor = backgroundColor || "var(--color-primary-green)";
+const dayOnly = dateLabel.split(".")[0]; // Ekstraher kun dagen (f.eks. "01" fra "01.12")
+---
+
+<article class="relative flex flex-col h-full">
+  <div class="p-3xs md:p-3xs grid grid-rows-[1fr_auto] gap-3xs md:gap-3xs">
+    <div class="hidden md:grid gap-4xs">
+      {
+        events.length ? (
+          events.map((item) => (
+            <div class="grid grid-cols-[auto_1fr] gap-4xs items-start">
+              <p class="m-0 text-sm font-bold text-text-dark leading-tight">
+                {item.time}
+              </p>
+              <div class="flex flex-col gap-[2px]">
+                <p class="m-0 text-base font-bold text-text-dark leading-tight">
+                  {item.title}
+                </p>
+                {item.subtitle && (
+                  <p class="m-0 text-sm text-text-dark leading-tight">
+                    {item.subtitle}
+                  </p>
+                )}
+              </div>
+            </div>
+          ))
+        ) : (
+          <p class="m-0 text-sm text-text-dark font-semibold">
+            Ingen aktiviteter
+          </p>
+        )
+      }
+    </div>
+
+    <div
+      class="flex flex-col items-end gap-4xs md:items-end md:gap-4xs mobile:items-center mobile:justify-center"
+    >
+      <div
+        class="text-4xl md:text-4xl font-extrabold text-text-dark text-right leading-none"
+      >
+        <span class="hidden md:inline">{dateLabel}</span>
+        <span class="md:hidden text-xl">{dayOnly}</span>
+      </div>
+      {
+        events.length > 0 && (
+          <div class="w-2 h-2 md:w-2 md:h-2 rounded-full bg-primary-pink md:hidden mobile:w-[6px] mobile:h-[6px]" />
+        )
+      }
+    </div>
+  </div>
+
+  <div
+    class="hidden md:block absolute bottom-0 left-0 right-0 h-20 overflow-hidden"
+    style={`background-color: ${fallbackColor}`}
+  >
+    {
+      image ? (
+        <Image
+          src={image}
+          alt={imageAlt || dateLabel}
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+      ) : null
+    }
+  </div>
+</article>
+
+<style>
+  @media (max-width: 768px) {
+    article > div:first-child {
+      padding: var(--spacing-4xs);
+      gap: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    article > div:first-child > div:first-child {
+      display: none !important;
+    }
+
+    article > div:first-child > div:last-child {
+      align-items: center;
+      justify-content: center;
+    }
+  }
+</style>

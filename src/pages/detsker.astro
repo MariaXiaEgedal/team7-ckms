@@ -1,35 +1,281 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Button from "../components/Button.astro";
-import Link from "../components/Link.astro";
-import { Image } from "astro:assets";
-import thumbsup from "../assets/images/thumbsup.png";
+import KalenderCard from "../components/KalenderCard.astro";
+import Heading from "../components/Heading.astro";
+import Text from "../components/Text.astro";
+import type { ImageMetadata } from "astro";
+
+const dayNames = ["Man", "Tirs", "Ons", "Tors", "Fre", "Lør", "Søn"];
+
+type EventEntry = { time: string; title: string; subtitle?: string };
+type CalendarCell = {
+  dateLabel: string;
+  events: EventEntry[];
+  image?: ImageMetadata;
+  backgroundColor?: string;
+} | null;
+
+const primaryColors = [
+  "var(--color-primary-green)",
+  "var(--color-primary-pink)",
+  "var(--color-primary-blue)",
+  "var(--color-primary-turquoise)",
+  "var(--color-primary-dustyyellow)",
+];
+
+const decemberCells: CalendarCell[] = [
+  {
+    dateLabel: "01.12",
+    events: [
+      {
+        time: "11:00 - 14:00",
+        title: "Skrivgruppe med Claus",
+        subtitle: "Holbæk, Danmark",
+      },
+    ],
+    backgroundColor: primaryColors[0],
+  },
+  {
+    dateLabel: "02.12",
+    events: [
+      {
+        time: "10:00 - 12:00",
+        title: "Foto walk",
+        subtitle: "Frederiksberg, Danmark",
+      },
+    ],
+    backgroundColor: primaryColors[1],
+  },
+  {
+    dateLabel: "03.12",
+    events: [
+      {
+        time: "13:00 - 15:00",
+        title: "Åben atelierdag",
+        subtitle: "København, Danmark",
+      },
+    ],
+    backgroundColor: primaryColors[2],
+  },
+  // 04-31 uden events
+  ...Array.from({ length: 28 }).map((_, idx) => ({
+    dateLabel: `${String(idx + 4).padStart(2, "0")}.12`,
+    events: [],
+    backgroundColor: primaryColors[(idx + 3) % primaryColors.length],
+  })),
+  // Filler-celler for at nå 7x5 (35 felter)
+  null,
+  null,
+  null,
+  null,
+];
 ---
 
 <MainLayout title="Det sker">
-  <div>
-    <!-- ***************************** Start Eventkalender ***************************** -->
-    <section class="bg-background-v2">
-      <p>Eventkalender</p>
-    </section>
-    <!-- ***************************** End Eventkalender ***************************** -->
+  <!-- ***************************** Start Eventkalender ***************************** -->
+  <section class="mx-2xs md:mx-l py-m md:py-l">
+    <div class="flex flex-col gap-xs md:gap-m">
+      <Heading htmlheading="h1" size="large" class="text-text-dark">
+        Eventkalender
+      </Heading>
+      <Heading htmlheading="h2" size="medium" class="text-text-dark">
+        December
+      </Heading>
+    </div>
 
-    <!-- ***************************** Start Nyt fra CKMS ***************************** -->
-    <section class="bg-background-v3">
-      <p>Nyt fra CKMS</p>
-    </section>
-    <!-- ***************************** End Nyt fra CKMS ***************************** -->
+    <div class="relative overflow-hidden">
+      <div
+        class="grid grid-cols-7 border-t-2 border-b-2 border-text-dark py-2xs md:py-3xs"
+      >
+        {
+          dayNames.map((day) => (
+            <div class="text-center">
+              <Heading
+                htmlheading="h4"
+                size="xsmallbold"
+                stylingclasses="text-text-dark"
+              >
+                {day}
+              </Heading>
+            </div>
+          ))
+        }
+      </div>
 
-    <!-- ***************************** Start Udstillinger ***************************** -->
-    <section class="bg-background-v4">
-      <p>Udstillinger</p>
-    </section>
-    <!-- ***************************** End Udstillinger ***************************** -->
+      <div
+        class="grid grid-cols-7 border-l-2 border-r-2 border-b-2 border-text-dark overflow-hidden"
+      >
+        {
+          decemberCells.map((cell, idx) => (
+            <div
+              class="border-r-2 border-b-2 border-text-dark overflow-hidden"
+              style="aspect-ratio: 3 / 4;"
+            >
+              {cell ? (
+                <button
+                  class="h-full w-full text-left "
+                  type="button"
+                  data-day-index={idx}
+                  data-date={cell.dateLabel}
+                  data-events={encodeURIComponent(JSON.stringify(cell.events))}
+                  aria-label={`Åbn detaljer for ${cell.dateLabel}`}
+                >
+                  <KalenderCard
+                    dateLabel={cell.dateLabel}
+                    events={cell.events}
+                    image={cell.image}
+                    backgroundColor={cell.backgroundColor}
+                  />
+                </button>
+              ) : (
+                <div class="w-full h-full" />
+              )}
+            </div>
+          ))
+        }
+      </div>
 
-    <!-- ***************************** Start Bestil et foredrag ***************************** -->
-    <section class="bg-background-v5">
-      <p>Bestil et foredrag</p>
-    </section>
-    <!-- ***************************** End Bestil et foredrag ***************************** -->
-  </div>
+      <!-- Mobile Detail Panel -->
+      <div
+        class="w-full border-2 border-text-dark overflow-hidden transition-all duration-300 md:hidden"
+        id="mobile-day-detail"
+        data-detail-panel
+        style="max-height: 0;"
+      >
+        <div class="p-2xs md:p-2xs overflow-y-auto">
+          <div class="flex items-center justify-between mb-m">
+            <div
+              class="text-xl md:text-xl font-black text-text-dark"
+              data-detail-date
+            >
+              -
+            </div>
+            <button
+              type="button"
+              class="text-xl text-text-dark h"
+              aria-label="Luk"
+              data-close-btn>✕</button
+            >
+          </div>
+          <ul class="space-y-s md:space-y-m" data-detail-list></ul>
+          <div class="text-center py-m" data-detail-empty>
+            <Text teksttype="brødtekst" stylingclasses="text-text-dark">
+              Vælg en dag for at se detaljer.
+            </Text>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ***************************** End Eventkalender ***************************** -->
+
+  <!-- ***************************** Start Nyt fra CKMS ***************************** -->
+  <section class="bg-background-v3">
+    <p>Nyt fra CKMS</p>
+  </section>
+  <!-- ***************************** End Nyt fra CKMS ***************************** -->
+
+  <!-- ***************************** Start Udstillinger ***************************** -->
+  <section class="bg-background-v4">
+    <p>Udstillinger</p>
+  </section>
+  <!-- ***************************** End Udstillinger ***************************** -->
+
+  <!-- ***************************** Start Bestil et foredrag ***************************** -->
+  <section class="bg-background-v5">
+    <p>Bestil et foredrag</p>
+  </section>
+  <!-- ***************************** End Bestil et foredrag ***************************** -->
 </MainLayout>
+
+<script>
+  const detailPanel = document.getElementById("mobile-day-detail");
+  const dateEl = detailPanel?.querySelector("[data-detail-date]");
+  const listEl = detailPanel?.querySelector("[data-detail-list]");
+  const emptyEl = detailPanel?.querySelector("[data-detail-empty]");
+  const closeBtn = detailPanel?.querySelector("[data-close-btn]");
+  const isMobile = window.matchMedia("(max-width: 767px)");
+
+  function closePanel() {
+    if (detailPanel) {
+      detailPanel.style.maxHeight = "0";
+    }
+  }
+
+  function openPanel() {
+    if (detailPanel) {
+      detailPanel.style.maxHeight = "80vh";
+    }
+  }
+
+  function renderDetail(dateLabel, events) {
+    if (!detailPanel || !isMobile.matches) return;
+
+    if (dateEl) dateEl.textContent = dateLabel;
+
+    if (listEl) {
+      listEl.innerHTML = "";
+
+      if (events.length > 0) {
+        emptyEl?.classList.add("hidden");
+        events.forEach((evt) => {
+          const li = document.createElement("li");
+          li.className = "rounded-lg p-xs md:p-s";
+
+          const time = document.createElement("div");
+          time.className =
+            "text-[18px] md:text-[22px] font-light font-onsite text-text-dark mb-xs";
+          time.textContent = evt.time;
+          li.appendChild(time);
+
+          const title = document.createElement("div");
+          title.className =
+            "text-[18px] md:text-[22px] font-light font-onsite text-text-dark";
+          title.textContent = evt.title;
+          li.appendChild(title);
+
+          if (evt.subtitle) {
+            const subtitle = document.createElement("div");
+            subtitle.className =
+              "text-[18px] md:text-[22px] font-light font-onsite text-text-dark mt-xs";
+            subtitle.textContent = evt.subtitle;
+            li.appendChild(subtitle);
+          }
+
+          listEl.appendChild(li);
+        });
+      } else {
+        emptyEl?.classList.remove("hidden");
+      }
+    }
+
+    openPanel();
+  }
+
+  function handleClick(event) {
+    const target = event.currentTarget;
+    if (!(target instanceof HTMLElement)) return;
+    const dateLabel = target.dataset.date;
+    const rawEvents = target.dataset.events;
+    if (!dateLabel || rawEvents === undefined) return;
+    try {
+      const events = JSON.parse(decodeURIComponent(rawEvents));
+      renderDetail(dateLabel, events);
+    } catch (err) {
+      console.error("Kunne ikke læse event data", err);
+    }
+  }
+
+  function bindMobileClicks() {
+    if (!isMobile.matches) return;
+    document.querySelectorAll("[data-day-index]").forEach((button) => {
+      button.removeEventListener("click", handleClick);
+      button.addEventListener("click", handleClick);
+    });
+  }
+
+  closeBtn?.addEventListener("click", closePanel);
+
+  bindMobileClicks();
+  isMobile.addEventListener("change", bindMobileClicks);
+</script>
