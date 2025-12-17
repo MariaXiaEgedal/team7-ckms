@@ -1,0 +1,58 @@
+---
+import Text from "./Text.astro";
+
+const {
+  inputId = "newsletter-email",
+  placeholder = "Skriv din E-Mail ...",
+  ctaLabel = "Tilmeld dig nyhedsbrevet",
+} = Astro.props;
+---
+
+<form
+  aria-label="Tilmeld dig nyhedsbrevet"
+  class="w-full max-w-[360px] sm:max-w-[420px] md:max-w-[520px] mx-auto px-2xs box-border sm:px-0"
+>
+  <label for={inputId} class="sr-only">Din e-mail</label>
+
+  <div class="flex border-2 border-button-dark text-text-dark">
+    <Text
+      as="label"
+      for={inputId}
+      teksttype="brødtekstbold"
+      stylingclasses="relative flex-1 cursor-text"
+    >
+      <input
+        id={inputId}
+        type="email"
+        required
+        placeholder={placeholder}
+        class="peer w-full min-w-0 bg-transparent px-2xs py-3xs placeholder:text-transparent text-inherit font-inherit border-none focus:ring-0 focus-visible:outline-none"
+      />
+      <Text
+        as="span"
+        teksttype="brødtekstbold"
+        stylingclasses="absolute left-2xs top-1/2 -translate-y-1/2 text-text-dark pointer-events-none transition-opacity duration-200 opacity-0 peer-placeholder-shown:opacity-100 w-[calc(100%-10px)]"
+      >
+        {placeholder}
+      </Text>
+    </Text>
+    <button
+      type="submit"
+      class="group w-[90px] sm:w-[110px] md:w-[140px] bg-button-dark text-text-light border-l-2 border-button-dark flex items-center justify-center shrink-0"
+      aria-label={ctaLabel}
+    >
+      <svg
+        class="w-10 h-10 md:w-14 md:h-14 stroke-current transition-transform duration-300 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]"
+        viewBox="0 0 32 32"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M8 24L24 8M12 8h12v12"
+          stroke-width="2"
+          stroke-linecap="butt"
+          stroke-linejoin="miter"></path>
+      </svg>
+    </button>
+  </div>
+</form>

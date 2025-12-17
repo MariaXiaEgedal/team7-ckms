@@ -1,17 +1,15 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Button from "../components/Button.astro";
-import Link from "../components/Link.astro";
-import { Image } from "astro:assets";
-import thumbsup from "../assets/images/thumbsup.png";
 import Heading from "../components/Heading.astro";
 import Text from "../components/Text.astro";
-// import TildigSection from "../components/TildigSection.astro";
 import CardWorkshop from "../components/CardWorkshop.astro";
 import TildigSection from "../components/TildigSection.astro";
 import Formular from "../components/Formular.astro";
 import UdstillingCard from "../components/UdstillingCard.astro";
 import NewsCard from "../components/NewsCard.astro";
+import NewsletterSignup from "../components/NewsletterSignup.astro";
+import InstagramCarousel from "../components/InstagramCarousel.astro";
 ---
 
 <MainLayout title="CKMS">
@@ -354,14 +352,47 @@ import NewsCard from "../components/NewsCard.astro";
     <!-- ***************************** End Nyt fra CKMS ***************************** -->
 
     <!-- ***************************** Start Nyhedsbrev ***************************** -->
-    <section class="bg-background-v2 mx-2xs md:mx-l">
-      <p>Nyhedsbrev</p>
+    <section
+      class="bg-background-v2 py-xs md:py-m px-2xs md:px-l lg:px-xl text-text-dark"
+    >
+      <div class="grid grid-cols-12 gap-2xs">
+        <div class="col-start-2 col-end-7">
+          <img
+            src="/img/email-1.svg"
+            alt="Tilmeld dig vores nyhedsbrev"
+            class="w-[350px] md:w-[600px]"
+          />
+        </div>
+      </div>
+
+      <!-- Email input with arrow button -->
+      <div class="my-xs md:my-m">
+        <NewsletterSignup />
+      </div>
+
+      <!-- Curved text bottom image - columns 6-11 -->
+      <div class="grid grid-cols-12 gap-2xs">
+        <div class="col-start-7 col-end-12">
+          <img
+            src="/img/email-2.svg"
+            alt="Hold dig opdateret"
+            class="w-[300px] md:w-[500px]"
+          />
+        </div>
+      </div>
     </section>
     <!-- ***************************** End Nyhedsbrev ***************************** -->
 
     <!-- ***************************** Start Følg med på Instagram ***************************** -->
     <section class="bg-background-v3 mx-2xs md:mx-l">
-      <p>Følg med på Instagram</p>
+      <Heading
+        htmlheading="h2"
+        size="medium"
+        stylingclasses="mb-xs md:mb-m animate-fade-right"
+        >Følg med på Instagram
+      </Heading>
+
+      <InstagramCarousel />
     </section>
     <!-- ***************************** End Følg med på Instagram ***************************** -->
   </div>

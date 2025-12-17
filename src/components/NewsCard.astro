@@ -13,22 +13,20 @@ const {
 ---
 
 <article class="flex flex-col">
-  <div class="relative aspect-square mb-4xs md:mb-3xs hover-3d">
-    <figure class="max-w-100 rounded-2xl w-full h-full">
-      <img
-        src={imageSrc}
-        alt={imageAlt}
-        class="w-full h-full object-cover rounded-2xl"
-      />
-    </figure>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+  <div class="relative aspect-square mb-4xs md:mb-3xs">
+    <div class="hover-3d absolute inset-0">
+      <figure class="max-w-100 w-full h-full">
+        <img src={imageSrc} alt={imageAlt} class="w-full h-full object-cover" />
+      </figure>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
 
   <Text teksttype="billedtekst" stylingclasses="font-bold mb-3xs md:mb-2xs"
