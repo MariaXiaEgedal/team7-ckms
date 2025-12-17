@@ -4,12 +4,154 @@ import Button from "../components/Button.astro";
 import Link from "../components/Link.astro";
 import { Image } from "astro:assets";
 import thumbsup from "../assets/images/thumbsup.png";
+import Heading from "../components/Heading.astro";
+import Text from "../components/Text.astro";
 ---
 
-<MainLayout title="Workshops">
-  <!-- ***************************** Start Skrivegrupper ***************************** -->
-  <section class="bg-background-v3">
-    <p>Skrivegrupper</p>
-  </section>
-  <!-- ***************************** End Skrivegrupper ***************************** -->
+<MainLayout title="Workshop-singleview">
+  <!-- ***************************** Start Skrivegrupper sektion ***************************** -->
+  <div class="flex flex-col gap-m md:gap-xl my-m md:my-xl">
+    <section class="mx-2xs md:mx-l">
+      <div class="grid grid-cols-4 md:grid-cols-12 gap-x-2xs">
+        <div class="col-start-1 col-span-4 md:col-start-1 md:col-span-6">
+          <Heading
+            htmlheading="h1"
+            size="large"
+            stylingclasses="text-text-dark mb-xs"
+          >
+            Skrivegrupper
+          </Heading>
+        </div>
+
+        <div class="col-start-1 col-span-4 md:col-start-1 md:col-span-5">
+          <Heading
+            htmlheading="h4"
+            size="xsmall"
+            stylingclasses="text-text-dark mb-xs"
+          >
+            REWRITALIZE skrivegrupper er et frirum for brugere af psykiatrien,
+            hvor vi mødes om at være kreative.
+          </Heading>
+
+          <Text teksttype="brødtekst" stylingclasses="text-text-dark mb-xs">
+            I skrivegrupperne, som ledes af en forfatter, kan du prøve kræfter
+            med at skrive dine egne tekster. Vi skriver sammen, og det handler
+            om at have det sjovt og være en del af et fællesskab. Det er umuligt
+            at gøre noget forkert. Man skal ikke have skrevet før, og grupperne
+            er planlagt, så alle kan være med.
+          </Text>
+
+          <Text teksttype="brødtekst" stylingclasses="text-text-dark mb-m">
+            For at deltage skal du være psykiatribruger og have en forsamtale
+            med en sundhedsfaglig medarbejder i CKMS. Som en del af forløbet
+            deltager du også i korte interviews og spørgeskemaer, som indgår i
+            centrets forskning.
+          </Text>
+
+          <Text teksttype="brødtekst" stylingclasses="text-text-dark">
+            <ul class="list-disc mb-xs md:mb-m ml-2xs">
+              <li>
+                <Text stylingclasses="text-text-dark"
+                  >Starter løbende nye skrivegrupper</Text
+                >
+              </li>
+              <li>
+                <Text stylingclasses="text-text-dark"
+                  >Strækker sig over 15 gange</Text
+                >
+              </li>
+              <li>
+                <Text stylingclasses="text-text-dark"
+                  >Samme lukkede gruppe mødes ugentligt</Text
+                >
+              </li>
+              <li>
+                <Text stylingclasses="text-text-dark"
+                  >Skriver sammen i 3 timer ad gangen</Text
+                >
+              </li>
+              <li><Text stylingclasses="text-text-dark">På Amager</Text></li>
+            </ul>
+          </Text>
+        </div>
+
+        <div class="col-start-1 col-span-4 md:col-start-7 md:col-span-6">
+          <img
+            src="/img/skrivegruppe.webp"
+            alt="Skrivegruppe"
+            class="w-full object-cover rounded-tr-s md:rounded-tr-l"
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 md:grid-cols-12 mt-m md:mt-0 md:mb-xl mb-m">
+        <!-- Billede 1 -->
+        <div class="col-span-1 md:col-span-3">
+          <img
+            src="/img/skriv1.webp"
+            alt=""
+            class="w-full h-24 md:h-40 object-cover"
+          />
+        </div>
+
+        <!-- Billede 2 -->
+        <div class="col-span-1 md:col-span-3">
+          <img
+            src="/img/skriv2.webp"
+            alt=""
+            class="w-full h-24 md:h-40 object-cover"
+          />
+        </div>
+
+        <!-- Billede 3 -->
+        <div class="col-span-1 md:col-span-3">
+          <img
+            src="/img/skriv3.webp"
+            alt=""
+            class="w-full h-24 md:h-40 object-cover"
+          />
+        </div>
+
+        <!-- Billede 4 – skjult på mobil -->
+        <div class="hidden md:block md:col-span-3">
+          <img src="/img/skriv4.webp" alt="" class="w-full h-40 object-cover" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ***************************** End Skrivegrupper sektion ***************************** -->
+
+    <!-- ===================== Start lyserød sektion===================== -->
+    <section
+      class="bg-background-v3 mb-m md:mb-xl px-2xs md:px-l py-xs md:py-m"
+    >
+      <div class="grid grid-cols-4 md:grid-cols-12 md:gap-x-2xs items-center">
+        <div class="col-span-3 md:col-start-1 md:col-span-6">
+          <Heading
+            htmlheading="h3"
+            size="small"
+            stylingclasses="text-text-dark mb-xs"
+          >
+            Tilmeld Workshop
+          </Heading>
+
+          <Text teksttype="brødtekst" stylingclasses="text-text-dark mb-xs">
+            For at tilmelde dig workshops, skal du tilmelde dig en tid til et
+            for-interview
+          </Text>
+
+          <Button>Tilmeld dig her</Button>
+        </div>
+
+        <!-- Bookikon -->
+        <div
+          class="col-span-1 md:col-start-9 md:col-span-4 flex justify-end items-center"
+        >
+          <img src="/img/Bookicon.svg" alt="" class="w-24 md:w-32 h-auto" />
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===================== End lyserød sektion===================== -->
 </MainLayout>
