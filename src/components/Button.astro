@@ -1,10 +1,21 @@
 ---
 import Text from "./Text.astro";
+
+const { variant = "dark" } = Astro.props;
+
+const variantClasses = {
+  dark: "border-button-dark text-text-dark hover:bg-button-dark hover:border-button-dark hover:text-text-light",
+  light:
+    "border-button-light text-text-light hover:bg-button-light hover:border-button-light hover:text-text-dark",
+};
 ---
 
 <div>
   <button
-    class="inline-flex items-center gap-3xs border-2 border-button-dark text-text-dark px-xs py-3xs transition-all duration-300 hover:bg-button-dark hover:border-button-dark hover:text-text-light"
+    class:list={[
+      "inline-flex items-center gap-3xs border-2 px-xs py-3xs transition-all duration-300",
+      variantClasses[variant],
+    ]}
   >
     <Text teksttype="knaptekst" stylingclasses="m-0 leading-none">
       <slot />

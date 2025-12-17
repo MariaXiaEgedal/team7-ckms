@@ -3,6 +3,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import KalenderCard from "../components/KalenderCard.astro";
 import Heading from "../components/Heading.astro";
 import Text from "../components/Text.astro";
+import Button from "../components/Button.astro";
 import type { ImageMetadata } from "astro";
 
 const dayNames = ["Man", "Tirs", "Ons", "Tors", "Fre", "Lør", "Søn"];
@@ -182,8 +183,49 @@ const decemberCells: CalendarCell[] = [
   <!-- ***************************** End Udstillinger ***************************** -->
 
   <!-- ***************************** Start Bestil et foredrag ***************************** -->
-  <section class="bg-background-v5">
-    <p>Bestil et foredrag</p>
+  <section class="bg-background-v4 p-m md:py-l">
+    <div>
+      <div class="mb-2xs md:mb-m">
+        <Heading
+          htmlheading="h2"
+          size="medium"
+          stylingclasses="text-text-light"
+        >
+          Bestil et foredrag
+        </Heading>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-xs md:gap-m">
+        <!-- Left column -->
+        <div class="space-y-xs md:space-y-s">
+          <Heading
+            htmlheading="h4"
+            size="xsmall"
+            stylingclasses="text-text-light"
+          >
+            CKMS tilbyder foredrag, workshops og kurser
+          </Heading>
+          <Text teksttype="brødtekst" stylingclasses="text-text-light">
+            Skriv til os hvis du er interesseret i at bestille et foredrag. Vi
+            sammensætter gerne et skræddersyet program.
+          </Text>
+          <Button variant="light">Skriv til os</Button>
+        </div>
+
+        <!-- Right column -->
+        <div>
+          <Text teksttype="brødtekst" stylingclasses="text-text-light">
+            Hvis du er et museum eller udstillingssted tilbyder vi også
+            rådgivning angående inklusion af psykiatribrugere i jeres
+            programmer. Vi kan også tilbyde kortere skriveforløb ved vores
+            forfattere som en metode til at åbne et udstillingsrum og dets
+            genstande på, hvilket vi fx har gjort i samarbejde med
+            Arbejdermuseet, Medicinsk Museion, Statens Museum for Kunst,
+            Overgaden ovenvande.
+          </Text>
+        </div>
+      </div>
+    </div>
   </section>
   <!-- ***************************** End Bestil et foredrag ***************************** -->
 </MainLayout>
