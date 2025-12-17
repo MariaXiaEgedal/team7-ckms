@@ -10,6 +10,7 @@ import Text from "../components/Text.astro";
 import CardWorkshop from "../components/CardWorkshop.astro";
 import TildigSection from "../components/TildigSection.astro";
 import Formular from "../components/Formular.astro";
+import UdstillingCard from "../components/UdstillingCard.astro";
 ---
 
 <MainLayout title="CKMS">
@@ -194,8 +195,53 @@ import Formular from "../components/Formular.astro";
     <!-- ***************************** End Støt vores formål og arbejde ***************************** -->
 
     <!-- ***************************** Start Udstillinger i CKMS ***************************** -->
-    <section class="bg-background-v3 mx-2xs md:mx-l">
-      <p>Udstillinger i CKMS</p>
+    <section class="mx-2xs md:mx-l">
+      <Heading
+        htmlheading="h2"
+        size="medium"
+        stylingclasses="mb-xs md:mb-m animate-fade-right"
+        >Udstillinger i CKMS
+      </Heading>
+
+      <UdstillingCard
+        headingh3="are you mad yet?"
+        headingh4="are you mad yet? kaster lys på de økonomiske reformer, som rammer de syge i vores samfund."
+        imgSrc="/img/udstilling1.webp"
+        imgAlt="Are you mad yet illustration med Cheshire cat"
+        bgColor="bg-udstilling-1-card"
+        textColor="text-text-dark"
+        number="1"
+      />
+
+      <UdstillingCard
+        headingh3="Kognitive dæmoner"
+        headingh4="Små væsener bevæger sig gennem kognitionens lag og forstyrrer hverdagens strukturer som 'kognitive dæmoner.'"
+        imgSrc="/img/udstilling2.webp"
+        imgAlt="Kunstværk med abstrakte former"
+        bgColor="bg-udstilling-2-card"
+        textColor="text-text-light"
+        number="2"
+      />
+
+      <UdstillingCard
+        headingh3="M / Other (2021)"
+        headingh4="Samtidskunstnere undersøger moderskab gennem en interaktiv kunstinstallation."
+        imgSrc="/img/udstilling3.webp"
+        imgAlt="Interaktiv kunstinstallation med grønne hænder og molekyler"
+        bgColor="bg-udstilling-3-card"
+        textColor="text-text-dark"
+        number="3"
+      />
+
+      <UdstillingCard
+        headingh3="Ømme Knapper"
+        headingh4="Et kunstnerisk rum lavet af og for psykiatribrugere, deres pårørende, psykiatriske behandlere – og kunstinteresserede."
+        imgSrc="/img/udstilling4.webp"
+        imgAlt="Illustration af demonstranter med skilt 'Ømme Knapper'"
+        bgColor="bg-udstilling-4-card"
+        textColor="text-text-light"
+        number="4"
+      />
     </section>
     <!-- ***************************** End Udstillinger i CKMS ***************************** -->
 
