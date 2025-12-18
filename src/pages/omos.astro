@@ -48,34 +48,38 @@ const teamMembers = [
 ---
 
 <MainLayout title="Om os">
-  <div class="flex flex-col gap-m md:gap-xl">
+  <div class="flex flex-col gap-m md:gap-xl my-m md:my-xl">
     <!-- ***************************** Start Om os ***************************** -->
 
-    <section class="mx-2xs md:mx-l mt-xl animate-fade-right">
-      <Heading htmlheading="h1" size="large" class="text-text-dark">
+    <section class="mx-2xs md:mx-l">
+      <Heading
+        htmlheading="h1"
+        size="large"
+        stylingclasses="text-text-dark mb-xs md:mb-m opacity-0 intersect:opacity-100 intersect:animate-fade-right intersect-once"
+      >
         Om os
       </Heading>
 
-      <div class="grid grid-cols-4 md:grid-cols-12 mt-xs gap-2xs">
+      <div class="grid grid-cols-4 md:grid-cols-12 gap-2xs">
         <div class="col-span-4 md:col-span-6">
-          <Text class="text-text-dark">
+          <Text class="text-text-dark mb-2xs md:mb-xs">
             Nationalt Center for Kunst og Mental Sundhed er et forskningsbaseret
             mødested, hvor venlighed og respekt er det faste grundlag og hvor vi
             med undersøgende nysgerrighed hylder det hele menneske.
           </Text>
-          <Text class="text-text-dark">
+          <Text class="text-text-dark mb-2xs md:mb-xs">
             Hos os møder du intense øjeblikke, erkendelser, fællesskab, ny
             læring og nye former for samvær med patienter, etablerede kunstnere,
             forskere, sundhedsfaglige og professionelle psykologer og
             psykiatere.
           </Text>
-          <Text class="text-text-dark">
+          <Text class="text-text-dark mb-2xs md:mb-xs">
             Vi bruger kunstworkshops og udstillinger som et middel til at opnå
             forbedringer. Vi forsker i, hvordan kunst virker og bedst muligt
             tjener deltagerne. Vores forskning er vigtig, men det er mennesket
             med levet erfaring, der er i centrum.
           </Text>
-          <ul class="space-y-3 ml-2xs list-disc mt-xs">
+          <ul class="space-y-3 ml-2xs list-disc">
             <li>
               <Text stylingclasses="text-text-dark">
                 Grupperne er deltagerfokuserede kunstworkshops, ikke
@@ -113,11 +117,11 @@ const teamMembers = [
         <img
           src="public/img/omoslogo.png"
           alt="CKMS Logo"
-          class="w-full h-auto"
+          class="w-full h-auto mb-xs md:mb-0"
         />
       </div>
       <div
-        class="rounded-tl-s md:rounded-tl-l; rounded-br-s md:rounded-br-l; col-span-4 md:col-span-6 flex flex-col justify-center space-y-6 p-xs bg-background-v2 mt-xs md:mt-0"
+        class="rounded-tl-s md:rounded-tl-l rounded-br-s md:rounded-br-l col-span-4 md:col-span-6 flex flex-col justify-center space-y-6 p-xs bg-background-v2"
       >
         <Text class="text-text-dark">
           Vi udvikler kunstneriske workshopformater baseret på international
@@ -138,110 +142,109 @@ const teamMembers = [
     <!-- ***************************** End Anden række Om os ***************************** -->
 
     <!-- ***************************** Start Kunst og psykiatri ***************************** -->
-    <section class="col-span-4 md:col-span-12 bg-background-v5" style="">
-      <div style="">
-        <div class="mx-2xs md:mx-l pt-m">
-          <Heading htmlheading="h3" size="small" class="text-text-dark">
-            Kunst og psykiatri
-          </Heading>
+    <section
+      class="col-span-4 md:col-span-12 bg-background-v5 px-2xs md:px-l py-m md:py-m"
+    >
+      <Heading
+        htmlheading="h3"
+        size="small"
+        stylingclasses="text-text-dark mb-xs"
+      >
+        Kunst og psykiatri
+      </Heading>
+
+      <!-- 3 kolonner -->
+      <div class="grid grid-cols-4 md:grid-cols-3 gap-2xs mb-xs md:mb-m">
+        <!-- Column 1 -->
+        <div class="col-span-4 md:col-span-1 md:border-r-2 md:border-text-dark">
+          <Text class="text-text-dark">
+            Kunst har fra psykiatriens begyndelse været brugt som beskæftigelse,
+            terapi og diagnostisk redskab. Psykiatere som Hans Prinzhorn samlede
+            spontant producerede patientværker, ofte fra indlagte personer i
+            længere perioder. Europas store Art Brut-samlinger, herunder
+            Printzhorn-samlingen i Heidelberg, stammer fra denne praksis.
+          </Text>
+          <Text class="text-text-dark">
+            I 1960'erne begyndte psykoanalytikere at integrere kunstneriske
+            virkemidler i psykoterapien, hvilket blev starten på kunstterapi.
+          </Text>
         </div>
 
-        <!-- 3 kolonner -->
-        <div
-          class="grid grid-cols-4 md:grid-cols-3 gap-2xs mx-2xs md:mx-l pt-xs pb-xs"
+        <!-- Column 2 -->
+        <div class="col-span-4 md:col-span-1 md:border-r-2 md:border-text-dark">
+          <Text stylingclasses="text-text-dark">
+            I Center for Kunst og Mental Sundhed (CKMS) arbejder vi ud fra, at
+            deltagelse i kunstneriske aktiviteter har gavnlig effekt.
+          </Text>
+          <Text stylingclasses="text-text-dark">
+            Vi arbejder med deltagerfokuseret kunst, et begreb fra kunstverdenen
+            anvendt i sundhedsfremme.
+          </Text>
+          <Text stylingclasses="text-text-dark">
+            Participatory arts udspringer af kunstneres ønske om at inkludere
+            publikum i den kunstneriske proces. Auguste Boal populariserede
+            dette med Theater of the Oppressed, hvor kunst anvendes til social
+            forandring.
+          </Text>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="col-span-4 md:col-span-1">
+          <Text stylingclasses="text-text-dark">
+            I CKMS har vi videreuddannelse koncept som en hybrid mellem
+            kunstgruppe og gruppeterapi intervention: Grupperne ledes af en
+            kunstnerisk autoritet i samarbejde med en sundhedsfaglig
+            co-terapeut, og forløbet følger best practice inden for
+            gruppeterapi. Vi har desuden udviklet et manualiseret
+            deltagerfokuseret kunstworkshop-koncept, som
+            <strong class="font-bold">udgives på forlaget Klim.</strong>
+          </Text>
+        </div>
+      </div>
+
+      <!-- Sources Button -->
+      <div class="mx-2xs md:mx-l">
+        <button
+          class="w-full border-2 border-text-dark p-3xs flex items-center justify-between"
+          type="button"
+          aria-expanded="false"
         >
-          <!-- Column 1 -->
-          <div
-            class="col-span-4 md:col-span-1 md:border-r-2 md:border-text-dark"
-          >
-            <Text class="text-text-dark">
-              Kunst har fra psykiatriens begyndelse været brugt som
-              beskæftigelse, terapi og diagnostisk redskab. Psykiatere som Hans
-              Prinzhorn samlede spontant producerede patientværker, ofte fra
-              indlagte personer i længere perioder. Europas store Art
-              Brut-samlinger, herunder Printzhorn-samlingen i Heidelberg,
-              stammer fra denne praksis.
-            </Text>
-            <Text class="text-text-dark">
-              I 1960'erne begyndte psykoanalytikere at integrere kunstneriske
-              virkemidler i psykoterapien, hvilket blev starten på kunstterapi.
-            </Text>
+          <div>
+            <Heading
+              htmlheading="h4"
+              size="xsmall"
+              stylingclasses="text-text-dark"
+            >
+              Kilder
+            </Heading>
           </div>
+          <img
+            src="/img/pilned.svg"
+            alt="Åbn"
+            class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
+          />
+        </button>
 
-          <!-- Column 2 -->
-          <div
-            class="col-span-4 md:col-span-1 md:border-r-2 md:border-text-dark"
-          >
-            <Text class="text-text-dark">
-              I Center for Kunst og Mental Sundhed (CKMS) arbejder vi ud fra, at
-              deltagelse i kunstneriske aktiviteter har gavnlig effekt.
+        <!-- Sources List (Hidden by default) -->
+        <div
+          class="sources-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out border-l-2 border-r-2 border-b-2 border-text-dark"
+        >
+          <div class="py-8 space-y-6 px-4">
+            <Text stylingclasses="text-text-dark">
+              Boal, A. (1979). Theatre of the Oppressed. Pluto Press.
             </Text>
-            <Text class="text-text-dark">
-              Vi arbejder med deltagerfokuseret kunst, et begreb fra
-              kunstverdenen anvendt i sundhedsfremme.
+            <Text stylingclasses="text-text-dark">
+              Prinzhorn, H. (1922). Artistry of the Mentally Ill.
+              Springer-Verlag.
             </Text>
-            <Text class="text-text-dark">
-              Participatory arts udspringer af kunstneres ønske om at inkludere
-              publikum i den kunstneriske proces. Auguste Boal populariserede
-              dette med Theater of the Oppressed, hvor kunst anvendes til social
-              forandring.
+            <Text stylingclasses="text-text-dark">
+              Foucault, M. (1961). Madness and Civilization. Pantheon Books.
             </Text>
-          </div>
-
-          <!-- Column 3 -->
-          <div class="col-span-4 md:col-span-1">
-            <Text class="text-text-dark">
-              I CKMS har vi videreuddannelse koncept som en hybrid mellem
-              kunstgruppe og gruppeterapi intervention: Grupperne ledes af en
-              kunstnerisk autoritet i samarbejde med en sundhedsfaglig
-              co-terapeut, og forløbet følger best practice inden for
-              gruppeterapi. Vi har desuden udviklet et manualiseret
-              deltagerfokuseret kunstworkshop-koncept, som
-              <strong class="font-bold">udgives på forlaget Klim.</strong>
+            <Text stylingclasses="text-text-dark">
+              Csikszentmihalyi, M., & Selega Csikszentmihalyi, I. (1988).
+              Optimal Experience: Psychological Studies of Flow in
+              Consciousness. Cambridge University Press.
             </Text>
-          </div>
-        </div>
-
-        <!-- Sources Button -->
-        <div class="mx-2xs md:mx-l mb-m">
-          <button
-            class="w-full border-2 border-text-dark p-3xs flex items-center justify-between"
-            type="button"
-            aria-expanded="false"
-          >
-            <div>
-              <Heading htmlheading="h4" size="xsmall" class="text-text-dark">
-                Kilder
-              </Heading>
-            </div>
-            <img
-              src="/img/pilned.svg"
-              alt="Åbn"
-              class="w-8 h-8 transition-transform duration-300 dropdown-arrow"
-            />
-          </button>
-
-          <!-- Sources List (Hidden by default) -->
-          <div
-            class="sources-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out border-l-2 border-r-2 border-b-2 border-text-dark"
-          >
-            <div class="py-8 space-y-6 px-4">
-              <Text class="text-text-dark">
-                Boal, A. (1979). Theatre of the Oppressed. Pluto Press.
-              </Text>
-              <Text class="text-text-dark">
-                Prinzhorn, H. (1922). Artistry of the Mentally Ill.
-                Springer-Verlag.
-              </Text>
-              <Text class="text-text-dark">
-                Foucault, M. (1961). Madness and Civilization. Pantheon Books.
-              </Text>
-              <Text class="text-text-dark">
-                Csikszentmihalyi, M., & Selega Csikszentmihalyi, I. (1988).
-                Optimal Experience: Psychological Studies of Flow in
-                Consciousness. Cambridge University Press.
-              </Text>
-            </div>
           </div>
         </div>
       </div>
@@ -250,7 +253,11 @@ const teamMembers = [
     <!-- ***************************** Start Aktivitetsteamet ***************************** -->
     <section class="col-span-4 md:col-span-12">
       <div class="mx-2xs md:mx-l">
-        <Heading htmlheading="h3" size="small" class="text-text-dark">
+        <Heading
+          htmlheading="h2"
+          size="medium"
+          stylingclasses="text-text-dark opacity-0 intersect:opacity-100 intersect:animate-fade-right intersect-once"
+        >
           Aktivitetsteamet
         </Heading>
       </div>
@@ -308,11 +315,11 @@ const teamMembers = [
       <div
         class="rounded-tr-s md:rounded-tr-l rounded-bl-s md:rounded-bl-l col-span-4 md:col-span-6 bg-background-v3 p-2xs md:p-xs"
       >
-        <Heading htmlheading="h3" size="small" class="text-text-dark">
+        <Heading htmlheading="h3" size="small" stylingclasses="text-text-dark">
           Vi glæder os til at høre fra dig!
         </Heading>
 
-        <Text class="text-text-dark mb-xs">
+        <Text stylingclasses="text-text-dark mb-xs">
           Nationalt Center for Kunst og Mental Sundhed har til huse i det
           tidligere Sankt Elisabeths Hospital, som blev stiftet af Sankt
           Elisabethsstiftelsen i 1904.
@@ -320,10 +327,13 @@ const teamMembers = [
 
         <div class="space-y-4">
           <div>
-            <Text teksttype="brødtekstbold" class="text-text-dark mb-3xs">
+            <Text
+              teksttype="brødtekstbold"
+              stylingclasses="text-text-dark mb-3xs"
+            >
               Kontakt os
             </Text>
-            <Text class="text-text-dark">
+            <Text stylingclasses="text-text-dark">
               Psykiatrisk Center Amager<br />
               Hans Bogbinders Allé 3, 2.tv<br />
               2300 København S<br />
@@ -345,7 +355,7 @@ const teamMembers = [
           allowfullscreen=""
           loading="lazy"></iframe>
 
-        <Text class="text-text-dark">
+        <Text stylingclasses="text-text-dark">
           Nærmeste metrostation er Amagerbrо (lige ved Amagercеntret), ca 1.2
           km. Herfra går bus nr. 5C direkte til døren (ca. 7 min)
         </Text>
@@ -357,9 +367,9 @@ const teamMembers = [
     <section class="col-span-4 md:col-span-12">
       <div class="mx-2xs md:mx-l">
         <Heading
-          htmlheading="h3"
+          htmlheading="h2"
           size="medium"
-          stylingclasses="text-text-dark mb-12"
+          stylingclasses="text-text-dark mb-12 opacity-0 intersect:opacity-100 intersect:animate-fade-right intersect-once"
         >
           Følg med på Instagram
         </Heading>
@@ -374,7 +384,10 @@ const teamMembers = [
         <div class="grid grid-cols-4 md:grid-cols-12 gap-3xs items-start mt-m">
           <!-- Left side - Text content -->
           <div class="col-span-4 md:col-span-6 mx-2xs md:mx-l">
-            <Heading htmlheading="h2" class="text-text-dark">
+            <Heading
+              htmlheading="h2"
+              stylingclasses="text-text-dark opacity-0 intersect:opacity-100 intersect:animate-fade-right intersect-once"
+            >
               Organisation og vedtægter
             </Heading>
 
@@ -806,285 +819,282 @@ const teamMembers = [
     <!-- ***************************** End Organisation og vedtægter ***************************** -->
   </div>
 
-  <style>
-    /* smooth container scrolling so JS doesn't need to animate */
-    .aktivitet-carousel {
-      scroll-behavior: smooth;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-    .aktivitet-carousel::-webkit-scrollbar {
-      display: none;
-    }
+<style>
+  /* smooth container scrolling so JS doesn't need to animate */
+  .aktivitet-carousel {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .aktivitet-carousel::-webkit-scrollbar {
+    display: none;
+  }
 
-    /* basic transition for cards (use Tailwind utilities where possible in markup)
+  /* basic transition for cards (use Tailwind utilities where possible in markup)
        keep a minimal fallback CSS for responsive scales */
+  .aktivitet-carousel .card {
+    transition:
+      transform 200ms ease,
+      opacity 200ms ease;
+  }
+
+  .nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: var(--color-text-light);
+    border-radius: 9999px;
+    border: none;
+    color: var(--color-text-dark);
+  }
+  .nav-button svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .spin-slow {
+    animation: spin-slow 18s linear infinite;
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* mobile: larger single card view but slightly reduced for contrast */
+  .aktivitet-carousel .card {
+    flex: 0 0 80%;
+    max-width: 80%;
+    transform: scale(0.88);
+    opacity: 0.9;
+  }
+
+  @media (min-width: 768px) {
+    .aktivitet-carousel {
+      padding-bottom: 0;
+    }
+    /* show five cards across */
     .aktivitet-carousel .card {
-      transition:
-        transform 200ms ease,
-        opacity 200ms ease;
+      flex: 0 0 calc((100% - 64px) / 5);
+      max-width: calc((100% - 64px) / 5);
+      transform: scale(0.6);
+      opacity: 0.7;
     }
-
-    .nav-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-      background: var(--color-text-light);
-      border-radius: 9999px;
-      border: none;
-      color: var(--color-text-dark);
-    }
-    .nav-button svg {
-      width: 28px;
-      height: 28px;
-    }
-
-    .spin-slow {
-      animation: spin-slow 18s linear infinite;
-    }
-
-    @keyframes spin-slow {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    /* mobile: larger single card view but slightly reduced for contrast */
-    .aktivitet-carousel .card {
-      flex: 0 0 80%;
-      max-width: 80%;
-      transform: scale(0.88);
-      opacity: 0.9;
-    }
-
-    @media (min-width: 768px) {
-      .aktivitet-carousel {
-        padding-bottom: 0;
-      }
-      /* show five cards across */
-      .aktivitet-carousel .card {
-        flex: 0 0 calc((100% - 64px) / 5);
-        max-width: calc((100% - 64px) / 5);
-        transform: scale(0.6);
-        opacity: 0.7;
-      }
-      /* center card is significantly larger */
-      .aktivitet-carousel .card.center {
-        transform: scale(1.36);
-        z-index: 50;
-        opacity: 1;
-      }
-    }
-
-    /* fallback for small screens when center class applies */
+    /* center card is significantly larger */
     .aktivitet-carousel .card.center {
-      transform: scale(1.06);
+      transform: scale(1.36);
+      z-index: 50;
       opacity: 1;
     }
-  </style>
+  }
 
-  <script>
-    (function () {
-      const container = document.getElementById("aktivitet-carousel");
-      const prevBtn = document.getElementById("aktivitet-prev");
-      const nextBtn = document.getElementById("aktivitet-next");
-      if (!container) return;
+  /* fallback for small screens when center class applies */
+  .aktivitet-carousel .card.center {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+</style>
 
-      // original cards (before cloning)
-      const originals = Array.from(container.querySelectorAll(".card"));
-      const n = originals.length;
-      if (n === 0) return;
+<script>
+  (function () {
+    const container = document.getElementById("aktivitet-carousel");
+    const prevBtn = document.getElementById("aktivitet-prev");
+    const nextBtn = document.getElementById("aktivitet-next");
+    if (!container) return;
 
-      // mark originals so we can find them later
-      originals.forEach((el, i) => (el.dataset.originalIndex = String(i)));
+    // original cards (before cloning)
+    const originals = Array.from(container.querySelectorAll(".card"));
+    const n = originals.length;
+    if (n === 0) return;
 
-      // create clones: prepend reversed, append normal order
-      for (let i = n - 1; i >= 0; i--) {
-        const clone = originals[i].cloneNode(true);
-        clone.dataset.clone = "true";
-        clone.dataset.originalIndex = String(i);
-        container.insertBefore(clone, container.firstChild);
-      }
-      for (let i = 0; i < n; i++) {
-        const clone = originals[i].cloneNode(true);
-        clone.dataset.clone = "true";
-        clone.dataset.originalIndex = String(i);
-        container.appendChild(clone);
-      }
+    // mark originals so we can find them later
+    originals.forEach((el, i) => (el.dataset.originalIndex = String(i)));
 
-      const cards = () => Array.from(container.querySelectorAll(".card"));
+    // create clones: prepend reversed, append normal order
+    for (let i = n - 1; i >= 0; i--) {
+      const clone = originals[i].cloneNode(true);
+      clone.dataset.clone = "true";
+      clone.dataset.originalIndex = String(i);
+      container.insertBefore(clone, container.firstChild);
+    }
+    for (let i = 0; i < n; i++) {
+      const clone = originals[i].cloneNode(true);
+      clone.dataset.clone = "true";
+      clone.dataset.originalIndex = String(i);
+      container.appendChild(clone);
+    }
 
-      function bindCardClicks() {
-        cards().forEach((el) => {
-          el.addEventListener("click", () => {
-            const orig = Number(el.dataset.originalIndex);
-            if (!Number.isNaN(orig)) goToIndex(orig);
-          });
+    const cards = () => Array.from(container.querySelectorAll(".card"));
+
+    function bindCardClicks() {
+      cards().forEach((el) => {
+        el.addEventListener("click", () => {
+          const orig = Number(el.dataset.originalIndex);
+          if (!Number.isNaN(orig)) goToIndex(orig);
         });
-      }
+      });
+    }
 
-      // attach click handlers (clones were created above)
-      bindCardClicks();
+    // attach click handlers (clones were created above)
+    bindCardClicks();
 
-      function indexOfCenterOriginalIndex() {
-        const centerX = container.scrollLeft + container.clientWidth / 2;
-        let closestIndex = 0;
-        let closestDist = Infinity;
-        const list = cards();
-        list.forEach((el, idx) => {
-          const elCenter = el.offsetLeft + el.offsetWidth / 2;
-          const dist = Math.abs(elCenter - centerX);
-          if (dist < closestDist) {
-            closestDist = dist;
-            closestIndex = idx;
-          }
-        });
-        const el = list[closestIndex];
-        return parseInt(el.dataset.originalIndex, 10);
-      }
-
-      function setCenterClassByOriginalIndex(origIdx) {
-        cards().forEach((el) =>
-          el.classList.toggle(
-            "center",
-            Number(el.dataset.originalIndex) === origIdx
-          )
-        );
-      }
-
-      function goToIndex(i) {
-        // wrap index so navigation loops
-        i = ((i % n) + n) % n;
-        const target = container.querySelector(
-          `.card[data-original-index="${i}"]:not([data-clone])`
-        );
-        if (!target) return;
-        const left =
-          target.offsetLeft +
-          target.offsetWidth / 2 -
-          container.clientWidth / 2;
-        setCenterClassByOriginalIndex(i);
-        container.scrollTo({ left, behavior: "smooth" });
-      }
-
-      prevBtn &&
-        prevBtn.addEventListener("click", () => {
-          const idx = indexOfCenterOriginalIndex();
-          goToIndex(idx - 1);
-        });
-      nextBtn &&
-        nextBtn.addEventListener("click", () => {
-          const idx = indexOfCenterOriginalIndex();
-          goToIndex(idx + 1);
-        });
-
-      window.addEventListener("keydown", (e) => {
-        const active = document.activeElement && document.activeElement.tagName;
-        if (active === "INPUT" || active === "TEXTAREA") return;
-        if (e.key === "ArrowLeft") {
-          e.preventDefault();
-          const idx = indexOfCenterOriginalIndex();
-          goToIndex(idx - 1);
-        }
-        if (e.key === "ArrowRight") {
-          e.preventDefault();
-          const idx = indexOfCenterOriginalIndex();
-          goToIndex(idx + 1);
+    function indexOfCenterOriginalIndex() {
+      const centerX = container.scrollLeft + container.clientWidth / 2;
+      let closestIndex = 0;
+      let closestDist = Infinity;
+      const list = cards();
+      list.forEach((el, idx) => {
+        const elCenter = el.offsetLeft + el.offsetWidth / 2;
+        const dist = Math.abs(elCenter - centerX);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closestIndex = idx;
         }
       });
+      const el = list[closestIndex];
+      return parseInt(el.dataset.originalIndex, 10);
+    }
 
-      // when user scrolls into clones, jump (without animation) to the matching original
-      let scrollTimer = null;
-      container.addEventListener(
-        "scroll",
-        () => {
-          if (scrollTimer) clearTimeout(scrollTimer);
-          scrollTimer = setTimeout(() => {
-            const centerOrig = indexOfCenterOriginalIndex();
-            // find the currently centered element (could be clone or original)
-            const list = cards();
-            const centerX = container.scrollLeft + container.clientWidth / 2;
-            let closestEl = list[0];
-            let closestDist = Infinity;
-            list.forEach((el) => {
-              const elCenter = el.offsetLeft + el.offsetWidth / 2;
-              const dist = Math.abs(elCenter - centerX);
-              if (dist < closestDist) {
-                closestDist = dist;
-                closestEl = el;
-              }
-            });
-
-            // if centered element is a clone, snap to its original counterpart
-            if (closestEl.dataset.clone === "true") {
-              const orig = container.querySelector(
-                `.card[data-original-index="${centerOrig}"]:not([data-clone])`
-              );
-              if (orig) {
-                const left =
-                  orig.offsetLeft +
-                  orig.offsetWidth / 2 -
-                  container.clientWidth / 2;
-                // temporarily disable smooth so the jump is instant
-                const prevBehavior = container.style.scrollBehavior;
-                container.style.scrollBehavior = "auto";
-                container.scrollLeft = left;
-                // restore smooth behavior next frame
-                requestAnimationFrame(() => {
-                  container.style.scrollBehavior = prevBehavior || "smooth";
-                });
-              }
-            }
-
-            setCenterClassByOriginalIndex(centerOrig);
-          }, 120);
-        },
-        { passive: true }
+    function setCenterClassByOriginalIndex(origIdx) {
+      cards().forEach((el) =>
+        el.classList.toggle(
+          "center",
+          Number(el.dataset.originalIndex) === origIdx
+        )
       );
+    }
 
-      window.addEventListener("resize", () => {
+    function goToIndex(i) {
+      // wrap index so navigation loops
+      i = ((i % n) + n) % n;
+      const target = container.querySelector(
+        `.card[data-original-index="${i}"]:not([data-clone])`
+      );
+      if (!target) return;
+      const left =
+        target.offsetLeft + target.offsetWidth / 2 - container.clientWidth / 2;
+      setCenterClassByOriginalIndex(i);
+      container.scrollTo({ left, behavior: "smooth" });
+    }
+
+    prevBtn &&
+      prevBtn.addEventListener("click", () => {
         const idx = indexOfCenterOriginalIndex();
-        goToIndex(idx);
+        goToIndex(idx - 1);
+      });
+    nextBtn &&
+      nextBtn.addEventListener("click", () => {
+        const idx = indexOfCenterOriginalIndex();
+        goToIndex(idx + 1);
       });
 
-      // init: center the 3rd original card (index 2) if available
-      requestAnimationFrame(() => {
-        const startIdx = Math.min(2, n - 1);
-        goToIndex(startIdx);
-      });
-    })();
-  </script>
-
-  <script>
-    // Dropdowns in Kunst og psykiatri and Organisation og vedtægter
-    const allDropdownButtons = document.querySelectorAll(
-      "button[aria-expanded]"
-    );
-    allDropdownButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const panel = btn.nextElementSibling;
-        const arrow = btn.querySelector(".dropdown-arrow");
-        const expanded = btn.getAttribute("aria-expanded") === "true";
-
-        btn.setAttribute("aria-expanded", (!expanded).toString());
-
-        if (panel) {
-          if (expanded) {
-            // Closing
-            panel.style.maxHeight = "0px";
-            if (arrow) arrow.style.transform = "rotate(0deg)";
-          } else {
-            // Opening
-            panel.style.maxHeight = panel.scrollHeight + "px";
-            if (arrow) arrow.style.transform = "rotate(180deg)";
-          }
-        }
-      });
+    window.addEventListener("keydown", (e) => {
+      const active = document.activeElement && document.activeElement.tagName;
+      if (active === "INPUT" || active === "TEXTAREA") return;
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        const idx = indexOfCenterOriginalIndex();
+        goToIndex(idx - 1);
+      }
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        const idx = indexOfCenterOriginalIndex();
+        goToIndex(idx + 1);
+      }
     });
-  </script>
+
+    // when user scrolls into clones, jump (without animation) to the matching original
+    let scrollTimer = null;
+    container.addEventListener(
+      "scroll",
+      () => {
+        if (scrollTimer) clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+          const centerOrig = indexOfCenterOriginalIndex();
+          // find the currently centered element (could be clone or original)
+          const list = cards();
+          const centerX = container.scrollLeft + container.clientWidth / 2;
+          let closestEl = list[0];
+          let closestDist = Infinity;
+          list.forEach((el) => {
+            const elCenter = el.offsetLeft + el.offsetWidth / 2;
+            const dist = Math.abs(elCenter - centerX);
+            if (dist < closestDist) {
+              closestDist = dist;
+              closestEl = el;
+            }
+          });
+
+          // if centered element is a clone, snap to its original counterpart
+          if (closestEl.dataset.clone === "true") {
+            const orig = container.querySelector(
+              `.card[data-original-index="${centerOrig}"]:not([data-clone])`
+            );
+            if (orig) {
+              const left =
+                orig.offsetLeft +
+                orig.offsetWidth / 2 -
+                container.clientWidth / 2;
+              // temporarily disable smooth so the jump is instant
+              const prevBehavior = container.style.scrollBehavior;
+              container.style.scrollBehavior = "auto";
+              container.scrollLeft = left;
+              // restore smooth behavior next frame
+              requestAnimationFrame(() => {
+                container.style.scrollBehavior = prevBehavior || "smooth";
+              });
+            }
+          }
+
+          setCenterClassByOriginalIndex(centerOrig);
+        }, 120);
+      },
+      { passive: true }
+    );
+
+    window.addEventListener("resize", () => {
+      const idx = indexOfCenterOriginalIndex();
+      goToIndex(idx);
+    });
+
+    // init: center the 3rd original card (index 2) if available
+    requestAnimationFrame(() => {
+      const startIdx = Math.min(2, n - 1);
+      goToIndex(startIdx);
+    });
+  })();
+</script>
+
+<script>
+  // Dropdowns in Kunst og psykiatri and Organisation og vedtægter
+  const allDropdownButtons = document.querySelectorAll("button[aria-expanded]");
+  allDropdownButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const panel = btn.nextElementSibling;
+      const arrow = btn.querySelector(".dropdown-arrow");
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+
+      btn.setAttribute("aria-expanded", (!expanded).toString());
+
+      if (panel) {
+        if (expanded) {
+          // Closing
+          panel.style.maxHeight = "0px";
+          if (arrow) arrow.style.transform = "rotate(0deg)";
+        } else {
+          // Opening
+          panel.style.maxHeight = panel.scrollHeight + "px";
+          if (arrow) arrow.style.transform = "rotate(180deg)";
+        }
+      }
+    });
+  });
+</script>
+
 </MainLayout>
