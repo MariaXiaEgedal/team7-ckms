@@ -6,19 +6,21 @@ import Heading from "./Heading.astro";
 
 type EventEntry = { time: string; title: string; subtitle?: string };
 
+type KalenderCardProps = {
+  dateLabel: string;
+  events?: EventEntry[];
+  image?: ImageMetadata;
+  imageAlt?: string;
+  backgroundColor?: string;
+};
+
 const {
   dateLabel,
   events = [],
   image,
   imageAlt,
   backgroundColor,
-}: {
-  dateLabel: string;
-  events?: EventEntry[];
-  image?: ImageMetadata;
-  imageAlt?: string;
-  backgroundColor?: string;
-} = Astro.props;
+} = Astro.props as KalenderCardProps;
 
 const fallbackColor = backgroundColor || "var(--color-primary-green)";
 const dayOnly = dateLabel.split(".")[0]; // Ekstraher kun dagen (f.eks. "01" fra "01.12")
