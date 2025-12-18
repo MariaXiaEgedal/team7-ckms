@@ -31,7 +31,7 @@ import AllWorkshopCard from "../components/AllWorkshopCard.astro";
           htmlheading="h1"
           size="medium"
           font="font-gestura font-bold"
-          stylingclasses="text-text-dark text-[20px] md:text-[40px] lg:text-[70px] leading-[1.05]"
+          stylingclasses="opacity-0 intersect:opacity-100 intersect:animate-fade-right intersect-once text-text-dark text-[20px] md:text-[40px] lg:text-[70px] leading-[1.05]"
         >
           NATIONALT CENTER
         </Heading>
@@ -40,7 +40,7 @@ import AllWorkshopCard from "../components/AllWorkshopCard.astro";
           htmlheading="h3"
           size="small"
           font="font-gestura font-regular"
-          stylingclasses="text-text-dark mb-xs md:mb-m text-[18px] md:text-[20px] lg:text-[40px]"
+          stylingclasses="opacity-0 intersect:opacity-100 intersect:animate-fade-right intersect:animate-delay-200 intersect-once text-text-dark mb-xs md:mb-m text-[18px] md:text-[20px] lg:text-[40px]"
         >
           FOR KUNST OG MENTAL SUNDHED
         </Heading>
@@ -55,7 +55,7 @@ import AllWorkshopCard from "../components/AllWorkshopCard.astro";
           <a href="/workshops">
             <Button variant="hero1">Deltag i workshops</Button>
           </a>
-          <a href="/detsker">
+          <a href="/støt">
             <Button variant="hero2">Støt formålet</Button>
           </a>
         </div>
@@ -165,12 +165,6 @@ import AllWorkshopCard from "../components/AllWorkshopCard.astro";
       </Text>
 
       <AllWorkshopCard />
-
-      <div class="flex justify-center">
-        <a href="/workshops">
-          <Button>Læs mere</Button>
-        </a>
-      </div>
     </section>
     <!-- ***************************** End Workshops ***************************** -->
 

@@ -2,12 +2,13 @@
 import Heading from "./Heading.astro";
 
 const { class: className = "", basePath = "" } = Astro.props;
-const hrefFor = (suffix) =>
-  basePath ? `${basePath}#${suffix}` : `#${suffix}`;
+const hrefFor = (suffix) => (basePath ? `${basePath}#${suffix}` : `#${suffix}`);
 ---
 
 <div class:list={["grid grid-cols-4 gap-2xs md:grid-cols-12", className]}>
-  <div class="col-span-2 md:col-span-3">
+  <div
+    class="col-span-2 md:col-span-3 opacity-0 intersect:opacity-100 intersect:animate-fade-up intersect:animate-delay-300 intersect-once"
+  >
     <a href={hrefFor("til-dig-bruger")} class="block">
       <div class="hover-3d w-full">
         <img
@@ -30,7 +31,9 @@ const hrefFor = (suffix) =>
     </Heading>
   </div>
 
-  <div class="col-span-2 md:col-span-3">
+  <div
+    class="col-span-2 md:col-span-3 opacity-0 intersect:opacity-100 intersect:animate-fade-down intersect:animate-delay-300 intersect-once"
+  >
     <Heading htmlheading="h4" size="xsmall" stylingclasses="text-text-dark">
       Forsker
     </Heading>
@@ -53,7 +56,9 @@ const hrefFor = (suffix) =>
     </a>
   </div>
 
-  <div class="col-span-2 md:col-span-3">
+  <div
+    class="col-span-2 md:col-span-3 opacity-0 intersect:opacity-100 intersect:animate-fade-up intersect:animate-delay-300 intersect-once"
+  >
     <a href={hrefFor("til-dig-kunstner")} class="block">
       <div class="hover-3d w-full">
         <img
@@ -76,7 +81,9 @@ const hrefFor = (suffix) =>
     </Heading>
   </div>
 
-  <div class="col-span-2 md:col-span-3">
+  <div
+    class="col-span-2 md:col-span-3 opacity-0 intersect:opacity-100 intersect:animate-fade-down intersect:animate-delay-300 intersect-once"
+  >
     <Heading htmlheading="h4" size="xsmall" stylingclasses="text-text-dark">
       Behandler
     </Heading>

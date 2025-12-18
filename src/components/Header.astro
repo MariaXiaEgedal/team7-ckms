@@ -2,7 +2,7 @@
 import Text from "./Text.astro";
 ---
 
-<header class="bg-header text-text-light">
+<header class="bg-header text-text-light w-full">
   <nav class="px-2xs md:px-l py-3xs flex items-center justify-between">
     <!-- Logo -->
     <a href="/">
@@ -12,7 +12,10 @@ import Text from "./Text.astro";
     <!-- Desktop Navigation (DIN KODE) -->
     <ul class="hidden lg:flex gap-s items-center">
       <li>
-        <a href="/tildig" class="hover:opacity-80 transition">
+        <a
+          href="/tildig"
+          class="relative inline-block transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
+        >
           <Text teksttype="brødtekstbold">Til dig</Text>
         </a>
       </li>
@@ -21,7 +24,7 @@ import Text from "./Text.astro";
       <li class="relative group">
         <a
           href="/workshops"
-          class="inline-flex items-center hover:opacity-80 transition"
+          class="relative inline-flex items-center transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
         >
           <Text teksttype="brødtekstbold">Workshops</Text>
         </a>
@@ -36,7 +39,7 @@ import Text from "./Text.astro";
           <li>
             <a
               href="/workshop-singleview"
-              class="block px-2xs py-3xs hover:bg-white/10"
+              class="relative block px-2xs py-3xs hover:bg-white/10 after:absolute after:left-2xs after:-bottom-1 after:h-[2px] after:w-[calc(100%-1rem)] after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
             >
               <Text teksttype="brødtekst">Skrivegruppe</Text>
             </a>
@@ -44,7 +47,7 @@ import Text from "./Text.astro";
           <li>
             <a
               href="/workshop-singleview"
-              class="block px-2xs py-3xs hover:bg-white/10"
+              class="relative block px-2xs py-3xs hover:bg-white/10 after:absolute after:left-2xs after:-bottom-1 after:h-[2px] after:w-[calc(100%-1rem)] after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
             >
               <Text teksttype="brødtekst">Åbent værksted</Text>
             </a>
@@ -52,7 +55,7 @@ import Text from "./Text.astro";
           <li>
             <a
               href="/workshop-singleview"
-              class="block px-2xs py-3xs hover:bg-white/10"
+              class="relative block px-2xs py-3xs hover:bg-white/10 after:absolute after:left-2xs after:-bottom-1 after:h-[2px] after:w-[calc(100%-1rem)] after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
             >
               <Text teksttype="brødtekst">Billedkunst gruppe</Text>
             </a>
@@ -60,7 +63,7 @@ import Text from "./Text.astro";
           <li>
             <a
               href="/workshop-singleview"
-              class="block px-2xs py-3xs hover:bg-white/10"
+              class="relative block px-2xs py-3xs hover:bg-white/10 after:absolute after:left-2xs after:-bottom-1 after:h-[2px] after:w-[calc(100%-1rem)] after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
             >
               <Text teksttype="brødtekst">Dramagruppe</Text>
             </a>
@@ -68,7 +71,7 @@ import Text from "./Text.astro";
           <li>
             <a
               href="/workshop-singleview"
-              class="block px-2xs py-3xs hover:bg-white/10"
+              class="relative block px-2xs py-3xs hover:bg-white/10 after:absolute after:left-2xs after:-bottom-1 after:h-[2px] after:w-[calc(100%-1rem)] after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
             >
               <Text teksttype="brødtekst">Film og lyd gruppe</Text>
             </a>
@@ -77,25 +80,37 @@ import Text from "./Text.astro";
       </li>
 
       <li>
-        <a href="/detsker" class="hover:opacity-80 transition">
+        <a
+          href="/detsker"
+          class="relative inline-block transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
+        >
           <Text teksttype="brødtekstbold">Det sker</Text>
         </a>
       </li>
 
       <li>
-        <a href="/forskning" class="hover:opacity-80 transition">
+        <a
+          href="/forskning"
+          class="relative inline-block transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
+        >
           <Text teksttype="brødtekstbold">Forskning</Text>
         </a>
       </li>
 
       <li>
-        <a href="/hjælptil" class="hover:opacity-80 transition">
-          <Text teksttype="brødtekstbold">Hjælp til</Text>
+        <a
+          href="/hjælptil"
+          class="relative inline-block transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
+        >
+          <Text teksttype="brødtekstbold">Støt</Text>
         </a>
       </li>
 
       <li>
-        <a href="/omos" class="hover:opacity-80 transition">
+        <a
+          href="/omos"
+          class="relative inline-block transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
+        >
           <Text teksttype="brødtekstbold">Om os</Text>
         </a>
       </li>
@@ -158,7 +173,10 @@ import Text from "./Text.astro";
       <div class="h-[calc(100%-80px)] flex items-center justify-center">
         <ul class="flex flex-col items-center gap-m text-center">
           <li>
-            <a href="/tildig" class="block hover:opacity-80 transition">
+            <a
+              href="/tildig"
+              class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
+            >
               <span class="text-2xl font-semibold">Til dig</span>
             </a>
           </li>
@@ -167,7 +185,7 @@ import Text from "./Text.astro";
           <li class="w-full">
             <details class="group">
               <summary
-                class="list-none cursor-pointer flex items-center justify-center gap-3xs hover:opacity-80 transition"
+                class="list-none cursor-pointer flex items-center justify-center gap-3xs relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-text-light after:scale-x-0 group-hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
               >
                 <span class="text-2xl font-semibold">Workshops</span>
 
@@ -183,7 +201,7 @@ import Text from "./Text.astro";
                 <li>
                   <a
                     href="/workshop-singleview"
-                    class="hover:opacity-80 transition"
+                    class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
                   >
                     <Text teksttype="brødtekst">Skrivegruppe</Text>
                   </a>
@@ -192,7 +210,7 @@ import Text from "./Text.astro";
                 <li>
                   <a
                     href="/workshop-singleview"
-                    class="hover:opacity-80 transition"
+                    class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
                   >
                     <Text teksttype="brødtekst">Åbent værksted</Text>
                   </a>
@@ -201,7 +219,7 @@ import Text from "./Text.astro";
                 <li>
                   <a
                     href="/workshop-singleview"
-                    class="hover:opacity-80 transition"
+                    class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
                   >
                     <Text teksttype="brødtekst">Billedkunst gruppe</Text>
                   </a>
@@ -210,7 +228,7 @@ import Text from "./Text.astro";
                 <li>
                   <a
                     href="/workshop-singleview"
-                    class="hover:opacity-80 transition"
+                    class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
                   >
                     <Text teksttype="brødtekst">Dramagruppe</Text>
                   </a>
@@ -219,7 +237,7 @@ import Text from "./Text.astro";
                 <li>
                   <a
                     href="/workshop-singleview"
-                    class="hover:opacity-80 transition"
+                    class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
                   >
                     <Text teksttype="brødtekst">Film og lyd gruppe</Text>
                   </a>
@@ -229,25 +247,37 @@ import Text from "./Text.astro";
           </li>
 
           <li>
-            <a href="/detsker" class="block hover:opacity-80 transition">
+            <a
+              href="/detsker"
+              class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
+            >
               <span class="text-2xl font-semibold">Det sker</span>
             </a>
           </li>
 
           <li>
-            <a href="/forskning" class="block hover:opacity-80 transition">
+            <a
+              href="/forskning"
+              class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
+            >
               <span class="text-2xl font-semibold">Forskning</span>
             </a>
           </li>
 
           <li>
-            <a href="/hjælptil" class="block hover:opacity-80 transition">
-              <span class="text-2xl font-semibold">Hjælp til</span>
+            <a
+              href="/hjælptil"
+              class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
+            >
+              <span class="text-2xl font-semibold">Støt</span>
             </a>
           </li>
 
           <li>
-            <a href="/omos" class="block hover:opacity-80 transition">
+            <a
+              href="/omos"
+              class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-text-light after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-300"
+            >
               <span class="text-2xl font-semibold">Om os</span>
             </a>
           </li>
