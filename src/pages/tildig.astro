@@ -47,7 +47,7 @@ import TildigSection from "../components/TildigSection.astro";
     </sectikanon>
 
     <!-- ***************************** Start Til dig, som er bruger ***************************** -->
-    <section class="mx-2xs md:mx-l">
+    <section id="til-dig-bruger" class="mx-2xs md:mx-l">
       <div class="md:grid md:grid-cols-12 md:gap-2xs">
         <!-- Tekstkolonne -->
         <div class="md:col-span-7 md:col-start-1">
@@ -96,14 +96,25 @@ import TildigSection from "../components/TildigSection.astro";
         </div>
 
         <!-- Billedkolonne -->
-        <div
-          class="md:col-span-5 md:col-start-8 overflow-hidden group rounded-tr-s md:rounded-tr-l"
-        >
-          <img
-            src="/img/brugerbilledekvadrat.webp"
-            alt="Bruger"
-            class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-110"
-          />
+        <div class="md:col-span-5 md:col-start-8 relative">
+          <div
+            class="hidden md:flex absolute -top-10 -left-16 w-44 h-44 items-center justify-center"
+          >
+            <img
+              src="/img/cirkel.svg"
+              alt="Kunst og Mental Sundhed cirkellogo"
+              class="w-full h-full object-contain spin-slow-reverse"
+            />
+          </div>
+          <div
+            class="overflow-hidden group rounded-tr-s md:rounded-tr-l"
+          >
+            <img
+              src="/img/brugerbilledekvadrat.webp"
+              alt="Bruger"
+              class="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-110"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -232,7 +243,7 @@ import TildigSection from "../components/TildigSection.astro";
     <!-- ***************************** End Hvordans foregår processen? ***************************** -->
 
     <!-- ***************************** Start Til dig, som er forsker  ***************************** -->
-    <section class="mx-2xs md:mx-l">
+    <section id="til-dig-forsker" class="mx-2xs md:mx-l">
       <div class="md:grid md:grid-cols-12 md:gap-2xs">
         <!-- Tekstkolonne (mobil: først, desktop: højre side) -->
         <div class="md:col-span-7 md:col-start-6 md:order-2">
@@ -329,7 +340,7 @@ import TildigSection from "../components/TildigSection.astro";
     <!-- ***************************** End Rewritalize ***************************** -->
 
     <!-- ***************************** Start Til dig, som er kunstner ***************************** -->
-    <section class="mx-2xs md:mx-l">
+    <section id="til-dig-kunstner" class="mx-2xs md:mx-l">
       <div class="md:grid md:grid-cols-12 md:gap-2xs">
         <!-- Tekstkolonne -->
         <div class="md:col-span-7 md:col-start-1">
@@ -456,7 +467,7 @@ import TildigSection from "../components/TildigSection.astro";
   <!-- ***************************** End Er du forfatter? ***************************** -->
 
   <!-- ***************************** Start Til dig, som er behandler ***************************** -->
-  <section class="mb-m mx-2xs md:mb-xl md:mx-l">
+  <section id="til-dig-behandler" class="mb-m mx-2xs md:mb-xl md:mx-l">
     <div class="md:grid md:grid-cols-12 md:gap-m">
       <!-- Tekstkolonne (mobil: først, desktop: højre side) -->
       <div class="md:col-span-7 md:col-start-6 md:order-2">

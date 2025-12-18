@@ -182,6 +182,10 @@
 /********************************************** End Fonts **********************************************/
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   *,
   ::after,
   ::before,
@@ -194,6 +198,30 @@
 @layer components {
 }
 @layer utilities {
+  .spin-slow {
+    animation: spin-slow 18s linear infinite;
+  }
+  .spin-slow-reverse {
+    animation: spin-slow-reverse 18s linear infinite;
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes spin-slow-reverse {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+
   /* Background utilities */
   /* .bg-v2 {
     background: var(--color-background-v2);
