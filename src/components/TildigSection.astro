@@ -1,12 +1,14 @@
 ---
 import Heading from "./Heading.astro";
 
-const { class: className = "" } = Astro.props;
+const { class: className = "", basePath = "" } = Astro.props;
+const hrefFor = (suffix) =>
+  basePath ? `${basePath}#${suffix}` : `#${suffix}`;
 ---
 
 <div class:list={["grid grid-cols-4 gap-2xs md:grid-cols-12", className]}>
   <div class="col-span-2 md:col-span-3">
-    <a href="#til-dig-bruger" class="block">
+    <a href={hrefFor("til-dig-bruger")} class="block">
       <div class="hover-3d w-full">
         <img
           src="/img/Brugerbillede.webp"
@@ -32,7 +34,7 @@ const { class: className = "" } = Astro.props;
     <Heading htmlheading="h4" size="xsmall" stylingclasses="text-text-dark">
       Forsker
     </Heading>
-    <a href="#til-dig-forsker" class="block">
+    <a href={hrefFor("til-dig-forsker")} class="block">
       <div class="hover-3d w-full">
         <img
           src="/img/Forskerbillede.webp"
@@ -52,11 +54,11 @@ const { class: className = "" } = Astro.props;
   </div>
 
   <div class="col-span-2 md:col-span-3">
-    <a href="#til-dig-behandler" class="block">
+    <a href={hrefFor("til-dig-kunstner")} class="block">
       <div class="hover-3d w-full">
         <img
-          src="/img/Behandlerbillede.webp"
-          alt="Behandler"
+          src="/img/Kunstnerbillede.webp"
+          alt="Kunstner"
           class="w-full h-auto object-cover"
         />
         <div></div>
@@ -70,19 +72,19 @@ const { class: className = "" } = Astro.props;
       </div>
     </a>
     <Heading htmlheading="h4" size="xsmall" stylingclasses="text-text-dark">
-      Behandler
+      Kunstner
     </Heading>
   </div>
 
   <div class="col-span-2 md:col-span-3">
     <Heading htmlheading="h4" size="xsmall" stylingclasses="text-text-dark">
-      Kunstner
+      Behandler
     </Heading>
-    <a href="#til-dig-kunstner" class="block">
+    <a href={hrefFor("til-dig-behandler")} class="block">
       <div class="hover-3d w-full">
         <img
-          src="/img/Kunstnerbillede.webp"
-          alt="Kunstner"
+          src="/img/Behandlerbillede.webp"
+          alt="Behandler"
           class="w-full h-auto object-cover"
         />
         <div></div>

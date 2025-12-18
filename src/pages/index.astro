@@ -10,7 +10,7 @@ import UdstillingCard from "../components/UdstillingCard.astro";
 import NewsCard from "../components/NewsCard.astro";
 import NewsletterSignup from "../components/NewsletterSignup.astro";
 import InstagramCarousel from "../components/InstagramCarousel.astro";
-// import AllWorkhopCard from "../components/AllWorkshopCard.astro";
+import AllWorkshopCard from "../components/AllWorkshopCard.astro";
 ---
 
 <MainLayout title="CKMS">
@@ -27,7 +27,7 @@ import InstagramCarousel from "../components/InstagramCarousel.astro";
       <Heading
         htmlheading="h2"
         size="medium"
-        stylingclasses="mb-xs md:mb-m animate-fade-right"
+        stylingclasses="mb-xs md:mb-m opacity-0 intersect:opacity-100 intersect:animate-fade-right intersect-once"
         >Vision og mission
       </Heading>
 
@@ -46,7 +46,7 @@ import InstagramCarousel from "../components/InstagramCarousel.astro";
             trivsel og håb for mennesker med psykiske lidelser.
           </Text>
 
-          <Text stylingclasses="mb-xs md:mb-m">
+          <Text stylingclasses="mb-xs">
             Vi supplerer psykiatrien med forskningsbaserede kunsttilbud,
             udviklet i samarbejde mellem kunstnere, forfattere, psykiatribrugere
             og sundhedsfaglige forskere. Vi hjælper hinanden med at hjælpe
@@ -87,11 +87,11 @@ import InstagramCarousel from "../components/InstagramCarousel.astro";
       <Heading
         htmlheading="h2"
         size="medium"
-        stylingclasses="mb-xs md:mb-m animate-fade-right"
+        stylingclasses="mb-xs md:mb-m opacity-0 intersect:opacity-100 intersect:animate-fade-right intersect-once"
         >Til dig, som er...
       </Heading>
 
-      <TildigSection class="mb-xs md:mb-m" />
+      <TildigSection class="mb-xs md:mb-m" basePath="/tildig" />
 
       <div class="flex justify-center">
         <a href="/tildig">
@@ -106,11 +106,14 @@ import InstagramCarousel from "../components/InstagramCarousel.astro";
       <Heading
         htmlheading="h2"
         size="medium"
-        stylingclasses="mb-xs md:mb-m animate-fade-right"
+        stylingclasses="mb-xs md:mb-m opacity-0 intersect:opacity-100 intersect:animate-fade-right intersect-once "
         >Workshops
       </Heading>
 
-      <Heading htmlheading="h4" size="xsmall" stylingclasses=" mb-2xs md:mb-xs"
+      <Heading
+        htmlheading="h4"
+        size="xsmall"
+        stylingclasses=" mb-2xs md:mb-xs max-w-[900px]"
         >Hos CKMS tilbyder vi et frirum for brugere af psykiatrien, hvor vi
         mødes om at være kreative.
       </Heading>
@@ -118,7 +121,9 @@ import InstagramCarousel from "../components/InstagramCarousel.astro";
       <Text typest="brødtekst" stylingclasses="mb-2xs md:mb-xs">
         Vi tilbyder følgende workshops:
       </Text>
-      <!-- <AllWorkshopCard /> -->
+
+      <AllWorkshopCard />
+
       <div class="flex justify-center">
         <a href="/workshops">
           <Button>Læs mere</Button>
@@ -134,7 +139,7 @@ import InstagramCarousel from "../components/InstagramCarousel.astro";
           <Heading
             htmlheading="h2"
             size="medium"
-            stylingclasses="mb-xs md:mb-m animate-fade-right"
+            stylingclasses="mb-xs md:mb-m opacity-0 intersect:opacity-100 intersect:animate-fade-right intersect-once"
             >Støt vores formål og arbejde
           </Heading>
 
@@ -162,7 +167,7 @@ import InstagramCarousel from "../components/InstagramCarousel.astro";
       <Heading
         htmlheading="h2"
         size="medium"
-        stylingclasses="mb-xs md:mb-m animate-fade-right"
+        stylingclasses="mb-xs md:mb-m opacity-0 intersect:opacity-100 intersect:animate-fade-right intersect-once"
         >Udstillinger i CKMS
       </Heading>
 
@@ -259,7 +264,7 @@ import InstagramCarousel from "../components/InstagramCarousel.astro";
       <Heading
         htmlheading="h2"
         size="medium"
-        stylingclasses="mb-xs md:mb-m animate-fade-right"
+        stylingclasses="mb-xs md:mb-m opacity-0 intersect:opacity-100 intersect:animate-fade-right intersect-once"
         >Nyt fra CKMS
       </Heading>
 
@@ -374,7 +379,7 @@ import InstagramCarousel from "../components/InstagramCarousel.astro";
       <Heading
         htmlheading="h2"
         size="medium"
-        stylingclasses="mb-xs md:mb-m animate-fade-right"
+        stylingclasses="mb-xs md:mb-m opacity-0 intersect:opacity-100 intersect:animate-fade-right intersect-once"
         >Følg med på Instagram
       </Heading>
 
