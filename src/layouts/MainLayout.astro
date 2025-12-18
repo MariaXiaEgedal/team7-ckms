@@ -76,10 +76,18 @@ const { title } = Astro.props;
       const CORRECT_PASSWORD = "ckms2025";
       const STORAGE_KEY = "accessGranted";
 
-      const gateOverlay = document.getElementById("password-gate");
-      const passwordInput = document.getElementById("password-input");
-      const passwordSubmit = document.getElementById("password-submit");
-      const passwordError = document.getElementById("password-error");
+      const gateOverlay = document.getElementById(
+        "password-gate"
+      ) as HTMLDivElement;
+      const passwordInput = document.getElementById(
+        "password-input"
+      ) as HTMLInputElement;
+      const passwordSubmit = document.getElementById(
+        "password-submit"
+      ) as HTMLButtonElement;
+      const passwordError = document.getElementById(
+        "password-error"
+      ) as HTMLDivElement;
 
       // Check if access already granted
       function checkAccess() {
@@ -90,42 +98,57 @@ const { title } = Astro.props;
 
       // Hide gate
       function hideGate() {
-        gateOverlay.classList.add("opacity-0", "pointer-events-none");
-        setTimeout(() => {
-          gateOverlay.style.display = "none";
-        }, 300);
+        if (gateOverlay) {
+          gateOverlay.classList.add("opacity-0", "pointer-events-none");
+          setTimeout(() => {
+            gateOverlay.style.display = "none";
+          }, 300);
+        }
       }
 
       // Handle password submission
       function handleSubmit() {
+        if (!passwordInput) return;
+
         const enteredPassword = passwordInput.value.trim();
 
         if (enteredPassword === CORRECT_PASSWORD) {
           sessionStorage.setItem(STORAGE_KEY, "true");
-          passwordError.classList.add("hidden");
+          if (passwordError) {
+            passwordError.classList.add("hidden");
+          }
           hideGate();
         } else {
-          passwordError.classList.remove("hidden");
+          if (passwordError) {
+            passwordError.classList.remove("hidden");
+          }
           passwordInput.value = "";
           passwordInput.focus();
 
           // Hide error after 3 seconds
           setTimeout(() => {
-            passwordError.classList.add("hidden");
+            if (passwordError) {
+              passwordError.classList.add("hidden");
+            }
           }, 3000);
         }
       }
 
       // Event listeners
-      passwordSubmit.addEventListener("click", handleSubmit);
-      passwordInput.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
-          handleSubmit();
-        }
-      });
+      if (passwordSubmit) {
+        passwordSubmit.addEventListener("click", handleSubmit);
+      }
 
-      // Focus input on load
-      passwordInput.focus();
+      if (passwordInput) {
+        passwordInput.addEventListener("keypress", (e) => {
+          if (e.key === "Enter") {
+            handleSubmit();
+          }
+        });
+
+        // Focus input on load
+        passwordInput.focus();
+      }
 
       // Check access on page load
       checkAccess();
