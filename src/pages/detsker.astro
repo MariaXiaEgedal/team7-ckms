@@ -141,197 +141,242 @@ const decemberCells: CalendarCell[] = [
 ---
 
 <MainLayout title="Det sker">
-  <!-- ***************************** Start Eventkalender ***************************** -->
+  <div class="flex flex-col gap-m md:gap-xl my-m md:my-xl">
+    <!-- ***************************** Start Eventkalender ***************************** -->
 
-  <section class="mx-2xs md:mx-l py-m md:py-l">
-    <div class="flex flex-col gap-xs md:gap-m">
-      <Heading htmlheading="h1" size="large" class="text-text-dark">
+    <section class="mx-2xs md:mx-l" id="eventkalender">
+      <Heading
+        htmlheading="h1"
+        size="large"
+        stylingclasses="text-text-dark mb-xs md:mb-m opacity-0 intersect:opacity-100 intersect:animate-fade-right intersect-once"
+      >
         Eventkalender
       </Heading>
-      <Heading htmlheading="h2" size="medium" class="text-text-dark">
+
+      <Heading
+        htmlheading="h2"
+        size="medium"
+        stylingclasses="text-text-dark mb-2xs md:mb-xs opacity-0 intersect:opacity-100 intersect:animate-fade-right intersect:animate-delay-300 intersect-once"
+      >
         December
       </Heading>
-    </div>
 
-    <div class="relative overflow-hidden">
-      <div
-        class="grid grid-cols-7 border-t-2 border-b-2 border-text-dark py-2xs md:py-3xs"
-      >
-        {
-          dayNames.map((day) => (
-            <div class="text-center">
-              <Heading
-                htmlheading="h4"
-                size="xsmallbold"
-                stylingclasses="text-text-dark"
-              >
-                {day}
-              </Heading>
-            </div>
-          ))
-        }
-      </div>
-
-      <div
-        class="grid grid-cols-7 border-l-2 border-r-2 border-b-2 border-text-dark overflow-hidden"
-      >
-        {
-          decemberCells.map((cell, idx) => (
-            <div class="border-r-2 border-b-2 border-text-dark overflow-hidden aspect-[3/4]">
-              {cell ? (
-                <button
-                  class="h-full w-full text-left "
-                  type="button"
-                  data-day-index={idx}
-                  data-date={cell.dateLabel}
-                  data-events={encodeURIComponent(JSON.stringify(cell.events))}
-                  aria-label={`Åbn detaljer for ${cell.dateLabel}`}
+      <div class="relative overflow-hidden">
+        <div
+          class="grid grid-cols-7 border-t-2 border-b-2 border-text-dark py-2xs md:py-3xs"
+        >
+          {
+            dayNames.map((day) => (
+              <div class="text-center">
+                <Heading
+                  htmlheading="h4"
+                  size="xsmallbold"
+                  stylingclasses="text-text-dark"
                 >
-                  <KalenderCard
-                    dateLabel={cell.dateLabel}
-                    events={cell.events}
-                    image={cell.image}
-                    backgroundColor={cell.backgroundColor}
-                  />
-                </button>
-              ) : (
-                <div class="w-full h-full" />
-              )}
-            </div>
-          ))
-        }
-      </div>
+                  {day}
+                </Heading>
+              </div>
+            ))
+          }
+        </div>
 
-      <!-- Mobile Detail Panel -->
-      <div
-        class="w-full border-2 border-text-dark overflow-hidden transition-all duration-300 md:hidden"
-        id="mobile-day-detail"
-        data-detail-panel
-        class="w-full border-2 border-text-dark overflow-hidden transition-all duration-300 md:hidden max-h-0"
-      >
-        <div class="p-2xs md:p-2xs overflow-y-auto">
-          <div class="flex items-center justify-between mb-m">
-            <div
-              class="text-xl md:text-xl font-black text-text-dark"
-              data-detail-date
-            >
-              -
+        <div
+          class="grid grid-cols-7 border-l-2 border-r-2 border-b-2 border-text-dark overflow-hidden"
+        >
+          {
+            decemberCells.map((cell, idx) => (
+              <div class="border-r-2 border-b-2 border-text-dark overflow-hidden aspect-[3/4]">
+                {cell ? (
+                  <button
+                    class="h-full w-full text-left "
+                    type="button"
+                    data-day-index={idx}
+                    data-date={cell.dateLabel}
+                    data-events={encodeURIComponent(
+                      JSON.stringify(cell.events)
+                    )}
+                    aria-label={`Åbn detaljer for ${cell.dateLabel}`}
+                  >
+                    <KalenderCard
+                      dateLabel={cell.dateLabel}
+                      events={cell.events}
+                      image={cell.image}
+                      backgroundColor={cell.backgroundColor}
+                    />
+                  </button>
+                ) : (
+                  <div class="w-full h-full" />
+                )}
+              </div>
+            ))
+          }
+        </div>
+
+        <!-- Mobile Detail Panel -->
+        <div
+          class="w-full border-2 border-text-dark overflow-hidden transition-all duration-300 md:hidden"
+          id="mobile-day-detail"
+          data-detail-panel
+          class="w-full border-2 border-text-dark overflow-hidden transition-all duration-300 md:hidden max-h-0"
+        >
+          <div class="p-2xs md:p-2xs overflow-y-auto">
+            <div class="flex items-center justify-between mb-m">
+              <div
+                class="text-xl md:text-xl font-black text-text-dark"
+                data-detail-date
+              >
+                -
+              </div>
+              <button
+                type="button"
+                class="text-xl text-text-dark h"
+                aria-label="Luk"
+                data-close-btn>✕</button
+              >
             </div>
+            <ul class="space-y-s md:space-y-m" data-detail-list></ul>
+            <div class="text-center py-m" data-detail-empty>
+              <Text teksttype="brødtekst" stylingclasses="text-text-dark">
+                Vælg en dag for at se detaljer.
+              </Text>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ***************************** End Eventkalender ***************************** -->
+
+    <!-- ***************************** Start Nyt fra CKMS ***************************** -->
+
+    <section class="mx-2xs md:mx-l" id="nyt-fra-ckms">
+      <Heading
+        htmlheading="h2"
+        size="medium"
+        stylingclasses="mb-xs md:mb-m animate-fade-right"
+        >Nyt fra CKMS
+      </Heading>
+      <!-- Filter/Search bar -->
+      <div class="relative mb-xs md:mb-s py-2">
+        <div
+          class="flex flex-col md:flex-row md:items-center gap-2xs md:gap-6 lg:gap-8 md:flex-1 md:border-b-2 border-text-dark md:pb-1"
+        >
+          <div
+            class="flex flex-wrap gap-xs md:gap-6 lg:gap-8 md:flex-nowrap md:items-center"
+          >
             <button
               type="button"
-              class="text-xl text-text-dark h"
-              aria-label="Luk"
-              data-close-btn>✕</button
+              class="px-3 py-2 text-text-dark hover:opacity-80"
+              data-news-filter="alle"
             >
+              <Text
+                as="span"
+                teksttype="brødtekst"
+                stylingclasses="text-text-dark">Se alle</Text
+              >
+            </button>
+            <button
+              type="button"
+              class="text-text-dark"
+              data-news-filter="nyheder"
+            >
+              <Text
+                as="span"
+                teksttype="brødtekst"
+                stylingclasses="text-text-dark">Nyheder</Text
+              >
+            </button>
+            <button
+              type="button"
+              class="text-text-dark"
+              data-news-filter="forskning"
+            >
+              <Text
+                as="span"
+                teksttype="brødtekst"
+                stylingclasses="text-text-dark">Forskning</Text
+              >
+            </button>
+            <button
+              type="button"
+              class="text-text-dark"
+              data-news-filter="arrangementer"
+            >
+              <Text
+                as="span"
+                teksttype="brødtekst"
+                stylingclasses="text-text-dark">Arrangementer</Text
+              >
+            </button>
           </div>
-          <ul class="space-y-s md:space-y-m" data-detail-list></ul>
-          <div class="text-center py-m" data-detail-empty>
-            <Text teksttype="brødtekst" stylingclasses="text-text-dark">
-              Vælg en dag for at se detaljer.
-            </Text>
+          <div class="ml-0 md:ml-auto flex items-center gap-2">
+            <input
+              id="news-search"
+              type="text"
+              placeholder="Søg"
+              class="bg-transparent outline-none text-text-dark placeholder-text-dark/70 w-[160px] md:w-[240px] text-[18px] md:text-[22px] font-light font-onsite"
+            />
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <circle
+                cx="11"
+                cy="11"
+                r="7"
+                stroke="currentColor"
+                stroke-width="2"></circle>
+              <path
+                d="M20 20L17 17"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"></path>
+            </svg>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- ***************************** End Eventkalender ***************************** -->
 
-  <!-- ***************************** Start Nyt fra CKMS ***************************** -->
+      <!-- Mobile/tablet: carousel under lg -->
+      <div class="lg:hidden mb-xs" id="news-mobile">
+        <div class="carousel w-full gap-2xs" data-news-list>
+          {
+            newsItems.map((item) => (
+              <div
+                class="carousel-item w-2/3"
+                data-news-card
+                data-category={item.category}
+                data-search={(
+                  item.title +
+                  " " +
+                  item.description
+                ).toLowerCase()}
+              >
+                <NewsCard
+                  date={item.date}
+                  title={item.title}
+                  description={item.description}
+                  imageSrc={item.imageSrc}
+                  imageAlt={item.imageAlt}
+                  linkText="Læs mere"
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
 
-  <section class="mx-2xs md:mx-l" id="nyt-fra-ckms">
-    <Heading
-      htmlheading="h2"
-      size="medium"
-      stylingclasses="mb-xs md:mb-m animate-fade-right"
-      >Nyt fra CKMS
-    </Heading>
-    <!-- Filter/Search bar -->
-    <div class="relative mb-xs md:mb-s py-2">
+      <!-- Desktop: grid on lg and up -->
       <div
-        class="flex flex-col md:flex-row md:items-center gap-2xs md:gap-6 lg:gap-8 md:flex-1 md:border-b-2 border-text-dark md:pb-1"
+        class="hidden lg:grid grid-cols-3 gap-2xs mb-m"
+        id="news-desktop"
+        data-news-grid
       >
-        <div
-          class="flex flex-wrap gap-xs md:gap-6 lg:gap-8 md:flex-nowrap md:items-center"
-        >
-          <button
-            type="button"
-            class="px-3 py-2 text-text-dark hover:opacity-80"
-            data-news-filter="alle"
-          >
-            <Text
-              as="span"
-              teksttype="brødtekst"
-              stylingclasses="text-text-dark">Se alle</Text
-            >
-          </button>
-          <button
-            type="button"
-            class="text-text-dark"
-            data-news-filter="nyheder"
-          >
-            <Text
-              as="span"
-              teksttype="brødtekst"
-              stylingclasses="text-text-dark">Nyheder</Text
-            >
-          </button>
-          <button
-            type="button"
-            class="text-text-dark"
-            data-news-filter="forskning"
-          >
-            <Text
-              as="span"
-              teksttype="brødtekst"
-              stylingclasses="text-text-dark">Forskning</Text
-            >
-          </button>
-          <button
-            type="button"
-            class="text-text-dark"
-            data-news-filter="arrangementer"
-          >
-            <Text
-              as="span"
-              teksttype="brødtekst"
-              stylingclasses="text-text-dark">Arrangementer</Text
-            >
-          </button>
-        </div>
-        <div class="ml-0 md:ml-auto flex items-center gap-2">
-          <input
-            id="news-search"
-            type="text"
-            placeholder="Søg"
-            class="bg-transparent outline-none text-text-dark placeholder-text-dark/70 w-[160px] md:w-[240px] text-[18px] md:text-[22px] font-light font-onsite"
-          />
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"
-            ></circle>
-            <path
-              d="M20 20L17 17"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"></path>
-          </svg>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mobile/tablet: carousel under lg -->
-    <div class="lg:hidden mb-xs" id="news-mobile">
-      <div class="carousel w-full gap-2xs" data-news-list>
         {
           newsItems.map((item) => (
             <div
-              class="carousel-item w-2/3"
               data-news-card
               data-category={item.category}
               data-search={(item.title + " " + item.description).toLowerCase()}
@@ -348,535 +393,511 @@ const decemberCells: CalendarCell[] = [
           ))
         }
       </div>
-    </div>
+      <div class="flex justify-center">
+        <Button>Se flere</Button>
+      </div>
+    </section>
+    <!-- ***************************** End Nyt fra CKMS ***************************** -->
 
-    <!-- Desktop: grid on lg and up -->
-    <div
-      class="hidden lg:grid grid-cols-3 gap-2xs mb-m"
-      id="news-desktop"
-      data-news-grid
-    >
-      {
-        newsItems.map((item) => (
-          <div
-            data-news-card
-            data-category={item.category}
-            data-search={(item.title + " " + item.description).toLowerCase()}
-          >
-            <NewsCard
-              date={item.date}
-              title={item.title}
-              description={item.description}
-              imageSrc={item.imageSrc}
-              imageAlt={item.imageAlt}
-              linkText="Læs mere"
-            />
+    <!-- ***************************** Start Udstillinger ***************************** -->
+    <section id="udstillinger">
+      <div class="mx-2xs md:mx-l">
+        <Heading htmlheading="h2" size="medium" stylingclasses="text-text-dark">
+          Udstillinger
+        </Heading>
+      </div>
+
+      <div class="flex items-center justify-between px-2xs md:px-0 mb-2xs">
+        <button
+          id="aktivitet-prev"
+          class="nav-button w-[50px] h-[50px]"
+          aria-label="Forrige"
+        >
+          <img src="/img/pilleft.svg" alt="Forrige" class="w-full h-full" />
+        </button>
+        <button
+          id="aktivitet-next"
+          class="nav-button w-[50px] h-[50px]"
+          aria-label="Næste"
+        >
+          <img src="/img/pilright.svg" alt="Næste" class="w-full h-full" />
+        </button>
+      </div>
+
+      <div
+        class="overflow-x-auto snap-x snap-mandatory flex gap-xs"
+        id="udstillinger-carousel"
+      >
+        <!-- Card 1 -->
+        <article
+          class="min-w-[90%] md:min-w-[80%] snap-start bg-udstilling-1-card text-text-light px-2xs md:px-s py-2xs md:py-s space-y-s"
+        >
+          <!-- Top heading -->
+          <div>
+            <Heading
+              htmlheading="h3"
+              size="large"
+              stylingclasses="text-text-light"
+            >
+              are you mad yet?
+            </Heading>
           </div>
-        ))
-      }
-    </div>
-    <div class="flex justify-center">
-      <Button>Se flere</Button>
-    </div>
-  </section>
-  <!-- ***************************** End Nyt fra CKMS ***************************** -->
 
-  <!-- ***************************** Start Udstillinger ***************************** -->
-  <section id="udstillinger">
-    <div class="mx-2xs md:mx-l">
-      <Heading htmlheading="h2" size="medium" stylingclasses="text-text-dark">
-        Udstillinger
-      </Heading>
-    </div>
+          <!-- Two-column content: left text, right main image -->
+          <div class="grid gap-s lg:grid-cols-2 items-start">
+            <div class="space-y-xs md:space-y-s">
+              <Text teksttype="brødtekst" stylingclasses="text-text-light">
+                are you mad yet? kaster lys på de økonomiske reformer, som
+                rammer de syge i vores samfund. Udstillingen fungerer som skole
+                for en ny form for psykoedukation. Psykoedukation er læren om
+                egen psyke, og indgår i psykiatrisk behandling. I denne skole
+                flyttes fokus
+              </Text>
+            </div>
+            <div class="w-full h-[200px] md:h-[230px] lg:h-[250px]">
+              <img
+                src="/img/udstilling1.webp"
+                alt="Are you mad yet? udstilling"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
 
-    <div class="flex items-center justify-between px-2xs md:px-0 mb-2xs">
-      <button
-        id="aktivitet-prev"
-        class="nav-button w-[50px] h-[50px]"
-        aria-label="Forrige"
-      >
-        <img src="/img/pilleft.svg" alt="Forrige" class="w-full h-full" />
-      </button>
-      <button
-        id="aktivitet-next"
-        class="nav-button w-[50px] h-[50px]"
-        aria-label="Næste"
-      >
-        <img src="/img/pilright.svg" alt="Næste" class="w-full h-full" />
-      </button>
-    </div>
+          <!-- Bottom row: four square thumbnails (desktop only) -->
+          <div class="hidden md:grid md:grid-cols-4 gap-2xs md:gap-xs">
+            <div class="w-full aspect-square">
+              <img
+                src="/img/instagram1.png"
+                alt="Are you mad yet? detalje 1"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="w-full aspect-square">
+              <img
+                src="/img/instagram2.png"
+                alt="Are you mad yet? detalje 2"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="w-full aspect-square">
+              <img
+                src="/img/instagram3.png"
+                alt="Are you mad yet? detalje 3"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="w-full aspect-square">
+              <img
+                src="/img/instagram4.png"
+                alt="Are you mad yet? detalje 4"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </article>
 
-    <div
-      class="overflow-x-auto snap-x snap-mandatory flex gap-xs"
-      id="udstillinger-carousel"
-    >
-      <!-- Card 1 -->
-      <article
-        class="min-w-[90%] md:min-w-[80%] snap-start bg-udstilling-1-card text-text-light px-2xs md:px-s py-2xs md:py-s space-y-s"
-      >
-        <!-- Top heading -->
-        <div>
-          <Heading
-            htmlheading="h3"
-            size="large"
-            stylingclasses="text-text-light"
-          >
-            are you mad yet?
-          </Heading>
-        </div>
+        <!-- Card 2 -->
+        <article
+          class="min-w-[90%] md:min-w-[80%] snap-start bg-udstilling-2-card text-text-light px-2xs md:px-s py-2xs md:py-s space-y-s"
+        >
+          <!-- Top heading -->
+          <div>
+            <Heading
+              htmlheading="h3"
+              size="large"
+              stylingclasses="text-text-light"
+            >
+              Bobbi Johanne-Østervang
+            </Heading>
+          </div>
 
-        <!-- Two-column content: left text, right main image -->
-        <div class="grid gap-s lg:grid-cols-2 items-start">
-          <div class="space-y-xs md:space-y-s">
+          <!-- Two-column content: left image, right text -->
+          <div class="grid gap-s lg:grid-cols-2 items-start">
+            <div class="w-full h-[200px] md:h-[230px] lg:h-[250px]">
+              <img
+                src="/img/udstilling2.webp"
+                alt="Bobbi Johanne-Østervang værk"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="space-y-xs md:space-y-s">
+              <Heading
+                htmlheading="h4"
+                size="xsmall"
+                stylingclasses="text-text-light"
+              >
+                De Har Aftaler
+              </Heading>
+              <Text
+                teksttype="brødtekst"
+                stylingclasses="text-text-light max-w-[560px]"
+              >
+                De Har Aftaler undersøger det mentale rod, der kan opstå under
+                og efter sygdom. Små væsener bevæger sig gennem kognitionens lag
+                og forstyrrer hverdagens strukturer som “kognitive dæmoner”.
+                Udstillingen bygger på kunstnerens egne erfaringer med
+                psykoedukation og kritiserer systemer, der gør psykisk sygdom
+                til et individuelt ansvar.
+              </Text>
+            </div>
+          </div>
+
+          <!-- Bottom row: full-width supporting text (desktop only) -->
+          <div class="hidden md:block">
             <Text teksttype="brødtekst" stylingclasses="text-text-light">
-              are you mad yet? kaster lys på de økonomiske reformer, som rammer
-              de syge i vores samfund. Udstillingen fungerer som skole for en ny
-              form for psykoedukation. Psykoedukation er læren om egen psyke, og
-              indgår i psykiatrisk behandling. I denne skole flyttes fokus
+              Den omfatter malerier og en kunstpublikation, som også findes som
+              lydbog. Lydspor og poetiske fortolkninger af Anna Rieder kan
+              opleves via QR-koder og senere her på siden.
             </Text>
           </div>
-          <div class="w-full h-[200px] md:h-[230px] lg:h-[250px]">
-            <img
-              src="/img/udstilling1.webp"
-              alt="Are you mad yet? udstilling"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </div>
+        </article>
 
-        <!-- Bottom row: four square thumbnails (desktop only) -->
-        <div class="hidden md:grid md:grid-cols-4 gap-2xs md:gap-xs">
-          <div class="w-full aspect-square">
-            <img
-              src="/img/instagram1.png"
-              alt="Are you mad yet? detalje 1"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
+        <!-- Card 3 -->
+        <article
+          class="min-w-[90%] md:min-w-[80%] snap-start bg-udstilling-3-card text-text-dark px-2xs md:px-s py-2xs md:py-s space-y-s"
+        >
+          <!-- Top heading -->
+          <div>
+            <Heading
+              htmlheading="h3"
+              size="large"
+              stylingclasses="text-text-dark"
+            >
+              M / Other (2021)
+            </Heading>
           </div>
-          <div class="w-full aspect-square">
-            <img
-              src="/img/instagram2.png"
-              alt="Are you mad yet? detalje 2"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div class="w-full aspect-square">
-            <img
-              src="/img/instagram3.png"
-              alt="Are you mad yet? detalje 3"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div class="w-full aspect-square">
-            <img
-              src="/img/instagram4.png"
-              alt="Are you mad yet? detalje 4"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </article>
 
-      <!-- Card 2 -->
-      <article
-        class="min-w-[90%] md:min-w-[80%] snap-start bg-udstilling-2-card text-text-light px-2xs md:px-s py-2xs md:py-s space-y-s"
-      >
-        <!-- Top heading -->
-        <div>
+          <!-- Two-column content: left text, right image -->
+          <div class="grid gap-s lg:grid-cols-2 items-start">
+            <div class="space-y-xs md:space-y-s">
+              <Text
+                teksttype="brødtekst"
+                stylingclasses="text-text-dark max-w-[620px]"
+              >
+                M / Other (2021) var CKMS’ første udstilling, hvor
+                samtidskunstnere undersøgte moderskab gennem en interaktiv
+                kunstinstallation. Udstillingen skabte et kurateret møde mellem
+                værker om sorg og omsorg, sårbarhed og solidaritet, og
+                undersøgte moderskab i en udvidet forståelse — som noget, der
+                rækker ud over biologi og traditionelle familieformer. Den
+                spurgte ind til, hvad det vil sige at høre sammen, skabe bånd og
+                danne familie på andre måder end gennem blod.
+              </Text>
+              <Text teksttype="brødtekst" stylingclasses="text-text-dark">
+                Fotos: Amanda Bødker
+              </Text>
+            </div>
+            <div class="w-full h-[200px] md:h-[230px] lg:h-[250px]">
+              <img
+                src="/img/udstilling3.webp"
+                alt="M / Other udstilling"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Bottom row: three images (desktop only) -->
+          <div class="hidden md:grid md:grid-cols-3 gap-2xs md:gap-xs">
+            <div class="w-full h-[140px] md:h-[180px]">
+              <img
+                src="/img/news1.webp"
+                alt="M / Other detalje 1"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="w-full h-[140px] md:h-[180px]">
+              <img
+                src="/img/news2.webp"
+                alt="M / Other detalje 2"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="w-full h-[140px] md:h-[180px]">
+              <img
+                src="/img/news3.webp"
+                alt="M / Other detalje 3"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article
+          class="min-w-[90%] md:min-w-[80%] snap-start bg-udstilling-4-card text-text-light px-2xs md:px-s py-2xs md:py-s space-y-s"
+        >
+          <!-- Top heading -->
+          <div>
+            <Heading
+              htmlheading="h3"
+              size="large"
+              stylingclasses="text-text-light"
+            >
+              Ømme Knapper
+            </Heading>
+          </div>
+
+          <!-- Two-column content: left image, right text -->
+          <div class="grid gap-s lg:grid-cols-2 items-start">
+            <div class="w-full h-[200px] md:h-[230px] lg:h-[250px]">
+              <img
+                src="/img/udstilling4.webp"
+                alt="Ømme Knapper illustration"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="space-y-xs md:space-y-s">
+              <Text
+                teksttype="brødtekst"
+                stylingclasses="text-text-light max-w-[560px]"
+              >
+                Ømme Knapper er et kunstnerisk rum lavet af og for
+                psykiatribrugere, deres pårørende, psykiatriske behandlere – og
+                kunstinteresserede. Udstillingsplatformen Ømme Knapper en et
+                udstillings- og samlingssted for samtidskunst og
+                omsorgsaktivisme, der taler fra sårbarhedens sted.
+                Udstillingsplatformen undersøger synet på mental sundhed og
+                ømhedsbegrebet fra en kunstnerisk vinkel, der både udfordrer,
+                kritiserer og samarbejder med det psykiatriske system.
+              </Text>
+            </div>
+          </div>
+
+          <!-- Bottom image (desktop only) -->
+          <div class="hidden md:block w-full">
+            <img
+              src="/img/fireikoner.svg"
+              alt="Støttepartnere"
+              class="w-[50%] h-[50%] object-contain"
+              loading="lazy"
+            />
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- ***************************** End Udstillinger ***************************** -->
+
+    <!-- ***************************** Start Bestil et foredrag ***************************** -->
+    <section class="bg-background-v4 p-m md:py-l">
+      <div>
+        <div class="mb-2xs md:mb-m">
           <Heading
-            htmlheading="h3"
-            size="large"
-            stylingclasses="text-text-light"
+            htmlheading="h2"
+            size="medium"
+            stylingclasses="text-text-light opacity-0 intersect:opacity-100 intersect:animate-fade-right intersect-once"
           >
-            Bobbi Johanne-Østervang
+            Bestil et foredrag
           </Heading>
         </div>
 
-        <!-- Two-column content: left image, right text -->
-        <div class="grid gap-s lg:grid-cols-2 items-start">
-          <div class="w-full h-[200px] md:h-[230px] lg:h-[250px]">
-            <img
-              src="/img/udstilling2.webp"
-              alt="Bobbi Johanne-Østervang værk"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-xs md:gap-m">
+          <!-- Left column -->
           <div class="space-y-xs md:space-y-s">
             <Heading
               htmlheading="h4"
               size="xsmall"
               stylingclasses="text-text-light"
             >
-              De Har Aftaler
+              CKMS tilbyder foredrag, workshops og kurser
             </Heading>
-            <Text
-              teksttype="brødtekst"
-              stylingclasses="text-text-light max-w-[560px]"
-            >
-              De Har Aftaler undersøger det mentale rod, der kan opstå under og
-              efter sygdom. Små væsener bevæger sig gennem kognitionens lag og
-              forstyrrer hverdagens strukturer som “kognitive dæmoner”.
-              Udstillingen bygger på kunstnerens egne erfaringer med
-              psykoedukation og kritiserer systemer, der gør psykisk sygdom til
-              et individuelt ansvar.
+            <Text teksttype="brødtekst" stylingclasses="text-text-light">
+              Skriv til os hvis du er interesseret i at bestille et foredrag. Vi
+              sammensætter gerne et skræddersyet program.
+            </Text>
+            <Button variant="light">Skriv til os</Button>
+          </div>
+
+          <!-- Right column -->
+          <div>
+            <Text teksttype="brødtekst" stylingclasses="text-text-light">
+              Hvis du er et museum eller udstillingssted tilbyder vi også
+              rådgivning angående inklusion af psykiatribrugere i jeres
+              programmer. Vi kan også tilbyde kortere skriveforløb ved vores
+              forfattere som en metode til at åbne et udstillingsrum og dets
+              genstande på, hvilket vi fx har gjort i samarbejde med
+              Arbejdermuseet, Medicinsk Museion, Statens Museum for Kunst,
+              Overgaden ovenvande.
             </Text>
           </div>
-        </div>
-
-        <!-- Bottom row: full-width supporting text (desktop only) -->
-        <div class="hidden md:block">
-          <Text teksttype="brødtekst" stylingclasses="text-text-light">
-            Den omfatter malerier og en kunstpublikation, som også findes som
-            lydbog. Lydspor og poetiske fortolkninger af Anna Rieder kan opleves
-            via QR-koder og senere her på siden.
-          </Text>
-        </div>
-      </article>
-
-      <!-- Card 3 -->
-      <article
-        class="min-w-[90%] md:min-w-[80%] snap-start bg-udstilling-3-card text-text-dark px-2xs md:px-s py-2xs md:py-s space-y-s"
-      >
-        <!-- Top heading -->
-        <div>
-          <Heading
-            htmlheading="h3"
-            size="large"
-            stylingclasses="text-text-dark"
-          >
-            M / Other (2021)
-          </Heading>
-        </div>
-
-        <!-- Two-column content: left text, right image -->
-        <div class="grid gap-s lg:grid-cols-2 items-start">
-          <div class="space-y-xs md:space-y-s">
-            <Text
-              teksttype="brødtekst"
-              stylingclasses="text-text-dark max-w-[620px]"
-            >
-              M / Other (2021) var CKMS’ første udstilling, hvor
-              samtidskunstnere undersøgte moderskab gennem en interaktiv
-              kunstinstallation. Udstillingen skabte et kurateret møde mellem
-              værker om sorg og omsorg, sårbarhed og solidaritet, og undersøgte
-              moderskab i en udvidet forståelse — som noget, der rækker ud over
-              biologi og traditionelle familieformer. Den spurgte ind til, hvad
-              det vil sige at høre sammen, skabe bånd og danne familie på andre
-              måder end gennem blod.
-            </Text>
-            <Text teksttype="brødtekst" stylingclasses="text-text-dark">
-              Fotos: Amanda Bødker
-            </Text>
-          </div>
-          <div class="w-full h-[200px] md:h-[230px] lg:h-[250px]">
-            <img
-              src="/img/udstilling3.webp"
-              alt="M / Other udstilling"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </div>
-
-        <!-- Bottom row: three images (desktop only) -->
-        <div class="hidden md:grid md:grid-cols-3 gap-2xs md:gap-xs">
-          <div class="w-full h-[140px] md:h-[180px]">
-            <img
-              src="/img/news1.webp"
-              alt="M / Other detalje 1"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div class="w-full h-[140px] md:h-[180px]">
-            <img
-              src="/img/news2.webp"
-              alt="M / Other detalje 2"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div class="w-full h-[140px] md:h-[180px]">
-            <img
-              src="/img/news3.webp"
-              alt="M / Other detalje 3"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </article>
-
-      <!-- Card 4 -->
-      <article
-        class="min-w-[90%] md:min-w-[80%] snap-start bg-udstilling-4-card text-text-light px-2xs md:px-s py-2xs md:py-s space-y-s"
-      >
-        <!-- Top heading -->
-        <div>
-          <Heading
-            htmlheading="h3"
-            size="large"
-            stylingclasses="text-text-light"
-          >
-            Ømme Knapper
-          </Heading>
-        </div>
-
-        <!-- Two-column content: left image, right text -->
-        <div class="grid gap-s lg:grid-cols-2 items-start">
-          <div class="w-full h-[200px] md:h-[230px] lg:h-[250px]">
-            <img
-              src="/img/udstilling4.webp"
-              alt="Ømme Knapper illustration"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div class="space-y-xs md:space-y-s">
-            <Text
-              teksttype="brødtekst"
-              stylingclasses="text-text-light max-w-[560px]"
-            >
-              Ømme Knapper er et kunstnerisk rum lavet af og for
-              psykiatribrugere, deres pårørende, psykiatriske behandlere – og
-              kunstinteresserede. Udstillingsplatformen Ømme Knapper en et
-              udstillings- og samlingssted for samtidskunst og omsorgsaktivisme,
-              der taler fra sårbarhedens sted. Udstillingsplatformen undersøger
-              synet på mental sundhed og ømhedsbegrebet fra en kunstnerisk
-              vinkel, der både udfordrer, kritiserer og samarbejder med det
-              psykiatriske system.
-            </Text>
-          </div>
-        </div>
-
-        <!-- Bottom image (desktop only) -->
-        <div class="hidden md:block w-full">
-          <img
-            src="/img/fireikoner.svg"
-            alt="Støttepartnere"
-            class="w-[50%] h-[50%] object-contain"
-            loading="lazy"
-          />
-        </div>
-      </article>
-    </div>
-  </section>
-  <!-- ***************************** End Udstillinger ***************************** -->
-
-  <!-- ***************************** Start Bestil et foredrag ***************************** -->
-  <section class="bg-background-v4 p-m md:py-l mt-l mb-l">
-    <div>
-      <div class="mb-2xs md:mb-m">
-        <Heading
-          htmlheading="h2"
-          size="medium"
-          stylingclasses="text-text-light"
-        >
-          Bestil et foredrag
-        </Heading>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-xs md:gap-m">
-        <!-- Left column -->
-        <div class="space-y-xs md:space-y-s">
-          <Heading
-            htmlheading="h4"
-            size="xsmall"
-            stylingclasses="text-text-light"
-          >
-            CKMS tilbyder foredrag, workshops og kurser
-          </Heading>
-          <Text teksttype="brødtekst" stylingclasses="text-text-light">
-            Skriv til os hvis du er interesseret i at bestille et foredrag. Vi
-            sammensætter gerne et skræddersyet program.
-          </Text>
-          <Button variant="light">Skriv til os</Button>
-        </div>
-
-        <!-- Right column -->
-        <div>
-          <Text teksttype="brødtekst" stylingclasses="text-text-light">
-            Hvis du er et museum eller udstillingssted tilbyder vi også
-            rådgivning angående inklusion af psykiatribrugere i jeres
-            programmer. Vi kan også tilbyde kortere skriveforløb ved vores
-            forfattere som en metode til at åbne et udstillingsrum og dets
-            genstande på, hvilket vi fx har gjort i samarbejde med
-            Arbejdermuseet, Medicinsk Museion, Statens Museum for Kunst,
-            Overgaden ovenvande.
-          </Text>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- ***************************** End Bestil et foredrag ***************************** -->
+    </section>
+    <!-- ***************************** End Bestil et foredrag ***************************** -->
 
-  <script>
-    const detailPanel = document.getElementById("mobile-day-detail");
-    const dateEl = detailPanel?.querySelector("[data-detail-date]");
-    const listEl = detailPanel?.querySelector("[data-detail-list]");
-    const emptyEl = detailPanel?.querySelector("[data-detail-empty]");
-    const closeBtn = detailPanel?.querySelector("[data-close-btn]");
-    const isMobile = window.matchMedia("(max-width: 767px)");
+    <script>
+      const detailPanel = document.getElementById("mobile-day-detail");
+      const dateEl = detailPanel?.querySelector("[data-detail-date]");
+      const listEl = detailPanel?.querySelector("[data-detail-list]");
+      const emptyEl = detailPanel?.querySelector("[data-detail-empty]");
+      const closeBtn = detailPanel?.querySelector("[data-close-btn]");
+      const isMobile = window.matchMedia("(max-width: 767px)");
 
-    function closePanel() {
-      if (detailPanel) {
-        detailPanel.style.maxHeight = "0";
-      }
-    }
-
-    function openPanel() {
-      if (detailPanel) {
-        detailPanel.style.maxHeight = "80vh";
-      }
-    }
-
-    function renderDetail(dateLabel, events) {
-      if (!detailPanel || !isMobile.matches) return;
-
-      if (dateEl) dateEl.textContent = dateLabel;
-
-      if (listEl) {
-        listEl.innerHTML = "";
-
-        if (events.length > 0) {
-          emptyEl?.classList.add("hidden");
-          events.forEach((evt) => {
-            const li = document.createElement("li");
-            li.className = "rounded-lg p-xs md:p-s";
-
-            const time = document.createElement("div");
-            time.className =
-              "text-[18px] md:text-[22px] font-light font-onsite text-text-dark mb-xs";
-            time.textContent = evt.time;
-            li.appendChild(time);
-
-            const title = document.createElement("div");
-            title.className =
-              "text-[18px] md:text-[22px] font-light font-onsite text-text-dark";
-            title.textContent = evt.title;
-            li.appendChild(title);
-
-            if (evt.subtitle) {
-              const subtitle = document.createElement("div");
-              subtitle.className =
-                "text-[18px] md:text-[22px] font-light font-onsite text-text-dark mt-xs";
-              subtitle.textContent = evt.subtitle;
-              li.appendChild(subtitle);
-            }
-
-            listEl.appendChild(li);
-          });
-        } else {
-          emptyEl?.classList.remove("hidden");
+      function closePanel() {
+        if (detailPanel) {
+          detailPanel.style.maxHeight = "0";
         }
       }
 
-      openPanel();
-    }
-
-    function handleClick(event) {
-      const target = event.currentTarget;
-      if (!(target instanceof HTMLElement)) return;
-      const dateLabel = target.dataset.date;
-      const rawEvents = target.dataset.events;
-      if (!dateLabel || rawEvents === undefined) return;
-      try {
-        const events = JSON.parse(decodeURIComponent(rawEvents));
-        renderDetail(dateLabel, events);
-      } catch (err) {
-        console.error("Kunne ikke læse event data", err);
+      function openPanel() {
+        if (detailPanel) {
+          detailPanel.style.maxHeight = "80vh";
+        }
       }
-    }
 
-    function bindMobileClicks() {
-      if (!isMobile.matches) return;
-      document.querySelectorAll("[data-day-index]").forEach((button) => {
-        button.removeEventListener("click", handleClick);
-        button.addEventListener("click", handleClick);
-      });
-    }
+      function renderDetail(dateLabel, events) {
+        if (!detailPanel || !isMobile.matches) return;
 
-    closeBtn?.addEventListener("click", closePanel);
+        if (dateEl) dateEl.textContent = dateLabel;
 
-    bindMobileClicks();
-    isMobile.addEventListener("change", bindMobileClicks);
+        if (listEl) {
+          listEl.innerHTML = "";
 
-    // Udstillinger carousel nav
-    const carousel = document.getElementById("udstillinger-carousel");
-    const prevBtn = document.getElementById("aktivitet-prev");
-    const nextBtn = document.getElementById("aktivitet-next");
+          if (events.length > 0) {
+            emptyEl?.classList.add("hidden");
+            events.forEach((evt) => {
+              const li = document.createElement("li");
+              li.className = "rounded-lg p-xs md:p-s";
 
-    function scrollCarousel(direction) {
-      if (!carousel) return;
-      const scrollAmount = carousel.clientWidth * 0.8;
-      carousel.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
+              const time = document.createElement("div");
+              time.className =
+                "text-[18px] md:text-[22px] font-light font-onsite text-text-dark mb-xs";
+              time.textContent = evt.time;
+              li.appendChild(time);
 
-    prevBtn?.addEventListener("click", () => scrollCarousel("left"));
-    nextBtn?.addEventListener("click", () => scrollCarousel("right"));
+              const title = document.createElement("div");
+              title.className =
+                "text-[18px] md:text-[22px] font-light font-onsite text-text-dark";
+              title.textContent = evt.title;
+              li.appendChild(title);
 
-    // News filter + search
-    const filterButtons = Array.from(
-      document.querySelectorAll("[data-news-filter]")
-    ) as HTMLButtonElement[];
-    const searchInput = document.getElementById(
-      "news-search"
-    ) as HTMLInputElement | null;
-    const cards = Array.from(
-      document.querySelectorAll("[data-news-card]")
-    ) as HTMLElement[];
+              if (evt.subtitle) {
+                const subtitle = document.createElement("div");
+                subtitle.className =
+                  "text-[18px] md:text-[22px] font-light font-onsite text-text-dark mt-xs";
+                subtitle.textContent = evt.subtitle;
+                li.appendChild(subtitle);
+              }
 
-    let currentCategory: "alle" | "nyheder" | "forskning" | "arrangementer" =
-      "alle";
-    let currentQuery = "";
+              listEl.appendChild(li);
+            });
+          } else {
+            emptyEl?.classList.remove("hidden");
+          }
+        }
 
-    function applyNewsFilters() {
-      const q = currentQuery.trim().toLowerCase();
-      cards.forEach((el) => {
-        const cat = (el.getAttribute("data-category") || "").toLowerCase();
-        const hay = (el.getAttribute("data-search") || "").toLowerCase();
-        const matchCat = currentCategory === "alle" || cat === currentCategory;
-        const matchQuery = q === "" || hay.includes(q);
-        el.classList.toggle("hidden", !(matchCat && matchQuery));
-      });
+        openPanel();
+      }
 
-      // active state styling: add border box around active filter button
+      function handleClick(event) {
+        const target = event.currentTarget;
+        if (!(target instanceof HTMLElement)) return;
+        const dateLabel = target.dataset.date;
+        const rawEvents = target.dataset.events;
+        if (!dateLabel || rawEvents === undefined) return;
+        try {
+          const events = JSON.parse(decodeURIComponent(rawEvents));
+          renderDetail(dateLabel, events);
+        } catch (err) {
+          console.error("Kunne ikke læse event data", err);
+        }
+      }
+
+      function bindMobileClicks() {
+        if (!isMobile.matches) return;
+        document.querySelectorAll("[data-day-index]").forEach((button) => {
+          button.removeEventListener("click", handleClick);
+          button.addEventListener("click", handleClick);
+        });
+      }
+
+      closeBtn?.addEventListener("click", closePanel);
+
+      bindMobileClicks();
+      isMobile.addEventListener("change", bindMobileClicks);
+
+      // Udstillinger carousel nav
+      const carousel = document.getElementById("udstillinger-carousel");
+      const prevBtn = document.getElementById("aktivitet-prev");
+      const nextBtn = document.getElementById("aktivitet-next");
+
+      function scrollCarousel(direction) {
+        if (!carousel) return;
+        const scrollAmount = carousel.clientWidth * 0.8;
+        carousel.scrollBy({
+          left: direction === "left" ? -scrollAmount : scrollAmount,
+          behavior: "smooth",
+        });
+      }
+
+      prevBtn?.addEventListener("click", () => scrollCarousel("left"));
+      nextBtn?.addEventListener("click", () => scrollCarousel("right"));
+
+      // News filter + search
+      const filterButtons = Array.from(
+        document.querySelectorAll("[data-news-filter]")
+      ) as HTMLButtonElement[];
+      const searchInput = document.getElementById(
+        "news-search"
+      ) as HTMLInputElement | null;
+      const cards = Array.from(
+        document.querySelectorAll("[data-news-card]")
+      ) as HTMLElement[];
+
+      let currentCategory: "alle" | "nyheder" | "forskning" | "arrangementer" =
+        "alle";
+      let currentQuery = "";
+
+      function applyNewsFilters() {
+        const q = currentQuery.trim().toLowerCase();
+        cards.forEach((el) => {
+          const cat = (el.getAttribute("data-category") || "").toLowerCase();
+          const hay = (el.getAttribute("data-search") || "").toLowerCase();
+          const matchCat =
+            currentCategory === "alle" || cat === currentCategory;
+          const matchQuery = q === "" || hay.includes(q);
+          el.classList.toggle("hidden", !(matchCat && matchQuery));
+        });
+
+        // active state styling: add border box around active filter button
+        filterButtons.forEach((btn) => {
+          const isActive =
+            btn.getAttribute("data-news-filter") === currentCategory;
+          btn.classList.toggle("px-3", isActive);
+          btn.classList.toggle("py-2", isActive);
+          btn.classList.toggle("border-2", isActive);
+          btn.classList.toggle("border-text-dark", isActive);
+          btn.classList.toggle("opacity-60", !isActive);
+        });
+      }
+
       filterButtons.forEach((btn) => {
-        const isActive =
-          btn.getAttribute("data-news-filter") === currentCategory;
-        btn.classList.toggle("px-3", isActive);
-        btn.classList.toggle("py-2", isActive);
-        btn.classList.toggle("border-2", isActive);
-        btn.classList.toggle("border-text-dark", isActive);
-        btn.classList.toggle("opacity-60", !isActive);
+        btn.addEventListener("click", () => {
+          const val = (btn.getAttribute("data-news-filter") ||
+            "alle") as typeof currentCategory;
+          currentCategory = val;
+          applyNewsFilters();
+        });
       });
-    }
 
-    filterButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const val = (btn.getAttribute("data-news-filter") ||
-          "alle") as typeof currentCategory;
-        currentCategory = val;
+      searchInput?.addEventListener("input", (e) => {
+        const target = e.target as HTMLInputElement;
+        currentQuery = target.value || "";
         applyNewsFilters();
       });
-    });
 
-    searchInput?.addEventListener("input", (e) => {
-      const target = e.target as HTMLInputElement;
-      currentQuery = target.value || "";
+      // initial
       applyNewsFilters();
-    });
-
-    // initial
-    applyNewsFilters();
-  </script>
+    </script>
+  </div>
 </MainLayout>
