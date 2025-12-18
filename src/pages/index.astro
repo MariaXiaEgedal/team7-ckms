@@ -16,8 +16,41 @@ import AllWorkshopCard from "../components/AllWorkshopCard.astro";
 <MainLayout title="CKMS">
   <div class="flex flex-col gap-m md:gap-xl mb-m md:mb-xl">
     <!-- ***************************** Start Hero ***************************** -->
-    <section class="bg-background-v2 text-text-dark">
-      <p>Hero</p>
+    <section class="relative text-text-dark">
+      <video
+        class="w-full min-h-[550px] md:min-h-[600px] lg:max-h-[750px] h-auto object-cover"
+        src="/img/herovideo.mov"
+        autoplay
+        muted
+        loop
+        playsinline></video>
+      <div
+        class="absolute inset-0 flex flex-col justify-center text-text-dark mx-2xs md:mx-l"
+      >
+        <Heading
+          htmlheading="h1"
+          size="medium"
+          font="font-gestura font-bold"
+          stylingclasses="text-text-dark text-[20px] md:text-[40px] lg:text-[70px] leading-[1.05]"
+        >
+          NATIONALT CENTER
+        </Heading>
+
+        <Heading
+          htmlheading="h3"
+          size="small"
+          font="font-gestura font-regular"
+          stylingclasses="text-text-dark mb-xs md:mb-m text-[18px] md:text-[20px] lg:text-[40px]"
+        >
+          FOR KUNST OG MENTAL SUNDHED
+        </Heading>
+
+        <Text stylingclasses=" mb-xs md:mb-m">
+          Vi er for dig, der søger trivsel, håb og fællesskab gennem kunsten. <br
+          />
+          For og med mennesker i psykiatrien.
+        </Text>
+      </div>
     </section>
 
     <!-- ***************************** End Hero ***************************** -->
